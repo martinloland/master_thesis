@@ -1,0 +1,12 @@
+@echo off
+del main.aux
+del main.bcf
+del main.glo
+del main.ist
+del main.lof
+del main.log
+del main.nlo
+del main.out
+del main.run.xml
+del main.synctex.gz
+del main.toc

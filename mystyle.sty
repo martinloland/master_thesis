@@ -1,0 +1,86 @@
+% General packages
+\usepackage{graphicx}
+\usepackage{afterpage}
+\usepackage{mathtools}
+%\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{lipsum}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+
+% Include pdf pages
+\usepackage[final]{pdfpages}
+
+% Glossary
+\usepackage[toc]{glossaries}
+\newcommand{\glsf}[1]{\textit{\gls{#1}}}
+
+% Titles
+\renewcommand{\contentsname}{Table of contents}
+
+% Reference / appendix
+\usepackage[sorting=none, style=numeric-comp, backend=biber]{biblatex}
+\usepackage[toc,page]{appendix}
+\addbibresource{references.bib}
+
+% Hyperlinks
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=false,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    bookmarks=true,
+}
+
+% todo
+\usepackage{todonotes}
+
+% paths
+\graphicspath{ {./img/}{./inkscape/}}
+
+% Margins / dimensions
+\usepackage[nodisplayskipstretch]{setspace}
+\setstretch{1.5}
+%\usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}
+%\usepackage[margin=25.4mm, top=15.4mm]{geometry}
+
+%spacing in matrices
+\renewcommand{\arraystretch}{.9}
+
+%add text to equation reference
+\let\oldref\eqref
+\renewcommand{\eqref}[1]{Equation \oldref{#1}}
+
+%\figref
+\newcommand\figref{Figure~\ref}
+
+% equation range
+\usepackage{cleveref}
+
+%algorithm
+\usepackage[boxed, algochapter]{algorithm2e}
+\SetAlCapSkip{1em}
+\newcommand\algref{Algorithm~\ref}
+
+% listing
+\usepackage{listings}
+\usepackage{codeStyle}
+\newcommand\liref{Listing~\ref}
+
+
+
+
+
+%\setlength{\tabcolsep}{7pt}
+%\renewcommand{\arraystretch}{1.5}
+%\usepackage[table,xcdraw]{xcolor}
+%\setlist[itemize]{topsep=8pt}
+%\renewcommand{\baselinestretch}{1.5}
+%\usepackage[parfill]{parskip}
+%\usepackage{tabularx}

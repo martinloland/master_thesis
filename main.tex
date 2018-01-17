@@ -1,0 +1,35 @@
+%\documentclass[b5paper,10pt]{report}
+\documentclass[b5paper,10pt,twoside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{mystyle}
+
+%\input{glossary}
+%\input{nomenclature}
+%\setlength{\marginparwidth}{2cm}
+\pagenumbering{roman}
+
+\begin{document}
+%\input{./tex/titlepage}
+
+\input{./tex/summary}
+%\clearpage
+
+{\setstretch{1.0}
+\tableofcontents
+%\clearpage
+%\addcontentsline{toc}{chapter}{\listfigurename}
+%\listoffigures
+}
+{\setstretch{1.5}
+\pagenumbering{arabic}
+\chapter{First chapter}
+\section{This is a section}
+}
+
+{\setstretch{1.0}
+%\printglossary \label{glossary}
+%\printnomenclature\label{nomenclature}
+}
+%\printbibliography
+%\addcontentsline{toc}{chapter}{Bibliography}
+\end{document}
