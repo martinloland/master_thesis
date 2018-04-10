@@ -11,7 +11,9 @@
 \begin{document}
 %\input{./tex/titlepage}
 
-\input{./tex/summary}
+\input{./tex/abstract}
+%\clearpage
+\input{./tex/sammendrag}
 %\clearpage
 
 {\setstretch{1.0}
@@ -23,88 +25,80 @@
 {\setstretch{1.5}
 \pagenumbering{arabic}
 \chapter{Introduction}
-\section{Need specification}
-\section{User demands}
+	\todo[inline]{
+	\textbf{Todo}
+	
+	- a problem or phenomenon you want to study
 
-\chapter{Earlier work}
-\section{ROV project}
-\section{Robot communication}
-\todo[inline]{
-\textbf{Todo}
-
-- ROS
-- other python packages?
-- research?
-}
-\section{Video transfer}
-\todo[inline]{
-\textbf{Todo}
-
-- MJPG streamers
-- picamera
-- other solutions?
-- Almir?
-- research?
-}
-
-\chapter{Technology review}
-\section{Network introduction}
-\todo[inline]{
-\textbf{Todo}
-
-- TCP/IP stuff
-- verification and handshakes
-}
-\section{Video transfer}
-\todo[inline]{
-\textbf{Todo}
-
-- compression
-- buffers
-}
-\section{Computer performance}
-\todo[inline]{
-\textbf{Todo}
-
-- memory, CPU and disk allocation
-- data types (in python)
-- concurrency
-- determining bottlenecks
-}
-
-\chapter{Method}
-\section{Experimental set-up}
-
-\section{Profiling}
-\todo[inline]{
-\textbf{Todo}
-
-- black box method
-- timeit, cProfile, perf, dowser, memory\_profiler
-}
-\section{Product development}
-
+	- the reasoning behind your choice of topic (gap in knowledge)
+	
+	- the research question or hypothesis you set out to investigate
+	}
+	\section{Teleoperation in today's world}
+	\section{Engage eduROV project}
+	\section{Video latency and it's effect on user performance}
+	\section{Visual cues and predictive displays}
+	- Should current work be moved to theory?
+	\section{Problem statement}
+	
+\chapter{Theory}
+	\section{Video latency}
+	\section{Performance degradation}
+	
 \chapter{The eduROV package}
+	\section{Features and technology}
+	\section{GUI and API design}
+	\section{Documentation}
+	
+\chapter{Methodology}
+	\section{Experimental design}
+		\subsection{Unmanned Ground Vehicle}
+		\subsection{Task}	
+	\section{User interaction}
+		\subsection{Test group}
+		\subsection{Questionnaire}
+		\subsection{Data collection}
+	\section{Data interpretation}
 
-\section{Features}
-\section{Technology}
-\section{GUI}
-\section{API design}
-\section{Documentation}
-
-\chapter{Performance results}
-\section{Compression}
-\section{Network}
-\section{Concurrency}
+\chapter{Results}
+	\section{Performance}
+	\section{Other results}
 
 \chapter{Discussion}
+	\todo[inline]{
+	\textbf{Todo}
+	
+	- what kind of display gave the best user performance?
+	
+	- what did the users have to say about the different displays?
+	
+	- how does performance and user opinion correlate?
+	
+	- what does the results mean?
+	
+	- what are the causes and factors?
+	
+	- other possible ways to interpret the data?
+	
+	- what could be done differently?
+	}
 
+\chapter{Conclusion}
+	\todo[inline]{
+	\textbf{Todo}
+	
+	- to what extent does the presented display help to mitigate the effect of video delay?
+	
+	- does the findings have any implications on the current state of knowledge?
+	
+	- what are future research areas?
+	}
 }
 
 {\setstretch{1.0}
 %\printglossary \label{glossary}
 %\printnomenclature\label{nomenclature}
 }
-%\printbibliography
-%\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+\addcontentsline{toc}{chapter}{Bibliography}
 \end{document}
