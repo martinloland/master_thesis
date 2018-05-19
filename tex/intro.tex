@@ -12,14 +12,34 @@
 \todo[inline]{
 \textbf{Todo}
 
+- why is teleoperation important
+
+- e master-slave control loop
+
+- LOA Level Of Automation
+
+- Alignment task is one of common tasks in teleoperation
+
 - explain why focus will be on manoeuvring robots
+
+- what does telepresence mean
+
+- hazardous areas, explosives removal, telemedicine, 
+
+- where sending humans is costly and/or risky
+
+- there are many factors that influence teleoperation performance, bandwith, time delay, framerate, two-dimensions, field of view and more. \citep{Chen2007}
 }
 
 Teleoperation of robots will become more and more common as the technology makes it possible for people to accomplish tasks in remote, inaccessible and hostile environments. The range of applications are long, space exploration, military missions, undersea operations and surgery are some of them.
 
+[A] principle to reduce cognitive workload is to maintain a correlation with commands issued by the operator and the expected result of those commands as observed by the movement of the robot and changes in the interface (Nielsen, Goodrich, & Ricks, 2007, p. 936)
+
 Unmanned vehicles comes in a variety of configurations and can be divided into unmanned aerial vehicles (UAV), ground (UGV), underwater (UUV) where the latter is also sometimes referred to as a remotely operated vehicle (ROV).
 
 Because of the nature of teleoperation the situational awareness and telepresence is compromised because of numerous factors. In a teleoperation controlled through video feed some of the influencing factors could be time latency, frame rates, missing frame of reference, two-dimensional views, field of view and more.
+
+\citep{Luck2006} "The results indicate that the higher the LOA, the better the performance in terms of both time and number of errors made, and also the more resistant to the degrading effects of latency."
 
 \citep{Fong2001} "With manual control, performance is limited by the operator's motor skills and his ability to maintain situational awareness."
 
@@ -27,7 +47,15 @@ Because of the nature of teleoperation the situational awareness and telepresenc
 
 "Arthur et al. [89] also found latency (ranging from 50 to 550 ms) to be a more important factor than FR (30, 15, or 10 fps) for their participants 3-D tracing task performance."
 
+Telepresence is defined as the perception of being present in a remote environment 
+
 \section{Video latency and user performance}
+
+\todo[inline]{
+\textbf{Todo}
+
+- Latency and delay will be used to denote the same thing
+}
 
 \citep{Chen2007}
 
@@ -73,6 +101,8 @@ cially from the standpoint of improving the user interface. Teleoperation can be
 - egocentric vs ecocentric
 }
 
+There seems to be a increase in completion time and failure rate as DOF increase
+
 There are many ways to mitigate the effects of teleoperation with video latency. By increasing the level of autonomy the operator would have to give less commands. A fully autonomous setup would require no user input and the negative effects of time delay would be completely eliminated.
 
 \citep{Goodrich2001} Made a comparison between neglect and time delay and argued that adjustable autonomy could be used to increase the robot effectiveness. And also mentions that a more autonomous robot is required when longer time delays are present. On the other side he also mentiones that "as autonomy level increases, the breadth of tasks that can be handled by a robot decreases."
@@ -92,15 +122,42 @@ The third option is present more information to the operator so that he or she h
 
 \section{Predictive displays}
 
+\todo[inline]{
+\textbf{Todo}
+
+- table comparison of predictive displays
+
+- in order of relevance
+
+- monocular SLAM : Monocular Simultaneous Location and Mapping
+	- stereo
+	- depth sensors
+	- inertia sensors
+	
+- Vision-based structure from motion (SFM)
+	- tracking
+
+- augmented or virtual reality
+}
+
+\citep{Hu2015}: "However many tele-robotics tasks are in unknown, unstructured environments where advance CAD models are not available."
+
 Predictive displays will predict the future configuration based on user input and show real-time predicted configuration.
 
 Predictive displays can be used in conjugating with augmented reality (AR) or virtual reality (VR). The drawback with VR is that it requires extensive information about the remote location and computer knowledge and power because the location with the robot has the be reconstructed digitally. This is often used in cases where industrial robots are used. Here each of the joints and surrounding area can be precisely calculated. Telerobotic servicing with robotic arms with overlayed 3D grapical robots \citep{Kim1993}
 
+\citep{Hu2016}: "In VR-based Predictive display (PD), instead of delayed visual feedback from the remote robot site, an immediately and predicted visual feedback is rendered from a graphics model in response to the operator's motion command" (...) "This is only applicable to known structured environments. Recently"
+
 \citep{Ricks2004} tested a predictive display based with a phantom robot seen from a tethered perspective is placed together with the video feed in AR fashion, \figref{figRicks2004}. This required a laser range finder to model the environment. The prediction were performed by using the known position and velocity of the robot and calculating the predicted position and orientation based on user input.
+
+\citep{Mathan1996} "predictive display superimposing directional
+velocity information on the video display"
 
 Another approach is by combining visual tracking and image-based 3d rendering, creating a computer generated world and extrapolating what the camera would see next after it has gotten the current user commands. \citep{Hu2015} did this, but as they mentioned this relatively required smooth motion and advanced model generation algorithms.
 
 Another way producing predictive displays is by recording 360 degrees video on a low frame rate and only displaying a smaller selection of this to the user. When the the camera or robot is moved the predicted section can be displayed immediately by moving the selection in that direction. \citep{Baldwin1999}
+
+\citep{Burkert2004}: "Those predictions are only possi- ble if models of the geometry, kinematics, and dynamics of the remote scene are locally available. Another"
 
 \begin{figure}[h!]
     \centering
