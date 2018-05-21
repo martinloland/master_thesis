@@ -1,164 +1,98 @@
-predictor display in own category
- 
-Predictive Display Model
+\todo[inline]{
+- experiment was conducted with the goal of..
 
-\citep{Zheng2016}:
- "Besides robustness, a model-free approach would also have the benefit of decoupling the predictor design from the vehicle design, thus providing more flexibility for using the same predictor for different vehicles. Furthermore,"
+- three different displays
 
-method:
-- intro
-- participants
-- equipment / apparatus
-- experimental design / task
-- procedure
-- data recording
+- task of controlling a small UGV to push buttons with and without predictor display and added delay
+}
+
+\section{Participants}
+\todo[inline]{
+- Numbers
+
+- Demographics, age, computer knowledge
+}
+
+\section{Experimental design}
+\todo[inline]{
+- robot
+
+- controlling (can not see robot)
+
+- delay
+
+- task
+
+- testing Fitt's law
+
+- layout of the button case
+}
+
+keep it simple to reduce variance i results, but complex enough that the effects of video delay would be noticeable (and predictor could help)
+
+"human subject experiments"
+
+avoid ceiling effects (to slow robot/to easy tasks)
+
+robot software, electronics, equipment, 2 DOF, rotation and forward/backward
+
+relevant delay for wireless high definition low cost solution, or very long range (digital), what are the delays
+
+
+\section{Procedure}
+\todo[inline]{
+- groups
+
+- what information were they given
+
+- training
+
+- time of experiment
+
+- reposition of robot
+
+- demographics at start
+
+- answered survey for each exp
+}
+
+running a warmup where the user familiarizes himself with the input device and kinematics of the robot
 
 \citep{Lu2018} "Condition order followed a 3x3 Latin-Square Design, so as to eliminate the order effect"
+
+"delay conditions were presented to the participants in a counterbalanced order to control for possible learning effects."
+
+info: goal of exp, be awera of wall, rocker wheel, information page
+
+were NOT told that one of the displays is a predictor displays
+
+
+\section{Data recording}
+\todo[inline]{
+- Hits / Score at time
+
+- camera
+
+- NASA TLX
+
+- keypresses
+
+- surveys
+
+- SQLite
+}
 
 "(Three) metrics are used to quantify performance;"
 
 "steering control effort is monitored to assess drivability" (TLX)
 
-\section{Predictive display by real-time transforming video}
+
+\section{Performance analysis}
 \todo[inline]{
-\textbf{Todo}
+- how was the performance quantified
 
-- very similar to \citep{Matheson2013} projected display, does not seem to handle rotation very well, does include an arrow as a avatar robot
-
-- it is normal to generate a 3d environment, but is that really necessary?
-
-- is it enough to show the movement by translating and scaling the video?
-}
-    \subsection{Translation calculations}
-    
-    \citep{Matheson2013} "Also, since the predictive displays are merely modifications of the most recent video, any errors due to modelling and prediction are not cumulative."
-    
-    \subsection{Software implementation}
-    \todo[inline]{
-    \textbf{Todo}
-    
-    -javascript delay function
-    }
-
-\section{Experimental design}
-	\subsection{Teleoperation of robot in a room}
-	\missingfigure{Image of robot}
-	\todo[inline]{
-	\textbf{Todo}
-	
-	- "human subject experiments"
-	
-	- keep it simple to reduce variance i results, but complex enough that the effects of video delay would be noticeable (and predictor could help)
-	
-	- avoid ceiling effects (to slow robot/to easy tasks)
-	
-	- running a warmup where the user familiarizes himself with the input device and kinematics of the robot
-	
-	- random order for all displays, time for warmup
-	
-	-where is the user looking
-	
-	- "delay conditions were presented to the participants in a counterbalanced order to control for possible learning effects."
-	}
-    \subsection{Unmanned Ground Vehicle}
-    \todo[inline]{
-    \textbf{Todo}
-    
-    - how mas the rc car made
-    
-    - circuit pihat design
-    
-    - software
-    
-    - 2 DOF, rotation and forward/backward
-    }
-    \subsubsection{Video latency}
-    \todo[inline]{
-    \textbf{Todo}
-    
-    - video delay measurement
-    
-    - relevant delay for wireless high definition low cost solution, or very long range (digital)
-    
-    - "apparent response delay"
-    
-    - Natural delay
-    
-    - Added delay
-    }
-    \subsection{Information}
-    \todo[inline]{
-    \textbf{Todo}
-    
-    - the goal of the experiment
-    
-    - be aware of getting to close to the wall
-    
-    - rocker wheel at the back
-    
-    - information page of the task
-    
-    - were NOT told that one of the displays is a predictor displays
-    }
-    \subsection{Task}
-    \subsection{Metrics}
-    \todo[inline]{
-    \textbf{Todo}
-    
-    - focus on speed, not so much on accuracy / collisions
-    
-    - Number of button presses
-    
-    - change in rate of presses (learning)
-    
-    - frequency of presses (presses / minute)
-    
-    - wheel movement
-    
-    - telepresence
-    
-    - user satisfaction
-    }
-\section{User interaction}
-    \subsection{Test group}
-    \todo[inline]{
-    \textbf{Todo}
-    
-    - move to results?
-    
-    - population
-    
-    - age group
-    
-    - computer knowledge
-    
-    - different crowds
-    
-    - volunteer
-    
-    - sample size calculations
-    }
-    \subsection{Questionnaire}
-    \todo[inline]{
-    \textbf{Todo}
-    
-    - how demanding each task was from the operator's points of view.
-    
-    - nasa tlx load index with likert scale
-    
-    - which questions were asked?
-    
-    - how where they asked?
-    }
-    \subsection{Data collection}
-    \todo[inline]{
-    \textbf{Todo}
-    
-    - html forms with sqlite3 database
-    }
-\section{Data interpretation}
-\todo[inline]{
-\textbf{Todo}
+- statistics
 
 - t-test and effect size
+
 }

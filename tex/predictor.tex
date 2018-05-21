@@ -1,0 +1,58 @@
+\todo[inline]{
+- produce the expected outcome instantly by translating an scaling the delayed video. Insert visual cue of where the robot will be when the control signal has been processes
+
+- forward facing camera
+
+- very similar to \citep{Matheson2013} projected display, does not seem to handle rotation very well, does include an arrow as a avatar robot
+}
+
+\section{Robot movement estimation}
+\todo[inline]{
+- control method of robot
+
+- generality
+
+- speed of motors
+
+- new position and rotation
+
+- not cumulative
+}
+
+Both assume these commands will be properly followed by the rover
+
+\citep{Matheson2013} "Also, since the predictive displays are merely modifications of the most recent video, any errors due to modelling and prediction are not cumulative."
+
+\citep{Zheng2016}:
+ "Besides robustness, a model-free approach would also have the benefit of decoupling the predictor design from the vehicle design, thus providing more flexibility for using the same predictor for different vehicles. Furthermore,"
+ 
+
+\section{Predictive view calculations}
+\todo[inline]{
+- FOV of camera
+
+- change in FOV translation to pixels of movement
+
+- change in forward and backward position to scaling
+
+- key queues, js delay
+}
+
+\missingfigure{graphics showing how the change in pixels are calculated}
+
+\section{Calibration}
+\todo[inline]{
+- calibrated by checking that the frame would stay still when image moves to original position
+}
+
+\section{Visualization}
+\todo[inline]{
+- viewed in browser
+
+- css margin change
+
+- edited by js functions
+}
+
+\missingfigure{image of the video showing arrow}
+

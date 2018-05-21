@@ -1,107 +1,89 @@
-\todo[inline]{
-\textbf{Todo}
-
-- a problem or phenomenon you want to study
-
-- the reasoning behind your choice of topic (gap in knowledge)
-
-- the research question or hypothesis you set out to investigate
-}
 \section{Teleoperation}
 
+
+\subsection{Applications}
 \todo[inline]{
-\textbf{Todo}
-
-- why is teleoperation important
-
-- e master-slave control loop
-
-- LOA Level Of Automation
-
-- Alignment task is one of common tasks in teleoperation
-
-- explain why focus will be on manoeuvring robots
-
-- what does telepresence mean
-
-- hazardous areas, explosives removal, telemedicine, 
+- hazardous areas, explosives removal, telemedicine
 
 - where sending humans is costly and/or risky
 
-- there are many factors that influence teleoperation performance, bandwith, time delay, framerate, two-dimensions, field of view and more. \citep{Chen2007}
+- focus on moving robots / alignment
+
+- master-slave control loop
 }
-
 Teleoperation of robots will become more and more common as the technology makes it possible for people to accomplish tasks in remote, inaccessible and hostile environments. The range of applications are long, space exploration, military missions, undersea operations and surgery are some of them.
-
-[A] principle to reduce cognitive workload is to maintain a correlation with commands issued by the operator and the expected result of those commands as observed by the movement of the robot and changes in the interface (Nielsen, Goodrich, \& Ricks, 2007, p. 936)
 
 Unmanned vehicles comes in a variety of configurations and can be divided into unmanned aerial vehicles (UAV), ground (UGV), underwater (UUV) where the latter is also sometimes referred to as a remotely operated vehicle (ROV).
 
+\citep{Ricks2004} "There are many reasons to study teleoperation, especially from the standpoint of improving the user interface. Teleoperation can be the most effective way to control mobile robots because it is easy to implement and easy for people to understand. Teleoperation is also a very simple autonomy level that allows us to study the interface itself apart from the intelligence derived from autonomy."
+
+
+\subsection{Telepresence}
+\todo[inline]{
+- meaning
+
+- what effects it
+}
+
+Telepresence is defined as the perception of being present in a remote environment 
+
+there are many factors that influence teleoperation performance, bandwith, time delay, framerate, two-dimensions, field of view and more. \citep{Chen2007}
+
 Because of the nature of teleoperation the situational awareness and telepresence is compromised because of numerous factors. In a teleoperation controlled through video feed some of the influencing factors could be time latency, frame rates, missing frame of reference, two-dimensional views, field of view and more.
+
+\citep{Chen2007} went through more than 150 papers checked different teleoperation factors and how they influence user performance.
+
+
+
+\subsection{Time delay}
+\todo[inline]{
+- Latency and delay will be used to denote the same thing
+
+- inefficient move and wait strategy
+ 
+- cognitive workload
+
+- has to remember what has been done (integral of the actions)
+}
+
+\missingfigure{Table showing summary of research on the effects of time delay on operator performance}
+
+Time delay present a problem since the user has to remember what has already been done, and this does not match with the image they are seeing.
+
+\citep{Chen2007} "Studies have also shown that high latency lags tend to reduce perceived telepresence"
+
+\citep{Chen2007} "people are generally able to detect latency as low as $10-20$ ms [83]. Generally, when system latency is over about 1 s, the operators begin to switch their control strategy to a "move and wait" "
+
+\citep{Matheson2013} "Even with a latency of only several seconds, tele-operation in a time-delayed environment, in particular for the task of basic driving, is a difficult and highly stressful task for humans (Sheridan, 1993; Wright, 2007). It results in high levels of cognitive workload (Lovi et al., 2010)."
+
+"Arthur et al. [89] also found latency (ranging from 50 to 550 ms) to be a more important factor than FR (30, 15, or 10 fps) for their participants 3-D tracing task performance."
+
+[A] principle to reduce cognitive workload is to maintain a correlation with commands issued by the operator and the expected result of those commands as observed by the movement of the robot and changes in the interface (Nielsen, Goodrich, \& Ricks, 2007, p. 936)
+
+\citep{Appelqvist2007} "Because of the teleoperation delay, human drivers
+tend to cause the vehicle to oscillate with their "correcting" steering commands" 
+
+\citep{Ricks2004} "The mental load required to keep track of robot pose and compensate for delay adversely affects the operator's ability to effectively control the robot."
+
+There seems to be a increase in completion time and failure rate as DOF increase
+
+
+\subsection{Delay compensation}
+\todo[inline]{
+- LOA Level Of Automation
+- increase situational awerness
+- Predictive technology
+}
 
 \citep{Luck2006} "The results indicate that the higher the LOA, the better the performance in terms of both time and number of errors made, and also the more resistant to the degrading effects of latency."
 
 \citep{Fong2001} "With manual control, performance is limited by the operator's motor skills and his ability to maintain situational awareness."
 
-\citep{Chen2007} went through more than 150 papers checked different teleoperation factors and how they influence user performance.
+\citep{Chen2007} "For example, time delays as short as 170 ms affected driving performance. If these delays cannot be engineered out of the system, it is suggested that predictive displays or other decision support be provided to the operator."
 
-"Arthur et al. [89] also found latency (ranging from 50 to 550 ms) to be a more important factor than FR (30, 15, or 10 fps) for their participants 3-D tracing task performance."
+displaying a generated 3d scene from remote images
 
-Telepresence is defined as the perception of being present in a remote environment 
-
-\section{Video latency and user performance}
-
-\todo[inline]{
-\textbf{Todo}
-
-- Latency and delay will be used to denote the same thing
-}
-
-\citep{Chen2007}
-
-"people are generally able to detect latency as low as $10-20$ ms [83]. Generally, when system latency is over about 1 s, the operators begin to switch their control strategy to a "move and wait" "
-
-"Studies have also shown that high latency lags tend to re-
-duce perceived telepresence"
-
-"Woods et al. [16] suggested that achieving functional presence might be a more realistic goal for teleoperation user interface design. Functional presence occurs when the teleoperator receives sufficient perceptual cues to effectively conduct teleoperations"
-
-"For example, time delays as short as 170 ms affected driving performance. If these delays cannot be engineered out of the system, it is suggested that predictive displays or other decision support be provided to the operator."
-
-\citep{Appelqvist2007} "Because of the teleoperation delay, human drivers
-tend to cause the vehicle to oscillate with their "correcting" steering commands" 
-
-Time delay present a problem since the user has to remember what has already been done, and this does not match with the image they are seeing.
-
-\citep{Ricks2004} " The mental load required to keep track of robot pose and compensate for delay adversely affects the operator's ability to effectively control the robot."
-
-"There are many reasons to study teleoperation, espe-
-cially from the standpoint of improving the user interface. Teleoperation can be the most effective way to control mobile robots because it is easy to implement and easy for people to understand. Teleoperation is also a very simple autonomy level that allows us to study the interface itself apart from the intelligence derived from autonomy."
-
-\subsection{Reduce detrimental effects of video latency}
-\todo[inline]{
-\textbf{Todo}
-
-- can be divided into how the tools, camera and environment move with respect to each other
-
-- mesh generation
-
-- phantom robot
-
-- Autonomy
-
-- AR with predicted future 3D geometry
-
-- Having stored local bigger images on cropping that image
-
-- capturing 3d data from scene and predicting the movement in that scene
-
-- displaying a generated 3d scene from remote images
-
-- egocentric vs ecocentric
-}
-
-There seems to be a increase in completion time and failure rate as DOF increase
+egocentric vs ecocentric
 
 There are many ways to mitigate the effects of teleoperation with video latency. By increasing the level of autonomy the operator would have to give less commands. A fully autonomous setup would require no user input and the negative effects of time delay would be completely eliminated.
 
@@ -113,81 +95,93 @@ The second possibility is to introduce predictor displays with phantom robots. I
 
 \citep{Chen2007} "Based on this and other experimental results, Sheridan [86] recommended that supervisory control and predictor displays be used to ameliorate the negative impact of time delays on teleoperation."
 
-"predictive displays have been shown to be able to reduce task performance time by 50\%-150\% [68]"
+\citep{Chen2007} "predictive displays have been shown to be able to reduce task performance time by 50\%-150\% [68]"
 
 The third option is present more information to the operator so that he or she has a better foundation to understand how user input would impact the future state of the robot. This could include showing graphs of the last inputs, or giving feedback when the user does something.
 
 \citep{Miller2005} performed a test where they "Instead of predicting where the rover will be, we remind the operator of what they have told the rover to do by providing them with a streaming command indicator."
 
-
-\section{Predictive displays}
-
+\section{Predictive technology}
 \todo[inline]{
-\textbf{Todo}
-
-- table comparison of predictive displays
-
-- in order of relevance
+- comparison table in order of relevance
 
 - can only be considered as an approximate value since very few report numerical values but instead use graphs
+}
+
+\missingfigure{Table showing summary on research into predictive displays and it's effects on helping operators}
+
+\citep{Chen2007} "Woods et al. [16] suggested that achieving functional presence might be a more realistic goal for teleoperation user interface design. Functional presence occurs when the teleoperator receives sufficient perceptual cues to effectively conduct teleoperations"
+
+Predictive displays will predict the future configuration based on user input and show real-time predicted configuration.
+
+\subsection{Adjusted control}
+\todo[inline]{
+- dynamic equation, state equation and predicted state \citep{Zhang2017}
+}
+
+\citep{Lu2018} "Preliminary results revealed that the delay compensation aid can reduce operators workload while enhancing primary task performance."
+
+
+\subsection{Superimposed predictive information}
+
+\citep{Mathan1996} "predictive display superimposing directional
+velocity information on the video display"
+
+\subsection{3D graphic models}
+\todo[inline]{
+- capturing 3d data from scene and predicting the movement in that scene
+
+- phantom robot
+
+- mesh generation
 
 - monocular SLAM : Monocular Simultaneous Location and Mapping
 	- stereo
 	- depth sensors
 	- inertia sensors
-	
+    
 - Vision-based structure from motion (SFM)
-	- tracking
-
+    - tracking
+    
 - augmented or virtual reality
 
-- dynamic equation, state equation and predicted state \citep{Zhang2017}
+\citep{Hu2015}: "However many tele-robotics tasks are in unknown, unstructured environments where advance CAD models are not available."
 }
 
-\citep{Hu2015}: "However many tele-robotics tasks are in unknown, unstructured environments where advance CAD models are not available."
-
-\citep{Lu2018} "Preliminary results revealed that the delay compensation aid can reduce operators workload while enhancing primary task performance."
-
-Predictive displays will predict the future configuration based on user input and show real-time predicted configuration.
-
-Predictive displays can be used in conjugating with augmented reality (AR) or virtual reality (VR). The drawback with VR is that it requires extensive information about the remote location and computer knowledge and power because the location with the robot has the be reconstructed digitally. This is often used in cases where industrial robots are used. Here each of the joints and surrounding area can be precisely calculated. Telerobotic servicing with robotic arms with overlayed 3D grapical robots \citep{Kim1993}
-
-\citep{Hu2016}: "In VR-based Predictive display (PD), instead of delayed visual feedback from the remote robot site, an immediately and predicted visual feedback is rendered from a graphics model in response to the operator's motion command" (...) "This is only applicable to known structured environments. Recently"
-
-\citep{Ricks2004} tested a predictive display based with a phantom robot seen from a tethered perspective is placed together with the video feed in AR fashion, \figref{figRicks2004}. This required a laser range finder to model the environment. The prediction were performed by using the known position and velocity of the robot and calculating the predicted position and orientation based on user input.
-
-\citep{Mathan1996} "predictive display superimposing directional
-velocity information on the video display"
+\citep{Burkert2004} "Those predictions are only possible if models of the geometry, kinematics, and dynamics of the remote scene are locally available."
 
 Another approach is by combining visual tracking and image-based 3d rendering, creating a computer generated world and extrapolating what the camera would see next after it has gotten the current user commands. \citep{Hu2015} did this, but as they mentioned this relatively required smooth motion and advanced model generation algorithms.
 
-Another way producing predictive displays is by recording 360 degrees video on a low frame rate and only displaying a smaller selection of this to the user. When the the camera or robot is moved the predicted section can be displayed immediately by moving the selection in that direction. \citep{Baldwin1999}
+Predictive displays can be used in conjugating with augmented reality (AR) or virtual reality (VR). The drawback with VR is that it requires extensive information about the remote location and computer knowledge and power because the location with the robot has the be reconstructed digitally. This is often used in cases where industrial robots are used. Here each of the joints and surrounding area can be precisely calculated. Telerobotic servicing with robotic arms with overlayed 3D grapical robots \citep{Kim1993}
 
-\citep{Burkert2004}: "Those predictions are only possi- ble if models of the geometry, kinematics, and dynamics of the remote scene are locally available. Another"
+\citep{Hu2016}: "In VR-based Predictive display (PD), instead of delayed visual feedback from the remote robot site, an immediately and predicted visual feedback is rendered from a graphics model in response to the operator's motion command" (...) "This is only applicable to known structured environments."
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=.7\textwidth]{ricks2004display}
-    \caption{Predictive display \citep{Ricks2004}}
-    \label{figRicks2004}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=.7\textwidth]{hu2015display}
-    \caption{Predictive display \citep{Hu2015}}
-\end{figure}
+\citep{Ricks2004} tested a predictive display based with a phantom robot seen from a tethered perspective is placed together with the video feed in AR fashion,. This required a laser range finder to model the environment. The prediction were performed by using the known position and velocity of the robot and calculating the predicted position and orientation based on user input.
 
 Problems of the above solutions is that they require a lot of information about the environment which again requires extra equipment and more advanced algorithms to process that data.
 
-\section{Problem statement/formulation}
+
+\subsection{Video manipulation}
+\todo[inline]{
+- Having stored local bigger images on cropping that image
+}
+
+Another way producing predictive displays is by recording 360 degrees video on a low frame rate and only displaying a smaller selection of this to the user. When the the camera or robot is moved the predicted section can be displayed immediately by moving the selection in that direction. \citep{Baldwin1999}
+
+
+\section{Problem statement}
 
 Can an easy to implement predictive display based on translational video and augmented reality phantom robot increase task completion effectiveness under teleoperation with time-delay?
 
+- H1 a simple predictor display based on image transformation can 
+ increase the operator performance
+ 
+- H2 PD decrease the operator cognitive workload
+ 
 \citep{Lu2018} Nice hypothesis
 
-How will the task completion effectiveness compare to an even simpler non-predictive display but with visual cues?
-
-\section{Engage eduROV project}
+\section{Engage eduROV}
 
 This master thesis and research performed were in conjunction with the Engage eduROV project. A software for handling video transmission and robot communication were developed and this were also used for research purposes in this thesis. A full descirption can be seen in chapter \ref{chpEdurov}
+
+\missingfigure{Image of the eduROV submersible}
