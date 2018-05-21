@@ -33,7 +33,7 @@
 
 Teleoperation of robots will become more and more common as the technology makes it possible for people to accomplish tasks in remote, inaccessible and hostile environments. The range of applications are long, space exploration, military missions, undersea operations and surgery are some of them.
 
-[A] principle to reduce cognitive workload is to maintain a correlation with commands issued by the operator and the expected result of those commands as observed by the movement of the robot and changes in the interface (Nielsen, Goodrich, & Ricks, 2007, p. 936)
+[A] principle to reduce cognitive workload is to maintain a correlation with commands issued by the operator and the expected result of those commands as observed by the movement of the robot and changes in the interface (Nielsen, Goodrich, \& Ricks, 2007, p. 936)
 
 Unmanned vehicles comes in a variety of configurations and can be divided into unmanned aerial vehicles (UAV), ground (UGV), underwater (UUV) where the latter is also sometimes referred to as a remotely operated vehicle (ROV).
 
@@ -129,6 +129,8 @@ The third option is present more information to the operator so that he or she h
 
 - in order of relevance
 
+- can only be considered as an approximate value since very few report numerical values but instead use graphs
+
 - monocular SLAM : Monocular Simultaneous Location and Mapping
 	- stereo
 	- depth sensors
@@ -138,9 +140,13 @@ The third option is present more information to the operator so that he or she h
 	- tracking
 
 - augmented or virtual reality
+
+- dynamic equation, state equation and predicted state \citep{Zhang2017}
 }
 
 \citep{Hu2015}: "However many tele-robotics tasks are in unknown, unstructured environments where advance CAD models are not available."
+
+\citep{Lu2018} "Preliminary results revealed that the delay compensation aid can reduce operators workload while enhancing primary task performance."
 
 Predictive displays will predict the future configuration based on user input and show real-time predicted configuration.
 
@@ -174,9 +180,11 @@ Another way producing predictive displays is by recording 360 degrees video on a
 
 Problems of the above solutions is that they require a lot of information about the environment which again requires extra equipment and more advanced algorithms to process that data.
 
-\section{Problem statement}
+\section{Problem statement/formulation}
 
 Can an easy to implement predictive display based on translational video and augmented reality phantom robot increase task completion effectiveness under teleoperation with time-delay?
+
+\citep{Lu2018} Nice hypothesis
 
 How will the task completion effectiveness compare to an even simpler non-predictive display but with visual cues?
 
