@@ -1,0 +1,57 @@
+### FONT
+font.family         : serif
+font.size           : 10.0
+text.color: black
+
+
+lines.color: black
+patch.facecolor: white
+patch.edgecolor: black
+
+
+axes.facecolor: white
+axes.edgecolor: black
+axes.labelcolor: black
+axes.linewidth      : 0.5
+# black to light gray
+axes.prop_cycle: cycler('color', ['0.00', '0.40', '0.60', '0.70'])
+
+xtick.color: black
+ytick.color: black
+
+grid.color: black
+
+figure.facecolor: white
+figure.edgecolor: white
+figure.dpi : 100
+
+image.cmap: gray
+
+savefig.facecolor: white
+savefig.edgecolor: white
+savefig.dpi         : 300
+savefig.transparent : True
+
+
+### BOXPLOT
+
+boxplot.whiskers: 1.5
+boxplot.showmeans: True
+boxplot.whiskerprops.linestyle: --
+boxplot.flierprops.marker: +
+boxplot.flierprops.markersize: 6.0
+boxplot.flierprops.linestyle: none
+boxplot.meanprops.color: k
+boxplot.boxprops.color: k
+boxplot.medianprops.color: k
+boxplot.meanprops.marker: s
+boxplot.meanprops.markerfacecolor: k
+boxplot.meanprops.markeredgecolor: k
+boxplot.meanprops.markersize: 3.0
+
+boxplot.boxprops.linewidth: 0.8
+boxplot.capprops.linewidth: 0.8
+boxplot.flierprops.linewidth: 0.8
+boxplot.meanprops.linewidth: 0.8
+boxplot.medianprops.linewidth: 0.8
+boxplot.whiskerprops.linewidth: 0.8
