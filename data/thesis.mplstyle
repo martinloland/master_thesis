@@ -14,7 +14,7 @@ axes.edgecolor: black
 axes.labelcolor: black
 axes.linewidth      : 0.5
 # black to light gray
-axes.prop_cycle: cycler('color', ['0.00', '0.40', '0.60', '0.70'])
+axes.prop_cycle: cycler('color', ['0.10', '0.25', '0.45', '0.60', '0.80', '1.0'])
 
 xtick.color: black
 ytick.color: black
