@@ -3,8 +3,11 @@ font.family         : serif
 font.size           : 10.0
 text.color: black
 
+### LINES
 
+lines.dashed_pattern : 3, 2
 lines.color: black
+
 patch.facecolor: white
 patch.edgecolor: black
 
@@ -38,6 +41,7 @@ savefig.transparent : True
 boxplot.whiskers: 1.5
 boxplot.showmeans: True
 boxplot.whiskerprops.linestyle: --
+boxplot.whiskerprops.color: k
 boxplot.flierprops.marker: +
 boxplot.flierprops.markersize: 6.0
 boxplot.flierprops.linestyle: none
@@ -55,3 +59,10 @@ boxplot.flierprops.linewidth: 0.8
 boxplot.meanprops.linewidth: 0.8
 boxplot.medianprops.linewidth: 0.8
 boxplot.whiskerprops.linewidth: 0.8
+
+### Legend
+legend.fancybox      : False
+legend.framealpha    : None
+legend.edgecolor     : inherit
+legend.shadow        : False
+legend.fontsize      : medium
