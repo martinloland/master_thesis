@@ -1,0 +1,14 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\centering
+\caption{Paired samples t-test and Cohen's D effect size}
+\begin{tabularx}{\textwidth}{@{}llYYYY@{}}
+\toprule
+\multicolumn{2}{c}{Pair} & \multicolumn{3}{c}{t-test for Equality of Means} &       \\ \cmidrule(lr){3-5}
+\multicolumn{2}{l}{}     & t                  & df             & p                   & d     \\ \midrule
+Delay       & Delay PD   & 4.82               & 56             & $<$.001             & 0.735 \\
+Delay       & No delay   & 23.04              & 56             & $<$.001             & 4.413 \\
+Delay PD    & No delay   & 19.52              & 56             & $<$.001             & 3.861 \\ \bottomrule
+\end{tabularx}
+\end{table}
