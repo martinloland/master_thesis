@@ -1,82 +1,41 @@
-\todo[inline]{
-- Structure of this report, for academic readers you can skip eduROV.
-}
-The structure of this report are as follows: 
+The structure of this report are as follows: in this chapter, the applications and challenges with teleoperation will be discussed. In addition, a walk trough of the most popular methods in predictive technology to combat time delay issues will be presented.
+
+Chapter \ref{chpEdurov} is dedicated to the development of the python package named \textit{eduROV} that was created in conjunction with the Engage eduROV summer school project at Norwegian University of Science and Technology (NTNU). The developed software were also used in the main experiment of this report. For those only concerned in the predictive technology and relevant research, this chapter can be skipped.
+
+Next, in chapter \ref{chpPredictive} the developed predictor display based on translation movement will be presented. It will explain how the movement of a robot is estimated and how predicted changes are visualized.
+
+Lastly, in chapter \ref{chpMethod} through \ref{chpDiscussion} the method, results and discussion is presented. Only small sections of the code and recorded data is presented in the chapters, but the rest can be found in the appendix at page \pageref{appendix}. \textbf{TODO}
 
 \section{Teleoperation}
 
 
 \subsection{Applications}
-\todo[inline]{
-- hazardous areas, explosives removal, telemedicine
+Teleoperation of vehicles has gained popularity since it first became possible. This includes underwater, ground, aerial and space vehicles. The controlled vehcicle is referred to as a \emph{remotely operated vehicle} (ROV). There are many locations and tasks where ROV's are useful. These includes places that are to risky for people, like post disaster areas, underwater operations, space, conflict zones etc. It can also be that using humans is to costly or just impossible. Offshore maintenance and heavy duty mining are some of the tasks. The word \emph{robot} will be used interchangeably with ROV throughout this thesis.
 
-- where sending humans is costly and/or risky
+In this report the focus has been on teleoperation by the means of camera feed from the ROV (slave), to the remotely human operator (master) and then control signals from operator to the ROV. This form of teleoperation can be effective because it's easy to implement and understand for the operator. Other forms of teleoperation can be without camera feed or by increasing the level of autonomy (LOA). This will not be any focus in this report.
 
-- focus on moving robots / alignment
-
-- master-slave control loop
-}
-Teleoperation of robots will become more and more common as the technology makes it possible for people to accomplish tasks in remote, inaccessible and hostile environments. The range of applications are long, space exploration, military missions, undersea operations and surgery are some of them.
-
-Unmanned vehicles comes in a variety of configurations and can be divided into unmanned aerial vehicles (UAV), ground (UGV), underwater (UUV) where the latter is also sometimes referred to as a remotely operated vehicle (ROV).
-
-\citep{Ricks2004} "There are many reasons to study teleoperation, especially from the standpoint of improving the user interface. Teleoperation can be the most effective way to control mobile robots because it is easy to implement and easy for people to understand. Teleoperation is also a very simple autonomy level that allows us to study the interface itself apart from the intelligence derived from autonomy."
-
+In addition, only unmanned vehicles will be considered. Although a unmanned ground vehicle (UGV) has been used in the experiment, the findings can be applied to teleoperation of all types of vehicles, that be aerial, ground, underwater and space. It does however not apply to situations where the camera is in a fixed position and rotation. This configuration is often used in telemedicine \citep{Kumcu2017} or robot arm manipulation \citep{Bejczy1990}.
 
 \subsection{Telepresence}
-\todo[inline]{
-- meaning
 
-- what effects it
-}
+\citep{Draper1998} defined telepresence as \emph{"the perception of presence within a physically remote or simulated site"}. He also states that \emph{"telepresence is generally hypothesized to improve efficiency or reduce user workload"} and that telepresence is beneficial to mission performance.
 
-Telepresence is defined as the perception of being present in a remote environment 
-
-there are many factors that influence teleoperation performance, bandwith, time delay, framerate, two-dimensions, field of view and more. \citep{Chen2007}
-
-Because of the nature of teleoperation the situational awareness and telepresence is compromised because of numerous factors. In a teleoperation controlled through video feed some of the influencing factors could be time latency, frame rates, missing frame of reference, two-dimensional views, field of view and more.
-
-\citep{Chen2007} went through more than 150 papers checked different teleoperation factors and how they influence user performance.
-
+\citep{Chen2007} went through 150 papers and checked different teleoperation factors and how they influence user performance. They found eight main factors; Field of view (FOV), orientation, camera viewpoint, depth perception, video quality and frame rate (FR), time delay, and motion. FOV describes the amount of environment that is visible in the video. Orientation (in the environment) can be difficult to perceive if there is mismatch or lack of information. Camera viewpoint is often \emph{egocentric} (robot view) or \emph{exocentric} (birds view) which can lead to tunneling or loss of true ground view respectively. Lack of depth perception can cause wrong estimation of distances and video quality can reduce target identification. Time delays effects are very task dependent but often cause reduced driving performance. Motion describes the situation where the operator itself is moving and can cause motion sickness.
 
 
 \subsection{Time delay}
-\todo[inline]{
-- Latency and delay will be used to denote the same thing
+Among the factors mentioned above, time delay or \emph{latency} has been found to have big impacts one teleoperation performance \citep{Chen2007}. Chen also noted that latencies as low as $10-20$ ms can be detected by people. \citep{Arthur1993} found latencies (ranging from 50 to 550 ms) to be a more important factor than FR (30, 15, or 10 fps). 
 
-- Sources of latency in teleoperation
+Time delay introduces a situation where the operator's commands does not correspond to the visual feedback he or she is getting. Because of this human drivers tend to over steer and oscillate with their \emph{correcting} steering commands \citep{Appelqvist2007}. This increase the cognitive workload because the operator has to remember the input already given when giving new control commands \citep{Matheson2013}. And \citep{Ricks2004} found that the mental load required to keep track of the robot pose adversely affects the operator's ability to effectively control the robot. A principle of reducing the workload is therefore to maintain correlation between commands issued by operator and changes in the interface \citep{Nielsen2007}. 
 
-- Video latency
+A summary of some reports can be seen in table \ref{reviewPerf}. It shows the increase factor for different tasks and delay times. An increase factor of 1.40 is equal to a 40\% increase in task completion time. The actual detrimental effect of latency is very task dependent. In the table, the same increase factor of 1.5 can be found at 100ms for a needle-driving task, and in the robot car movement task at 2000ms.
+Some argue that task completion time increase linearly with delay time \citep{Ando1999}, \citep{Lane2002}. While others experience an exponential increase \citep{Xu2014}.
 
-- inefficient move and wait strategy
- 
-- cognitive workload
+\input{./tables/reviewPerf}
 
-- has to remember what has been done (integral of the actions)
-}
+The reasons for time delay can be many and is not the focus in this report. An overview can be seen in figure \textbf{TODO}. Some of the factors are distance between robot and operator, equipment technology, transfer method, interference, video compression, control algorithms efficiency and many more.
 
 \missingfigure{Graphics showing the different stages in communication that contribute to the latency}
-
-\missingfigure{Table showing summary of research on the effects of time delay on operator performance}
-
-Time delay present a problem since the user has to remember what has already been done, and this does not match with the image they are seeing.
-
-\citep{Chen2007} "Studies have also shown that high latency lags tend to reduce perceived telepresence"
-
-\citep{Chen2007} "people are generally able to detect latency as low as $10-20$ ms [83]. Generally, when system latency is over about 1 s, the operators begin to switch their control strategy to a "move and wait" "
-
-\citep{Matheson2013} "Even with a latency of only several seconds, tele-operation in a time-delayed environment, in particular for the task of basic driving, is a difficult and highly stressful task for humans (Sheridan, 1993; Wright, 2007). It results in high levels of cognitive workload (Lovi et al., 2010)."
-
-"Arthur et al. [89] also found latency (ranging from 50 to 550 ms) to be a more important factor than FR (30, 15, or 10 fps) for their participants 3-D tracing task performance."
-
-[A] principle to reduce cognitive workload is to maintain a correlation with commands issued by the operator and the expected result of those commands as observed by the movement of the robot and changes in the interface (Nielsen, Goodrich, \& Ricks, 2007, p. 936)
-
-\citep{Appelqvist2007} "Because of the teleoperation delay, human drivers
-tend to cause the vehicle to oscillate with their "correcting" steering commands" 
-
-\citep{Ricks2004} "The mental load required to keep track of robot pose and compensate for delay adversely affects the operator's ability to effectively control the robot."
-
-There seems to be a increase in completion time and failure rate as DOF increase
 
 
 \subsection{Delay compensation}
