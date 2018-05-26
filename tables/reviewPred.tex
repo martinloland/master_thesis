@@ -1,0 +1,27 @@
+\begin{wraptable}{r}{0.45\textwidth}
+\sbox0{
+\resizebox{0.8\paperheight}{!}{
+\begin{tabular}{@{}llllllll@{}}
+\toprule
+Author            & Robot system              & Task                       & Predictor method                         & Camera              & Participants & Delay {[}ms{]} & Task time reduction  \\ \midrule
+\cite{Arai2016}          & 6DOF robot arm            & Pick and place             & Robot postion calculation                & Virtual             & 3            & Not reported   & Not reported         \\
+\cite{Baldwin1999}       & Stationary camera         & Identify and select shapes & Cropped panoramic video                  & Panoramic 360       & No tests     &                &                      \\
+\cite{Bejczy1990}        & 6DOF PUMA robot           & Tapping                    & Superimposed phantom robot               & Fixed               & 2            & 1000, 4000     & 13\%-34\%, 40\%-56\% \\
+\cite{Hu2016}            & 2-6 DOF manipulator       & Camera aligment            & Simulated 3D scene                       & Virtual             & 15           & 300, 500, 1000 & 33\%, 58\%, 65\%     \\
+\cite{Hu2015}            & 4 wheeled car             & Manouvering                & Image tracking and geometry construction & Fixed to car        & No tests     &                &                      \\
+\cite{Lovi2010}          & Robot arm on Segway       & Object alignment           & Vision-based monocular modeling          & At end effector     & 5            & 300            & 33\%                 \\
+\cite{Mathan1996}        & Lunar vehicle             & Manovuering                & Superimposed directional information     & Fixed to car        & 8            & 5000           & 24\%-30\%            \\
+\cite{Matheson2013}      & Rover                     & Driving                    & Projected field of view estimation       & Fixed to car        & 12           & 3000           & 48\%-64\%            \\
+\cite{Rachmielowski2010} & Virtual with Phantom OMNI & Alignment                  & Reconstructed 3D environment             & At end effector     & 12           & 300            & 29\%-30\%            \\
+\cite{Zhang2017}         & 9DOF dynamics simulator   & Rendezvous and docking     & Dynamic prediction from state equations  & Fixed to spacecraft & 9            & 6000           & Not reported         \\
+\cite{Lu2018}            & Car simulator             & Driving                    & Model-free framework                     & Simulated human     & 12           & Not reported   & 8\%                  \\
+\cite{Zheng2016}         & Car simulator             & Driving                    & Model-free framework                     & Simulated human     & 5            & 900            & 35\%                 \\ \bottomrule
+\end{tabular}
+}
+}
+\rotatebox{-90}{%
+\parbox{\wd0}{\centering
+\caption{Predictive technology experiments with task time reduction.}
+\endgraf\bigskip
+\usebox0}}
+\end{wraptable}

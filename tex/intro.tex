@@ -39,46 +39,26 @@ The reasons for time delay can be many and is not the focus in this report. An o
 
 
 \subsection{Delay compensation}
-\todo[inline]{
-- LOA Level Of Automation
-- increase situational awerness
-- Predictive technology
-}
 
-\citep{Luck2006} "The results indicate that the higher the LOA, the better the performance in terms of both time and number of errors made, and also the more resistant to the degrading effects of latency."
+There are three main ways to combat the detrimental effects of time delay. First, by increasing the level of automation (LOA), the operator workload is reduced. The results of \citep{Luck2006} showed that the higher LOA, the better performance in terms of both time and number of errors made. In some cases, such as a communication blackout, autonomy is essential \citep{Dorais1999}. This option is not always available and may not even be possible. It could require very advanced hardware and software, depending on the task. \citep{Goodrich2001} argued that adjustable autonomy could be used to increase the robot effectiveness. He also mentions that a more autonomous robot is required when longer time delays are present. On the other hand, he also mentions that \emph{"as autonomy level increases, the breadth of tasks that can be handled by a robot decreases."}
 
-\citep{Fong2001} "With manual control, performance is limited by the operator's motor skills and his ability to maintain situational awareness."
+Secondly, instead of increasing LOA, providing more information to the operator may increase situational awareness and therefore performance. \citep{Miller2005} performed an experiment where the operator were reminded of what commands had been given by \emph{"providing them with a streaming command indicator."} The preliminary results showed that the operator reported lower fatigue levels. But there are limitations to how much information an operator can digest in a finite amount of time. \citep{Chen2007} explained that overlaying information on video feed can potentially lead to cognitive tunneling.
 
-\citep{Chen2007} "For example, time delays as short as 170 ms affected driving performance. If these delays cannot be engineered out of the system, it is suggested that predictive displays or other decision support be provided to the operator."
+Lastly, as a third option, there is the use of \emph{predictive technology}. These are displays, control algorithms and graphical models that try to predict the future state of the ROV. They are based on the vehicle's current state and the operator commands that has been given. \citep{Chen2007} which reviewed multiple experiments about time delay performance, conclude that if \emph{"these delays cannot be engineered out of the system, it is suggested that predictive displays or other decision support be provided to the operator".}
 
-displaying a generated 3d scene from remote images
-
-egocentric vs ecocentric
-
-There are many ways to mitigate the effects of teleoperation with video latency. By increasing the level of autonomy the operator would have to give less commands. A fully autonomous setup would require no user input and the negative effects of time delay would be completely eliminated.
-
-\citep{Goodrich2001} Made a comparison between neglect and time delay and argued that adjustable autonomy could be used to increase the robot effectiveness. And also mentions that a more autonomous robot is required when longer time delays are present. On the other side he also mentiones that "as autonomy level increases, the breadth of tasks that can be handled by a robot decreases."
-
-In some cases, autonomy is essential to accommodate for communication delays. \citep{Dorais1999}
-
-The second possibility is to introduce predictor displays with phantom robots. In this setup the future behaviour of the robot is predicted from user input and the last know configuration of the robot. This is then shown as computer generated version, or phantom robot in real-time.
-
-\citep{Chen2007} "Based on this and other experimental results, Sheridan [86] recommended that supervisory control and predictor displays be used to ameliorate the negative impact of time delays on teleoperation."
-
-\citep{Chen2007} "predictive displays have been shown to be able to reduce task performance time by 50\%-150\% [68]"
-
-The third option is present more information to the operator so that he or she has a better foundation to understand how user input would impact the future state of the robot. This could include showing graphs of the last inputs, or giving feedback when the user does something.
-
-\citep{Miller2005} performed a test where they "Instead of predicting where the rover will be, we remind the operator of what they have told the rover to do by providing them with a streaming command indicator."
 
 \section{Predictive technology}
+
 \todo[inline]{
 - comparison table in order of relevance
 
 - can only be considered as an approximate value since very few report numerical values but instead use graphs
 }
 
-\missingfigure{Table showing summary on research into predictive displays and it's effects on helping operators}
+\input{./tables/reviewPred}
+
+\citep{Chen2007} "predictive displays have been shown to be able to reduce task performance time by 50\%-150\% [68]"
+
 
 \citep{Chen2007} "Woods et al. [16] suggested that achieving functional presence might be a more realistic goal for teleoperation user interface design. Functional presence occurs when the teleoperator receives sufficient perceptual cues to effectively conduct teleoperations"
 
