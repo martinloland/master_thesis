@@ -95,20 +95,24 @@ Instead of constructing a virtual 3D world a more simple approach is possible. T
 
 A similar method is by capturing a wide FOV video, possibly 360 degrees, and then only displaying a section of that image to the operator. The section can then be moved around in the video as a response the operator's commands and thus provide fluid and seemingly real time feedback, \citep{Baldwin1999}.
 
+The approach of video manipulation has the advantages of being low cost, easy to implement, does not rely on a structured environment and since the displayed video are merely alterations to the last image, no prediction error propagation will happen. It is however not able to recreate \textit{parallax} movement, which can be achieved using the 3D model method above. An example of parallax movement would be when passing a corner or object. New parts of the environment should be visible, but can not be constructed from a delayed image.
 
 \section{Problem statement}
 
-Can an easy to implement predictive display based on translational video and augmented reality phantom robot increase task completion effectiveness under teleoperation with time-delay?
+Most of the previous research seems to be concerned about 3D environment reconstruction from sensory data. While it shows promising results and great reduction in task completion times, this is a method that requires advanced algorithms and possibly expensive equipment. Many of the mentioned predictive technologies also require extensive information about the environment and the robot in order to function. This is either not possible or a time consuming task. In this context, the video manipulation method provides and easy and cheap way to increase operator performance.
 
-- H1 a simple predictor display based on image transformation can 
+The \textit{projected display} method described by \citep{Matheson2013} is probably the easiest video manipulation method while still providing good performance increase. The experiment simulated a lunar rover with a latency of three seconds and had twelve participants.
+
+There seems to be a lack of quantitative research on the topic if simple video manipulation predictor displays, used to control ROV's with a medium communication delay in the range of 500-3000 ms. Therefore, this thesis aimed to study the following hypotheses:
+
+\begin{itemize}
+\item H1: a simple predictor display based on image transformation can 
  increase the operator performance
- 
-- H2 PD decrease the operator cognitive workload
- 
-\citep{Lu2018} Nice hypothesis
+ \item H2: such a display would decrease the operator's subjective workload \textbf{TODO}
+\end{itemize}
 
 \section{Engage eduROV}
 
-This master thesis and research performed were in conjunction with the Engage eduROV project. A software for handling video transmission and robot communication were developed and this were also used for research purposes in this thesis. A full descirption can be seen in chapter \ref{chpEdurov}
+This master thesis was conducted in conjunction with the Engage eduROV project. An image of the ROV used in this project can be seen in figure \textbf{TODO}. A software for handling video transmission and robot communication for this ROV was developed as part of the project. This software was also used as a framework for controlling the ROV used in the experiment. In addition, the software gathered quantitative data during the experiment. For more information about the software and it's development, see chapter \ref{chpEdurov}.
 
 \missingfigure{Image of the eduROV submersible}
