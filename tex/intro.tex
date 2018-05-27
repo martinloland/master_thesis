@@ -31,6 +31,10 @@ Time delay introduces a situation where the operator's commands does not corresp
 A summary of some reports can be seen in table \ref{reviewPerf}. It shows the increase factor for different tasks and delay times. An increase factor of 1.40 is equal to a 40\% increase in task completion time. The actual detrimental effect of latency is very task dependent. In the table, the same increase factor of 1.5 can be found at 100ms for a needle-driving task, and in the robot car movement task at 2000ms.
 Some argue that task completion time increase linearly with delay time \citep{Ando1999}, \citep{Lane2002}. While others experience an exponential increase \citep{Xu2014}.
 
+\todo[inline]{
+- Fitt's law
+}
+
 \input{./tables/reviewPerf}
 
 The reasons for time delay can be many and is not the focus in this report. An overview can be seen in figure \textbf{TODO}. Some of the factors are distance between robot and operator, equipment technology, transfer method, interference, video compression, control algorithms efficiency and many more.
@@ -49,20 +53,18 @@ Lastly, as a third option, there is the use of \emph{predictive technology}. The
 
 \section{Predictive technology}
 
-\todo[inline]{
-- comparison table in order of relevance
-
-- can only be considered as an approximate value since very few report numerical values but instead use graphs
-}
-
 \input{./tables/reviewPred}
 
-\citep{Chen2007} "predictive displays have been shown to be able to reduce task performance time by 50\%-150\% [68]"
+Table \ref{revirePred} shows a summary of some experiments that has been done in the field of predictive technology. Some of the papers do not report numerical values, the \emph{task time reduction} is then reported as an estimation from graphs. The experiments spans a wide variety of robot configurations, experiment tasks and predictive methods and can not necessary be compared directly.
+
+The robot system can be roughly divided into two main groups; either the robot configuration can be exactly calculated in real time. This includes robot arm manipulators fixed to a defined reference frame where it's configuration is a result of user input only. Or secondly, the robot configuration is subjected to external forces or freely floating. ROV's typically goes in this group since they are able to move around in the environment. This makes the prediction more complicated because unknown and changing external factors has to be considered.
+
+There is also great variety in the tasks used in table \ref{revirePred}. They do however have one thing in common; they all include some sort of lateral movement. Typically the operator is requires to perform an alignment or aiming task. These kinds of tasks are particular exposed to the detrimental effects from communication delay. It can cause the operator to \emph{overshoot} the target and transition to an inefficient \emph{move and wait} strategy which can be measured by task completion time. \citep{Lane2002} noted that this behavior started to happen at around one second of time delay.
+
+The predictor method also varies greatly, but can be divided into four categories presented below.
 
 
-\citep{Chen2007} "Woods et al. [16] suggested that achieving functional presence might be a more realistic goal for teleoperation user interface design. Functional presence occurs when the teleoperator receives sufficient perceptual cues to effectively conduct teleoperations"
-
-Predictive displays will predict the future configuration based on user input and show real-time predicted configuration.
+%\citep{Chen2007} "Woods et al. [16] suggested that achieving functional presence might be a more realistic goal for teleoperation user interface design. Functional presence occurs when the teleoperator receives sufficient perceptual cues to effectively conduct teleoperations"
 
 \subsection{Adjusted control}
 \todo[inline]{
