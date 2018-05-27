@@ -55,23 +55,18 @@ Lastly, as a third option, there is the use of \emph{predictive technology}. The
 
 \input{./tables/reviewPred}
 
-Table \ref{revirePred} shows a summary of some experiments that has been done in the field of predictive technology. Some of the papers do not report numerical values, the \emph{task time reduction} is then reported as an estimation from graphs. The experiments spans a wide variety of robot configurations, experiment tasks and predictive methods and can not necessary be compared directly.
+Table \ref{reviewPred} shows a summary of some experiments that has been done in the field of predictive technology. Some of the papers do not report numerical values, the \emph{task time reduction} is then reported as an estimation from graphs. The experiments spans a wide variety of robot configurations, experiment tasks and predictive methods and can not necessary be compared directly.
 
 The robot system can be roughly divided into two main groups; either the robot configuration can be exactly calculated in real time. This includes robot arm manipulators fixed to a defined reference frame where it's configuration is a result of user input only. Or secondly, the robot configuration is subjected to external forces or freely floating. ROV's typically goes in this group since they are able to move around in the environment. This makes the prediction more complicated because unknown and changing external factors has to be considered.
 
-There is also great variety in the tasks used in table \ref{revirePred}. They do however have one thing in common; they all include some sort of lateral movement. Typically the operator is requires to perform an alignment or aiming task. These kinds of tasks are particular exposed to the detrimental effects from communication delay. It can cause the operator to \emph{overshoot} the target and transition to an inefficient \emph{move and wait} strategy which can be measured by task completion time. \citep{Lane2002} noted that this behavior started to happen at around one second of time delay.
+There is also great variety in the tasks used in table \ref{reviewPred}. They do however have one thing in common; they all include some sort of lateral movement. Typically the operator is requires to perform an alignment or aiming task. These kinds of tasks are particular exposed to the detrimental effects from communication delay. It can cause the operator to \emph{overshoot} the target and transition to an inefficient \emph{move and wait} strategy which can be measured by task completion time. \citep{Lane2002} noted that this behavior started to happen at around one second of time delay.
 
-The predictor method also varies greatly, but can be divided into four categories presented below.
+In all kinds of predictive technology a future predicted state of the robot has to be calculated. Which variables that are used for this and how it's calculated varies. Some methods rely on the dynamic equations of the system. \citep{Zhang2017} implemented a version where he used the state equations of a spacecraft and it's dynamic properties to calculate it's predicted state. The operator where then presented with a future predicted image of the spacecraft and gave commands correspondingly. This can be a good approach in space since all external forces can be accurately modeled.
+
+In situations where the external forces can not be calculated exactly and the ROV is free to move around, a \emph{model free} approach (no dynamics) are often used instead. The method of conveying this information can be divided into three groups and are presented below.
 
 
 %\citep{Chen2007} "Woods et al. [16] suggested that achieving functional presence might be a more realistic goal for teleoperation user interface design. Functional presence occurs when the teleoperator receives sufficient perceptual cues to effectively conduct teleoperations"
-
-\subsection{Adjusted control}
-\todo[inline]{
-- dynamic equation, state equation and predicted state \citep{Zhang2017}
-}
-
-\citep{Lu2018} "Preliminary results revealed that the delay compensation aid can reduce operators workload while enhancing primary task performance."
 
 
 \subsection{Superimposed predictive information}
@@ -79,46 +74,26 @@ The predictor method also varies greatly, but can be divided into four categorie
 \citep{Mathan1996} "predictive display superimposing directional
 velocity information on the video display"
 
+In this category, predictive information is overlayed or \emph{superimposed} on the delayed video feed. In that way the operator is able to see estimates on where the ROV is going to end up. The prediction is often visualized as vector graphics in the form of lines or points along a path. \citep{Mathan1996} used this approach when he superimposed directional velocity information about a lunar rover on a video display.
+
+A similar example can be seen in airplanes and helicopters where a \emph{tunnel in the sky} display shows where the aircraft should be going and a cross indicating the predicted trajectory \citep{Grunwald1981}. In cases with big amounts of lateral movement this approach might not be applicable because the predicted heading can come off screen.
+
 \subsection{3D graphic models}
-\todo[inline]{
-- capturing 3d data from scene and predicting the movement in that scene
 
-- phantom robot
+About half of the experiments in table \ref{reviewPred} would adhere to this category. Generally, a 3D world is constructed from sensory input such as laser ranging, stereo cameras, image tracking or others. Images taken by normal cameras is then mapped to the surface of the computer generated world. Lastly, a virtual camera is placed inside the virtual world in the predicted position of the real camera. The operator is then given the virtual video feed as virtual reality (VR), or in a combination with the real one, augmented reality (AR). As \citep{Hu2016} describes it; \textit{"In [a] VR-based Predictive display (PD), instead of delayed visual feedback from the remote robot site, an immediately and predicted visual feedback is rendered from a graphics model in response to the operator's motion command"}. \citep{Kim1993} is one example of this.
 
-- mesh generation
+Some of the technologies used for capturing the 3D world are \textit{Monocular Simultaneous Location and Mapping} (SLAM), stereo imagery, vision-based structure from motion (SFM), light detection and ranging (LiDAR) or radio detection and ranging (radar).
 
-- monocular SLAM : Monocular Simultaneous Location and Mapping
-	- stereo
-	- depth sensors
-	- inertia sensors
-    
-- Vision-based structure from motion (SFM)
-    - tracking
-    
-- augmented or virtual reality
+This method is particular popular in conjunction with robot arm manipulators. In these cases the 3D environment can be constructed in advance and the exact location of the robot arm is known, \citep{Ricks2004}. A limitation with this approach comes in areas where the tasks are performed unknown and unstructured areas. Then geometry can not be created in advance and real time mapping and rendering can be difficult. In addition, it can require additional hardware such as stereo cameras and the calculations can be computer intensive.
 
-\citep{Hu2015}: "However many tele-robotics tasks are in unknown, unstructured environments where advance CAD models are not available."
-}
-
-\citep{Burkert2004} "Those predictions are only possible if models of the geometry, kinematics, and dynamics of the remote scene are locally available."
-
-Another approach is by combining visual tracking and image-based 3d rendering, creating a computer generated world and extrapolating what the camera would see next after it has gotten the current user commands. \citep{Hu2015} did this, but as they mentioned this relatively required smooth motion and advanced model generation algorithms.
-
-Predictive displays can be used in conjugating with augmented reality (AR) or virtual reality (VR). The drawback with VR is that it requires extensive information about the remote location and computer knowledge and power because the location with the robot has the be reconstructed digitally. This is often used in cases where industrial robots are used. Here each of the joints and surrounding area can be precisely calculated. Telerobotic servicing with robotic arms with overlayed 3D grapical robots \citep{Kim1993}
-
-\citep{Hu2016}: "In VR-based Predictive display (PD), instead of delayed visual feedback from the remote robot site, an immediately and predicted visual feedback is rendered from a graphics model in response to the operator's motion command" (...) "This is only applicable to known structured environments."
-
-\citep{Ricks2004} tested a predictive display based with a phantom robot seen from a tethered perspective is placed together with the video feed in AR fashion,. This required a laser range finder to model the environment. The prediction were performed by using the known position and velocity of the robot and calculating the predicted position and orientation based on user input.
-
-Problems of the above solutions is that they require a lot of information about the environment which again requires extra equipment and more advanced algorithms to process that data.
+%\citep{Burkert2004} "Those predictions are only possible if models of the geometry, kinematics, and dynamics of the remote scene are locally available."
 
 
 \subsection{Video manipulation}
-\todo[inline]{
-- Having stored local bigger images on cropping that image
-}
 
-Another way producing predictive displays is by recording 360 degrees video on a low frame rate and only displaying a smaller selection of this to the user. When the the camera or robot is moved the predicted section can be displayed immediately by moving the selection in that direction. \citep{Baldwin1999}
+Instead of constructing a virtual 3D world a more simple approach is possible. This approach tries to make alterations to the delayed video such that it looks like the ROV is actually moving in real time. A simple example would be to zoom into the image if the robot is moving forward. \citep{Matheson2013} halved the task completion time at a latency of three seconds in his experiment. He used an approach where the \textit{"display is obtained by estimating the current rover position within the delayed drive camera image, finding the current field of view edges given the rover’s location and orientation, and manipulating the delayed image through cropping and projection, to approximate the view from the current rover location".}
+
+A similar method is by capturing a wide FOV video, possibly 360 degrees, and then only displaying a section of that image to the operator. The section can then be moved around in the video as a response the operator's commands and thus provide fluid and seemingly real time feedback, \citep{Baldwin1999}.
 
 
 \section{Problem statement}
