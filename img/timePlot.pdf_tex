@@ -1,0 +1,78 @@
+%% Creator: Inkscape inkscape 0.92.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'timePlot.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{3061.06148343bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.41436124)%
+    \put(0.42613603,0.39927762){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{No delay, $\alpha = \theta$}}}%
+    \put(0.74057563,0.31536564){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Delay}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{timePlot.pdf}}%
+    \put(0.26424442,0.3619729){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$1$}}}%
+    \put(0.20214949,0.32741529){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\omega$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{timePlot.pdf}}%
+    \put(0.00366403,0.37536503){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\alpha$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{timePlot.pdf}}%
+    \put(0.47604237,0.33719576){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\Delta \theta$}}}%
+    \put(0.9938986,0.24509747){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{t}}}%
+    \put(0.1875986,0.19070467){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t=0$}}}%
+    \put(0.40700683,0.19070467){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t=\Delta t$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{timePlot.pdf}}%
+    \put(0.44229665,0.23636524){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_d$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{timePlot.pdf}}%
+    \put(-0.00123623,0.15724072){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_h$}}}%
+    \put(0.9938986,0.1025862){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{t}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{timePlot.pdf}}%
+    \put(0.47604237,0.05871847){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\Delta P_h$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{timePlot.pdf}}%
+    \put(0.26228833,0.01572466){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$1$}}}%
+    \put(0.20538224,0.06794229){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\eta$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{timePlot.pdf}}%
+    \put(0.85038748,0.19070467){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t=\Delta t+t_d$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{timePlot.pdf}}%
+  \end{picture}%
+\endgroup%

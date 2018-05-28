@@ -11,37 +11,71 @@ This chapter describes the developed predictive display. Though it may seem like
 \end{figure}
 
  
-To explain how the predictive display (PD) works, let us consider the self balancing two wheeled robot depicted in \figref{twoWheeled}. The upper part of the figure shows the robot from above with two objects in front of it, a black cube and a gray barrel. The ROV is drawn at time equal to $t=0$ and $t=t_1$. The bottom part of the image depicts the viewport of the onboard camera mounted to the ROV.
+To explain how the predictive display (PD) works, let us consider the self balancing two wheeled robot depicted in \figref{twoWheeled}. The upper part of the figure shows the robot from above with two objects in front of it, a black cube and a gray barrel. The ROV is drawn at time equal to $t=0$ and $t=\Delta t$. The bottom part of the image depicts the viewport of the onboard camera mounted to the ROV.
 
-It has a forward facing camera with a FOV of $\phi$ degrees. The camera captures a video feed with a resolution of $V_w$ pixels horizontally. It's center of rotation is located in the vector $z$ pointing out of the paper. It is able to rotate with an angular velocity of $\omega$ deg/sec around it's center of rotation $z$.
+It has a forward facing camera with a FOV of $\phi$ degrees. The camera captures a video feed with a resolution of $R_h$ pixels horizontally. It's center of rotation is located in the vector $z$ pointing out of the paper. It is able to rotate with an angular velocity of $\omega$ deg/sec around it's center of rotation $z$.
 
-Let us first consider a situation without delay and where the ROV can only be given two commands, to turn either left or right. The commands are given by pressing one of two buttons, not by a joystick with variable output. If the operator hold's down the \emph{left} button for a period of $t_1$ seconds, the ROV would turn $\omega \cdot t_1 = \Delta \theta$ degrees. This is depicted in the right side of \figref{twoWheeled}.
+Let us first consider a situation without delay and where the ROV can only be given two commands, to turn either left or right. The commands are given by pressing one of two buttons, not by a joystick with variable output. If the operator hold's down the \emph{left} button for a period of $t_1$ seconds, the ROV would turn $\omega \cdot \Delta t = \Delta \theta$ degrees. This is depicted in the right side of \figref{twoWheeled}.
+
+In the viewport, the cube and barrel would move to the right as the ROV turned left. These objects has moved a finite number of pixels horizontally $\Delta P_h$, which can be calculated by equation \ref{deltaph}. It is simply the ratio between the angular rotation and the FOV, times the pixel screen width. By substituting in the expression for angular rotation, equation \ref{pixelturnrate} is obtained. Here $\eta$ is used to denote the \textit{pixel turn rate}; the pixel rate at which objects in the video moves left or right when the operator turns the ROV.
+
+\begin{equation}\label{deltaph}
+\Delta P_h = \frac{\Delta \theta}{\phi}\cdot R_h
+\end{equation}
+
+\begin{equation}\label{pixelturnrate}
+\Delta P_h = \left ( R_h\frac{\omega }{\phi} \right )\Delta t = \eta \cdot  \Delta t
+\end{equation}
+
+$\eta$ is a constant and depending on the screen resolution, camera FOV and the angular velocity of the ROV. By multiplying this factor by the amount of time the operator holds down the left or right button, the number of pixels the objects in the frame should move is obtained.
 
 \section{Predictive view calculations}
-\todo[inline]{
-- FOV of camera
 
-- change in FOV translation to pixels of movement
+Let us now consider a situation where there is a $t_d$ seconds delay from when the commands are given by the operator to the changes can be seen in the video feed. This corresponds to the time it takes for the command signals to reach the ROV and be processed by the computer, plus the time it takes for the camera to capture the situation, send that image to the operator and display it on the screen. For simplicity, let us also consider a situation where $\Delta t < t_d$.
 
-- change in forward and backward position to scaling
+\begin{figure}[h!]    
+    \centering           
+    \def\svgwidth{\columnwidth}
+    \input{img/movie.pdf_tex}
+    \caption{Operator view. Outer box total screen size, inner box video feed.}
+    \label{movie}
+\end{figure}
 
-- key queues, js delay
-}
+\figref{movie} shows a representation of what the video feed would look like as the above maneuver were performed. It shows the situation in three different scenarios. First no delay, secondly with delay and third with the PD implemented using the delayed video. The outer rectangle shows the limitations of the screen used to show the video feed, while the inner rectangle is the video feed itself.
 
-\missingfigure{graphics showing how the change in pixels are calculated}
+\figref{timePlot} plots the visible angular rotation $\alpha$ for the no delay display and the delayed display as a function of time. For the no delay display, visible angular rotation is equal to ROV rotation $\alpha = \theta$. In addition, the horizontal image pixel displacement $P_h$ is plotted with the same time axis.
+
+The PD works by moving the video feed on the operator screen the opposite way of what the ROV is moving. The amount of pixels the video $P_h$ is moved is calculated by equation \ref{pixelturnrate}. In addition, the video is moved back (the same way as the ROV is moving) after $t_d$ seconds has passed. This makes the objects in the video feed appear in the correct position on the operator screen as if there were no delay. Note that the black box in \figref{movie} center column predictor display is in the correct position relative to the no delay display.
+
+
+\begin{figure}[h!]    
+    \centering           
+    \def\svgwidth{\columnwidth}
+    \input{img/timePlot.pdf_tex}
+    \caption{Visible angular rotation and horizontal image pixel displacement as a function of time.}
+    \label{timePlot}
+\end{figure}
 
 \section{Calibration}
 \todo[inline]{
 - calibrated by checking that the frame would stay still when image moves to original position
 }
 
+Although the above argumentation may seem to work fine in theory, the computer needs a function that can run a finite number of times per second to do these calculations. Listing XX shows the pseudocode for how this has been implemented in practice.
+
+\input{./snippet/algo}
+
 \section{Visualization}
 \todo[inline]{
+- rename to implementation?
+
 - viewed in browser
 
 - css margin change
 
 - edited by js functions
+
+- key queues, js delay
 }
 
 \missingfigure{image of the video showing arrow}

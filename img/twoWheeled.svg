@@ -213,9 +213,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.53141817"
-     inkscape:cx="913.31706"
-     inkscape:cy="281.90703"
+     inkscape:zoom="0.75153878"
+     inkscape:cx="476.6168"
+     inkscape:cy="373.67103"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -469,30 +469,30 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="94.909309"
-       y="189.72537"
+       x="94.557251"
+       y="187.08496"
        id="text6045"><tspan
          sodipodi:role="line"
          id="tspan6043"
-         x="94.909309"
-         y="189.72537"
+         x="94.557251"
+         y="187.08496"
          style="font-size:4.23333311px;text-align:center;text-anchor:middle;stroke-width:0.26458332">$\phi$</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#marker6057);marker-end:url(#marker6115)"
-       d="m 50,117 h 90"
+       d="M 33.010546,327.17711 H 156.98945"
        id="path6047"
        inkscape:connector-curvature="0" />
     <text
        id="text6173"
-       y="114.76369"
+       y="324.18475"
        x="93.279709"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:4.23333311px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         y="114.76369"
+         y="324.18475"
          x="93.279709"
          id="tspan6171"
-         sodipodi:role="line">$V_w$</tspan></text>
+         sodipodi:role="line">$R_h$</tspan></text>
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:1.05999999, 2.11999997;stroke-dashoffset:0;stroke-opacity:1"
        id="path6175"
@@ -520,14 +520,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="86.712402"
-       y="260.97543"
+       x="74.56649"
+       y="257.27884"
        id="text6185"><tspan
          sodipodi:role="line"
          id="tspan6183"
-         x="86.712402"
-         y="260.97543"
-         style="font-size:5.29166651px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">z</tspan></text>
+         x="74.56649"
+         y="257.27884"
+         style="font-size:5.29166651px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">$z$</tspan></text>
     <path
        id="circle6187"
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.465;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker6261)"
@@ -542,13 +542,13 @@
        sodipodi:open="true" />
     <text
        id="text6343"
-       y="279.84235"
-       x="113.16085"
+       y="277.90604"
+       x="108.4081"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:4.23333311px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         y="279.84235"
-         x="113.16085"
+         y="277.90604"
+         x="108.4081"
          id="tspan6341"
          sodipodi:role="line">$\omega$</tspan></text>
     <text
@@ -586,13 +586,13 @@
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:1.06, 2.12;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker6940);marker-end:url(#marker7022)" />
     <text
        id="text6541"
-       y="199.99187"
-       x="251.61205"
+       y="199.11174"
+       x="239.81818"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:4.23333311px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         y="199.99187"
-         x="251.61205"
+         y="199.11174"
+         x="239.81818"
          id="tspan6539"
          sodipodi:role="line">$\Delta \theta$</tspan></text>
     <circle
@@ -628,7 +628,7 @@
          y="297"
          x="290.32248"
          id="tspan6565"
-         sodipodi:role="line">$t=t_1$</tspan></text>
+         sodipodi:role="line">$t=\Delta t$</tspan></text>
     <g
        inkscape:transform-center-y="-0.12315867"
        inkscape:transform-center-x="0.1471129"
@@ -913,5 +913,36 @@
          id="path7684"
          inkscape:connector-curvature="0" />
     </g>
+    <g
+       id="g7711"
+       transform="matrix(1,0,0,0.67361642,0,127.97519)"
+       style="stroke-width:1.21841061">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7702"
+         d="m 321.56844,386.38014 v 11.44087"
+         style="fill:none;stroke:#000000;stroke-width:0.60920531;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.60920531;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 234.27391,386.38014 v 11.44087"
+         id="path7704"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7706"
+         d="m 234.2533,391.84643 h 87.37822"
+         style="fill:none;stroke:#000000;stroke-width:0.60920531;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="277.29642"
+       y="402.97525"
+       id="text7715"><tspan
+         sodipodi:role="line"
+         id="tspan7713"
+         x="277.29642"
+         y="402.97525"
+         style="font-size:7.05555534px;text-align:center;text-anchor:middle;stroke-width:0.26458332">$\Delta P_h$</tspan></text>
   </g>
 </svg>
