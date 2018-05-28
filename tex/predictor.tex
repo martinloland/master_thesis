@@ -1,31 +1,21 @@
-\todo[inline]{
-- produce the expected outcome instantly by translating an scaling the delayed video. Insert visual cue of where the robot will be when the control signal has been processes
-
-- forward facing camera
-
-- very similar to \citep{Matheson2013} projected display, does not seem to handle rotation very well, does include an arrow as a avatar robot
-}
+This chapter describes the developed predictive display. Though it may seem like a complicated task to accomplish. The final results only requires a few lines of code and can be applied most ROV's. In the explanation a very simple and limited ROV is considered but section \ref{expand} describes how the principle can be expanded to more complicated configurations.
 
 \section{Robot movement estimation}
-\todo[inline]{
-- control method of robot
-
-- generality
-
-- speed of motors
-
-- new position and rotation
-
-- not cumulative
-}
-
-Both assume these commands will be properly followed by the rover
-
-\citep{Matheson2013} "Also, since the predictive displays are merely modifications of the most recent video, any errors due to modelling and prediction are not cumulative."
-
-\citep{Zheng2016}:
- "Besides robustness, a model-free approach would also have the benefit of decoupling the predictor design from the vehicle design, thus providing more flexibility for using the same predictor for different vehicles. Furthermore,"
  
+\begin{figure}[h!]    
+    \centering           
+    \def\svgwidth{.8\columnwidth}
+    \input{img/twoWheeled.pdf_tex}
+    \caption{Two wheeled robot before and after counter clockwise rotation.}
+    \label{twoWheeled}
+\end{figure}
+
+ 
+To explain how the predictive display (PD) works, let us consider the self balancing two wheeled robot depicted in \figref{twoWheeled}. The upper part of the figure shows the robot from above with two objects in front of it, a black cube and a gray barrel. The ROV is drawn at time equal to $t=0$ and $t=t_1$. The bottom part of the image depicts the viewport of the onboard camera mounted to the ROV.
+
+It has a forward facing camera with a FOV of $\phi$ degrees. The camera captures a video feed with a resolution of $V_w$ pixels horizontally. It's center of rotation is located in the vector $z$ pointing out of the paper. It is able to rotate with an angular velocity of $\omega$ deg/sec around it's center of rotation $z$.
+
+Let us first consider a situation without delay and where the ROV can only be given two commands, to turn either left or right. The commands are given by pressing one of two buttons, not by a joystick with variable output. If the operator hold's down the \emph{left} button for a period of $t_1$ seconds, the ROV would turn $\omega \cdot t_1 = \Delta \theta$ degrees. This is depicted in the right side of \figref{twoWheeled}.
 
 \section{Predictive view calculations}
 \todo[inline]{
@@ -56,3 +46,15 @@ Both assume these commands will be properly followed by the rover
 
 \missingfigure{image of the video showing arrow}
 
+\section{Extending}\label{expand}
+
+\todo[inline]{
+- different kind of movement
+
+- different ROV's
+
+- Assume these commands will be properly followed by the rover, but the error is not cumulative.
+}
+
+\citep{Zheng2016}:
+ "Besides robustness, a model-free approach would also have the benefit of decoupling the predictor design from the vehicle design, thus providing more flexibility for using the same predictor for different vehicles. Furthermore,"
