@@ -1,21 +1,30 @@
-\begin{algorithm}[H]
-\DontPrintSemicolon
-	\textbf{Forward step}\;
-	$\omega_0, \alpha_0, a_{c,0}, a_{e,0} = 0$  \tcp*[f]{joint 0 is always fixed}\;
-	 \For{link i=1,2,...,n}{
-		  solve $\omega_i$ from (\ref{omega})\;
-		  solve $\alpha$ from (\ref{alpha})\;
-		  solve $a_{e,i}$ from (\ref{a_end})\;
-		  solve $a_{c,i}$ from (\ref{a_center})\;
-	 }
-	 \BlankLine
-	\textbf{Backward step}\;
-	$f_{n+1}, \tau_{n+1} = 0$  \tcp*[f]{if no load at end effector}\;
-	$f_{n+1}, \tau_{n+1} = f_e, \tau_e$  \tcp*[f]{if load at end effector}\;
-	 \For{link i=n,n-1,...,1}{
-		  solve $f_i$ from (\ref{linear_equi})\;
-		  solve $\tau_i$ from (\ref{angular_equi})\;
-	 }
-	 
- \caption{Newton-Euler method}\label{nefAlgo}
+\begin{algorithm}
+\caption{Predictive display}\label{predictorAlg}
+\begin{algorithmic}[0]
+\State $P_h$ = 0 \Comment{horizontal pixel displacement}
+\State \Call{set interval}{predictor display, $d t$} \Comment{calls function at interval}
+\State
+
+\Function{predictor display}{}
+\If{left}
+	\State $\Delta P_h$ = $-\eta \cdot d t$ \Comment{equation \ref{pixelturnrate}}
+\ElsIf{right}
+	\State $\Delta P_h$ = $+\eta \cdot d t$ \Comment{equation \ref{pixelturnrate}}
+\Else
+	\State $\Delta P_h$ = 0
+\EndIf
+
+\State $P_h$ += $\Delta P_h$
+\State \Call{update interface}{$P_h$}
+\State \Call{move back}{$\Delta P_h$} \Comment{asynchronous call}
+
+\EndFunction
+\State
+
+\Function{move back}{$\Delta P_h$}
+\State wait $t_d$
+\State $P_h$ -= $\Delta P_h$
+\EndFunction
+
+\end{algorithmic}
 \end{algorithm}

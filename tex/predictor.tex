@@ -1,6 +1,6 @@
 This chapter describes the developed predictive display. Though it may seem like a complicated task to accomplish. The final results only requires a few lines of code and can be applied most ROV's. In the explanation a very simple and limited ROV is considered but section \ref{expand} describes how the principle can be expanded to more complicated configurations.
 
-\section{Robot movement estimation}
+\section{Robot movement estimation} \label{chp31}
  
 \begin{figure}[h!]    
     \centering           
@@ -45,7 +45,7 @@ Let us now consider a situation where there is a $t_d$ seconds delay from when t
 
 \figref{timePlot} plots the visible angular rotation $\alpha$ for the no delay display and the delayed display as a function of time. For the no delay display, visible angular rotation is equal to ROV rotation $\alpha = \theta$. In addition, the horizontal image pixel displacement $P_h$ is plotted with the same time axis.
 
-The PD works by moving the video feed on the operator screen the opposite way of what the ROV is moving. The amount of pixels the video $P_h$ is moved is calculated by equation \ref{pixelturnrate}. In addition, the video is moved back (the same way as the ROV is moving) after $t_d$ seconds has passed. This makes the objects in the video feed appear in the correct position on the operator screen as if there were no delay. Note that the black box in \figref{movie} center column predictor display is in the correct position relative to the no delay display.
+The PD works by moving the video feed on the operator screen the opposite way of what the ROV is moving. The amount of pixels the video $P_h$ is moved is calculated by equation \ref{pixelturnrate}. In addition, the video is moved back (the same way as the ROV is moving) after $t_d$ seconds has passed. This makes the objects in the video feed appear in the correct position on the operator screen as if there were no delay. Note that the black box in \figref{movie} center column predictor display is in the correct position relative to the no delay display. This approach does however assume that the commands will be properly followed by the ROV. But since the prediction is merely an alteration to the last image received, the prediction errors are not cumulative.
 
 
 \begin{figure}[h!]    
@@ -57,38 +57,30 @@ The PD works by moving the video feed on the operator screen the opposite way of
 \end{figure}
 
 \section{Calibration}
-\todo[inline]{
-- calibrated by checking that the frame would stay still when image moves to original position
-}
 
-Although the above argumentation may seem to work fine in theory, the computer needs a function that can run a finite number of times per second to do these calculations. Listing XX shows the pseudocode for how this has been implemented in practice.
+Although the above argumentation may seem to work fine in theory, the computer needs a function that can run a finite number of times per second to do these calculations. Algorithm \ref{predictorAlg} shows the pseudocode for how this has been implemented in practice.
+
+The horizontal pixel displacement $P_h$ is initialized as zero. Then, the \textsc{predictor display} function is called at a set interval $dt$. The rate of these calls should happen at least as fast as the frame rate of the video (fps). With a fps of 30, the interval should be $dt <= 1/30 \approx 33 ms$. The change in horizontal pixel displacement $\Delta P_h$ is then calculated from equation \ref{pixelturnrate} and the interface is updated with the new $P_h$. In addition, an asynchronous call is done on the \textsc{move back} function so that the video is moved back to it's original position after a time of $t_d$ has passed. It has to be an asynchronous call so that the main program is not blocked when \textsc{move back} function is waiting.
 
 \input{./snippet/algo}
 
 \section{Visualization}
-\todo[inline]{
-- rename to implementation?
 
-- viewed in browser
+\figref{predictorvis} shows the predictor display implemented in the experiment, which is explained in chapter \ref{chpMethod}. It contains the video feed from the ROV, in addition to a red arrow to visualize the prediction. The operator has recently turned the ROV to the right, and as a result the movie has moved to the left. The red arrow has not moved and works as an indication of where the ROV will be heading when video feed has caught up with the time delay. To see how this works in practice, the reader can visit the link \textbf{TODO} to watch a video of the predictor screen.
 
-- css margin change
+The operator views the predictor screen through a web browser. The predictor algorithm is written in java script and the video feed is moved around by changing css margin properties. The code can viewed in it's entirety in the appendix part \textbf{TODO}.
 
-- edited by js functions
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{visualization}
+    \caption{Predictor display visualization}
+    \label{predictorvis}
+\end{figure}
 
-- key queues, js delay
-}
+\section{Extending and generalizing}\label{expand}
 
-\missingfigure{image of the video showing arrow}
+The pixel turn rate $\eta$ described in section \ref{chp31} was related to the rotation of the ROV. A similar constant can be found for the \emph{pixel scale rate}, which relates how the the video should scale when the ROV moves back and fourth. It's a bit more complicated since the apparent scaling of objects in the frame depends on how far they are away, but by using an average distance this can at least be approximated. The same approach as in Algorithm \ref{predictorAlg} can then be used for backward and forward motion to manipulate the scale of the video feed.
 
-\section{Extending}\label{expand}
+In the case of a varying magnitude of left, right, forward and backward movements. Such if the operator is using a joystick with variable output, the PD has to account for this. This can be achieved by applying an adjustment factor to the pixel turn/scale rate proportionate to the magnitude of the command.
 
-\todo[inline]{
-- different kind of movement
-
-- different ROV's
-
-- Assume these commands will be properly followed by the rover, but the error is not cumulative.
-}
-
-\citep{Zheng2016}:
- "Besides robustness, a model-free approach would also have the benefit of decoupling the predictor design from the vehicle design, thus providing more flexibility for using the same predictor for different vehicles. Furthermore,"
+The predictor display can then be applied to all moving ROV's. It's just a matter of finding the correct pixel turn/scale rate and adjustment factor's corresponding to how the ROV is moving. A submersible ROV would typically have a much lower pixel turn/scale rate because of water friction.
