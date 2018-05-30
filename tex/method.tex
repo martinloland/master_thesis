@@ -30,7 +30,19 @@ The participants were voluntary selected from the NTNU Department of Mechanical 
     \label{expsetup}
 \end{figure}
 
-\figref{expsetup} shows an overview of the experimental setup.
+\figref{expsetup} shows an overview of the experimental setup. A 17 inch laptop running with a 2.3GHz Intel Core i7-3610QM CPU and Windows 10 were used as the operator's control device. This was connected to the ROV through a direct Ethernet connection. The ROV, \figref{setup3}, was a three wheeled robot running a Raspberry Pi 3 Model B+. Two of the wheels where connected to each their DC-motor while the third one was a caster wheel for support. The ROV was equipped with a forward facing Raspberry Pi Camera V2 with a wide angle lens attached. The robot were running the eduROV software outlined in chapter \ref{chpEdurov}. This software was responsible for serving the control interface, handling commands, logging experiment data and adding the desired latency to the communication.
+
+One by one, i random order, the round LED would light up. The operator was then tasked to maneuver the ROV such that the black peg would go inside the corresponding hole. A light sensor inside the hole would register this as a \emph{hit} which would cause the LED to turn off, and one of the other two would light up. The participant were told to make as many \emph{hits} as possible in the course of 90 seconds.
+
+The participant would repeat this task a total of three times, using three different displays / conditions. The order of these conditions followed a 3x3 Latin Square Design, to eliminate the order effect. Condition one had a total delay of 700 ms which includes the inherent delay of the system 250ms, plus the added delay of 450 ms. Condition two had the same delay as condition one, but with the predictive display in effect. The third condition had no added delay and only the inherent delay of 250ms. No predictive technology were used in the third condition.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{setup-3}
+    \caption{Three wheeled robot used in experiment.}
+    \label{setup3}
+\end{figure}
+
 
 
 keep it simple to reduce variance i results, but complex enough that the effects of video delay would be noticeable (and predictor could help)
