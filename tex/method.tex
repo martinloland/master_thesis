@@ -1,4 +1,4 @@
-The goal of the experiment was measure the performance change in a maneuvering task using a predictor display based on image transformation on a real ROV. The participants were given a modified "peg-in-hole" task, where the peg was mounted on a remotely controlled ground vehicle and the holes were rectangular holes in a wooden box.
+The goal of the experiment was to measure the performance change in a maneuvering task using a predictor display based on image transformation on a real ROV. The participants were given a modified "peg-in-hole" task, where the peg was mounted on a remotely controlled ground vehicle and the holes were rectangular holes in a wooden box.
 
 %A camera was mounted on the ROV such that the operator could see the peg and holes. The goal of the experiment was to measure the operator's navigational performance difference using two different display types. Both displays would use the same fixed delay, but the second would use predictive technology to visualize instant robot responses. The first display would contain a delayed video feed from an ROV while the other display used predictive visualization with the same delay. The participants were given a task of maneuvering the UGV to three specific locations as many times as possible in the course of 90 seconds.
 
@@ -9,19 +9,8 @@ The participants were voluntary selected from the NTNU Department of Mechanical 
 35.1\% of the participants were female and the total group had an average age of 24.7 years with an standard deviation of 1.45. 100\% of the group reported that they use a computer on a daily basis. When asked how often he or she play video games (computer or console), the distribution were as follows: daily 4\%, weekly 26\%, monthly 14\%, yearly 30\% and never 26\%.
 
 \section{Experimental design}
-\todo[inline]{
-- robot
 
-- controlling (can not see robot)
-
-- delay
-
-- task
-
-- testing Fitt's law
-
-- layout of the button case
-}
+\subsection{Equipment}
 
 \begin{figure}[h!]
     \centering
@@ -30,101 +19,57 @@ The participants were voluntary selected from the NTNU Department of Mechanical 
     \label{expsetup}
 \end{figure}
 
-\figref{expsetup} shows an overview of the experimental setup. A 17 inch laptop running with a 2.3GHz Intel Core i7-3610QM CPU and Windows 10 were used as the operator's control device. This was connected to the ROV through a direct Ethernet connection. The ROV, \figref{setup3}, was a three wheeled robot running a Raspberry Pi 3 Model B+. Two of the wheels where connected to each their DC-motor while the third one was a caster wheel for support. The ROV was equipped with a forward facing Raspberry Pi Camera V2 with a wide angle lens attached. The robot were running the eduROV software outlined in chapter \ref{chpEdurov}. This software was responsible for serving the control interface, handling commands, logging experiment data and adding the desired latency to the communication.
+\figref{expsetup} shows an overview of the experimental setup. A 17 inch laptop running with a 2.3GHz Intel Core i7-3610QM CPU and Windows 10 together with the arrow keys were used as the operator's control device. This was connected to the ROV through a direct Ethernet connection. 
 
-One by one, i random order, the round LED would light up. The operator was then tasked to maneuver the ROV such that the black peg would go inside the corresponding hole. A light sensor inside the hole would register this as a \emph{hit} which would cause the LED to turn off, and one of the other two would light up. The participant were told to make as many \emph{hits} as possible in the course of 90 seconds.
+The ROV, \figref{setup3}, was a three wheeled robot running a Raspberry Pi 3 Model B+. Two of the wheels where connected to each their DC-motor while the third one was a caster wheel for support. The ROV was equipped with a forward facing Raspberry Pi Camera V2 with a wide angle lens attached. The robot was running the eduROV software outlined in chapter \ref{chpEdurov}. This software was responsible for serving the control interface, handling control commands, logging experiment data and adding the desired latency to the communication. The robot was outside the field of view of the operator. The participants also wore an ear protection headset to remove audible feedback.
 
-The participant would repeat this task a total of three times, using three different displays / conditions. The order of these conditions followed a 3x3 Latin Square Design, to eliminate the order effect. Condition one had a total delay of 700 ms which includes the inherent delay of the system 250ms, plus the added delay of 450 ms. Condition two had the same delay as condition one, but with the predictive display in effect. The third condition had no added delay and only the inherent delay of 250ms. No predictive technology were used in the third condition.
+A wooden box with three holes and LED's were used to register task performance. The distance between the holes (center to center) was $D=30cm$ while the holes itself has a width of $W=10cm$. This translates to a Fitts's \emph{index of difficulty} of $I_d=log_2\left ( 2D/W \right )=2.58\: bits$ \citep{Fitts1954}.
+
+\subsection{Task}\label{task}
+
+One by one, i random order, the round LED on the button box would light up. The operator was then tasked to maneuver the ROV such that the black peg would go inside the corresponding hole. A light sensor inside the hole would register this as a \emph{hit}. This would cause the LED to turn off and one of the other two to turn on. The participants were told to make as many \emph{hits} as possible in the course of 90 seconds.
+
+The participants would repeat this task a total of three times, using three different displays / conditions. The order of these conditions followed a 3x3 Latin Square Design, to eliminate the order effect. Condition one had a total delay of 700 ms which included the inherent delay of the system 250ms, plus the added delay of 450 ms. Condition two had the same delay as condition one, but with the predictive display in effect. The third condition had no added delay and only the inherent delay of 250ms. No predictive technology was used in the third condition. The total latency of 700 ms were chosen because it's below the reported threshold for a "move and wait" strategy \citep{Chen2007} and above a what is considered a difficult level in many situations.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\textwidth]{setup-3}
+    \includegraphics[width=0.65\textwidth]{setup-3}
     \caption{Three wheeled robot used in experiment.}
     \label{setup3}
 \end{figure}
 
+Many of the experiments previously mentioned in table \ref{reviewPred} used a single task and measured the task completion time in different conditions. This experiment however was designed with a single simple task and measured the achieved score in the course of a fixed time period. There are multiple reasons for this choice. 
 
+First, to reduce the learning effect that would accompany a longer maneuvering course. Some of the authors in table \ref{reviewPred} reported that the participants performed better for each try when they started to learn the obstacle course. It can be argued that a longer course would require more time to reduce the learning effect. 
 
-keep it simple to reduce variance i results, but complex enough that the effects of video delay would be noticeable (and predictor could help)
+Secondly, \citep{Chen2007} reported that the benefit of PD is very task dependent. An easy task was therefore chosen to minimize the effect that task complexity had on the performance results. 
 
-other experiments where "task completion time" is used may have been limited by the speed of the robot / got stuck in the walls
+Thirdly, some experiments with real or simulated driving have long stretches with forward motion. The PD provides little help in these situations but still contribute to the task completion time in the same way. A task which required the operator to move from side to side as much as possible was therefore chosen. In addition, by not letting the operator accelerate to maximum ROV velocity, ceiling effects from vehicle limitations were reduced. 
 
-"human subject experiments"
+As a fourth argument, a fixed task time made the experiment length much more predictable. Subjects used on average 10 minutes and 56 seconds with a standard deviation of 1 min and 12 s to perform the whole experiment. This again made it easier to recruit new subjects. 
 
-avoid ceiling effects (to slow robot/to easy tasks)
-
-robot software, electronics, equipment, 2 DOF, rotation and forward/backward
-
-relevant delay for wireless high definition low cost solution, or very long range (digital), what are the delays
-
+As a last argument, the combination of score achievement and time pressure made the subjects fully devoted to the task at hand, such that they performed to their potential.
 
 \section{Procedure}
-\todo[inline]{
-- groups
 
-- what information were they given
+After entering the experiment room, the participants were able to look at the ROV with the button box to get a sense of situational awareness. From that point on, the subject was facing the other way and looking at the computer screen. All the necessary information was given on the screen.
 
-- training
+First, the subject S was presented with an initial form collecting demographic data and an information page describing experiment theme, how to steer the robot, the participant's goal and how the experiment would proceed. This can be found in the appendix, page \textbf{TODO}. The S was then automatically assigned to a group as defined by subsection \ref{task}. S would then perform a 30 seconds long practice period followed by a 90 seconds long counting test. This was done repeatedly for all of the three conditions. At the end of each test, the S was asked to fill out a test questionnaire.  After each practice and test run, the ROV was repositioned to it's original position defined by the black markings in \figref{setup3}.
 
-- time of experiment
-
-- reposition of robot
-
-- demographics at start
-
-- answered survey for each exp
-}
-
-running a warmup where the user familiarizes himself with the input device and kinematics of the robot
-
-\citep{Lu2018} "Condition order followed a 3x3 Latin-Square Design, so as to eliminate the order effect"
-
-"delay conditions were presented to the participants in a counterbalanced order to control for possible learning effects."
-
-info: goal of exp, be awera of wall, rocker wheel, information page
-
-were NOT told that one of the displays is a predictor displays
+The S was \emph{not} told that one of the conditions would contain a predictor display or how the predictor display worked.
 
 
 \section{Data recording}
-\todo[inline]{
-- Hits / Score at time
 
-- camera
+All the data was recorded with the onboard computer on the ROV using a SQLite database. This included, demographics, experiment questionnaire data, hits made by the subjects, number of key presses and more. Time stamp data was also recorded for each hit and the test start and end. A total of 11865 data points were collected during the testing period.
 
-- NASA TLX
-
-- keypresses
-
-- surveys
-
-- SQLite
-}
-
-"(Three) metrics are used to quantify performance;"
-
-"steering control effort is monitored to assess drivability" (TLX)
-
+The test questionnaire that was completed for each condition included a NASA TLX (task load index) form \citep{Hart1988}, in addition the S had to guess the total delay that they just experienced. This questionnaire can be found in the appendix at page \textbf{TODO}.
 
 \section{Performance analysis}
-\todo[inline]{
-- how was the performance quantified
 
-- normalization (Yip2011)
 
-- t-test when comparing two displays, ANOVA when comparing three
+The number of hit's made by the S in the course of 90 seconds was used to quantify performance. This score was normalized in the same way as \citep{Rachmielowski2010} and \citep{Lovi2014} did in their analysis. First, the S's number of hits in a specific condition is divided by the total number of hit's in all three conditions. It is then multiplied with the average score in that condition for all participants.
 
-- t-test: scipy.stats.ttest\_rel
+To determine the statistical difference between conditions a two-sided paired sample t-test was used. In practice, this was calculated using the \texttt{scipy.stats.ttest\_rel} function which is a part of the SciPy python library. In the results section, the t-statistics is reported as \emph{t}, the two-tailed p-value as \emph{p} and the degrees of freedom $n-1$ as \emph{df}.
 
-- cohens d: appendix
-
-- \citep{Rachmielowski2010} and \citep{Lovi2014} Normalized data the same way
-
-- APA style
-
-- effect size
-
-- paried sample t-test
-
-- T value means that they are 4 times more different from each other than they are within
-}
+The effects size, which describes the magnitude of difference between conditions was calculated using the Cohen's d formula. This value is reported as \emph{d} in the results. The formulas used for the t-test and Cohen's d can be found in the appendix at page \textbf{TODO}.
