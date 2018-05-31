@@ -14,22 +14,22 @@ The participants were voluntary selected from the NTNU Department of Mechanical 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\textwidth]{setup-2}
+    \includegraphics[width=0.8\textwidth]{setup-2}
     \caption{Experimental setup.}
     \label{expsetup}
 \end{figure}
 
 \figref{expsetup} shows an overview of the experimental setup. A 17 inch laptop running with a 2.3GHz Intel Core i7-3610QM CPU and Windows 10 together with the arrow keys were used as the operator's control device. This was connected to the ROV through a direct Ethernet connection. 
 
-The ROV, \figref{setup3}, was a three wheeled robot running a Raspberry Pi 3 Model B+. Two of the wheels where connected to each their DC-motor while the third one was a caster wheel for support. The ROV was equipped with a forward facing Raspberry Pi Camera V2 with a wide angle lens attached. The robot was running the eduROV software outlined in chapter \ref{chpEdurov}. This software was responsible for serving the control interface, handling control commands, logging experiment data and adding the desired latency to the communication. The robot was outside the field of view of the operator. The participants also wore an ear protection headset to remove audible feedback.
+The ROV, \figref{setup3}, was a three wheeled robot running a Raspberry Pi 3 Model B+. Two of the wheels where connected to each their DC-motor while the third one was a caster wheel for support. The ROV was equipped with a forward facing Raspberry Pi Camera V2. The camera ha a wide angle lens attached with a horizontal FOV of $76.5$ degrees. The robot was running the eduROV software outlined in chapter \ref{chpEdurov}. This software was responsible for serving the control interface, handling control commands, logging experiment data and adding the desired latency to the communication.
 
 A wooden box with three holes and LED's were used to register task performance. The distance between the holes (center to center) was $D=30cm$ while the holes itself has a width of $W=10cm$. This translates to a Fitts's \emph{index of difficulty} of $I_d=log_2\left ( 2D/W \right )=2.58\: bits$ \citep{Fitts1954}.
 
 \subsection{Task}\label{task}
 
-One by one, i random order, the round LED on the button box would light up. The operator was then tasked to maneuver the ROV such that the black peg would go inside the corresponding hole. A light sensor inside the hole would register this as a \emph{hit}. This would cause the LED to turn off and one of the other two to turn on. The participants were told to make as many \emph{hits} as possible in the course of 90 seconds.
+One by one, i random order, the round LED on the button box would turn on. The operator was then tasked to maneuver the ROV such that the black peg would go inside the corresponding hole. A light sensor inside the hole would register this as a \emph{hit}. This would cause the LED to turn off and one of the other two to turn on. The participants were told to make as many \emph{hits} as possible in the course of 90 seconds.
 
-The participants would repeat this task a total of three times, using three different displays / conditions. The order of these conditions followed a 3x3 Latin Square Design, to eliminate the order effect. Condition one had a total delay of 700 ms which included the inherent delay of the system 250ms, plus the added delay of 450 ms. Condition two had the same delay as condition one, but with the predictive display in effect. The third condition had no added delay and only the inherent delay of 250ms. No predictive technology was used in the third condition. The total latency of 700 ms were chosen because it's below the reported threshold for a "move and wait" strategy \citep{Chen2007} and above a what is considered a difficult level in many situations.
+The participants would repeat this task a total of three times, using three different displays / conditions. The order of these conditions followed a 3x3 Latin Square Design, to eliminate the order effect. Condition one had a total delay of 700 ms which included the inherent delay of the system 250ms, plus the added delay of 450 ms. Condition two had the same delay as condition one, but with the predictive display in effect. The third condition had no added delay and only the inherent delay of 250ms. No predictive technology was used in the third condition. The total latency of 700 ms were chosen because it's below the reported threshold for a "move and wait" strategy \citep{Chen2007} and above what is considered a difficult level in many situations.
 
 \begin{figure}[h!]
     \centering
@@ -40,7 +40,7 @@ The participants would repeat this task a total of three times, using three diff
 
 Many of the experiments previously mentioned in table \ref{reviewPred} used a single task and measured the task completion time in different conditions. This experiment however was designed with a single simple task and measured the achieved score in the course of a fixed time period. There are multiple reasons for this choice. 
 
-First, to reduce the learning effect that would accompany a longer maneuvering course. Some of the authors in table \ref{reviewPred} reported that the participants performed better for each try when they started to learn the obstacle course. It can be argued that a longer course would require more time to reduce the learning effect. 
+First, to reduce the learning effect that would accompany a longer maneuvering course. Some of the authors in table \ref{reviewPred} reported that the participants performed better for each try when they started to learn the obstacle course. I believe that a longer course would require more time to reduce the learning effect.
 
 Secondly, \citep{Chen2007} reported that the benefit of PD is very task dependent. An easy task was therefore chosen to minimize the effect that task complexity had on the performance results. 
 
@@ -48,27 +48,23 @@ Thirdly, some experiments with real or simulated driving have long stretches wit
 
 As a fourth argument, a fixed task time made the experiment length much more predictable. Subjects used on average 10 minutes and 56 seconds with a standard deviation of 1 min and 12 s to perform the whole experiment. This again made it easier to recruit new subjects. 
 
-As a last argument, the combination of score achievement and time pressure made the subjects fully devoted to the task at hand, such that they performed to their potential.
+As a last argument, the combination of score achievement and time pressure made the subjects fully devoted to the task at hand. This made them performed as close as possible to their potential.
 
 \section{Procedure}
 
-After entering the experiment room, the participants were able to look at the ROV with the button box to get a sense of situational awareness. From that point on, the subject was facing the other way and looking at the computer screen. All the necessary information was given on the screen.
+After entering the experiment room, the participants were able to look at the ROV with the button box to get a sense of situational awareness. From that point on, the subject was facing the other way, looking at the computer screen and with the robot outside their FOV. The participants also wore an ear protection headset to remove audible feedback. All the necessary information was given on the screen.
 
-First, the subject S was presented with an initial form collecting demographic data and an information page describing experiment theme, how to steer the robot, the participant's goal and how the experiment would proceed. This can be found in the appendix, page \textbf{TODO}. The S was then automatically assigned to a group as defined by subsection \ref{task}. S would then perform a 30 seconds long practice period followed by a 90 seconds long counting test. This was done repeatedly for all of the three conditions. At the end of each test, the S was asked to fill out a test questionnaire.  After each practice and test run, the ROV was repositioned to it's original position defined by the black markings in \figref{setup3}.
+First, the subject S was presented with an initial form collecting demographic data and an information page describing experiment theme, how to steer the robot, the participant's goal and how the experiment would proceed. This can be found in the appendix, page \textbf{TODO}. The S was then automatically assigned to a group as defined by subsection \ref{task}. The S then perform a 30 seconds long practice period followed by a 90 seconds long real test. This was done repeatedly for all of the three conditions. At the end of each test, the S was asked to fill out a test questionnaire.  After each practice and test run, the ROV was repositioned to it's original position defined by the black markings in \figref{setup3}.
 
 The S was \emph{not} told that one of the conditions would contain a predictor display or how the predictor display worked.
 
+\section{Data recording and analysis}
 
-\section{Data recording}
+All the data was recorded with the onboard computer on the ROV using a SQLite database. This included demographics, experiment questionnaire data, hits made by the subjects, number of key presses and more. Time stamp data was also recorded for each hit and the test start and end. A total of 11865 data points were collected during the testing period.
 
-All the data was recorded with the onboard computer on the ROV using a SQLite database. This included, demographics, experiment questionnaire data, hits made by the subjects, number of key presses and more. Time stamp data was also recorded for each hit and the test start and end. A total of 11865 data points were collected during the testing period.
+The test questionnaire that was completed for each condition included a NASA TLX (task load index) form \citep{Hart1988}, in addition the S had to guess the total delay that they just experienced. This questionnaire can be found in the appendix at page \textbf{TODO}. One modification were done to the NASA TLX form. During the preliminary experiment evaluation, a helper reported that he found it naturally to evaluate a good performance with a high score. In the original questionnaire a low values translates to a good performance. This metric and the corresponding description was reversed such that a high value would reflect a good performance. After data collection, this value was reversed back such that it can be reported inline with convention.
 
-The test questionnaire that was completed for each condition included a NASA TLX (task load index) form \citep{Hart1988}, in addition the S had to guess the total delay that they just experienced. This questionnaire can be found in the appendix at page \textbf{TODO}.
-
-\section{Performance analysis}
-
-
-The number of hit's made by the S in the course of 90 seconds was used to quantify performance. This score was normalized in the same way as \citep{Rachmielowski2010} and \citep{Lovi2014} did in their analysis. First, the S's number of hits in a specific condition is divided by the total number of hit's in all three conditions. It is then multiplied with the average score in that condition for all participants.
+The number of hit's made by the S in the course of 90 seconds was used to quantify performance. This score was normalized in the same way as \citep{Rachmielowski2010} and \citep{Lovi2014} did in their analysis. First, the S's number of hits in a specific condition was divided by the total number of hit's in all three conditions. It was then multiplied with the average score in that condition for all participants.
 
 To determine the statistical difference between conditions a two-sided paired sample t-test was used. In practice, this was calculated using the \texttt{scipy.stats.ttest\_rel} function which is a part of the SciPy python library. In the results section, the t-statistics is reported as \emph{t}, the two-tailed p-value as \emph{p} and the degrees of freedom $n-1$ as \emph{df}.
 
