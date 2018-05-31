@@ -64,8 +64,14 @@ All the data was recorded with the onboard computer on the ROV using a SQLite da
 
 The test questionnaire that was completed for each condition included a NASA TLX (task load index) form \citep{Hart1988}, in addition the S had to guess the total delay that they just experienced. This questionnaire can be found in the appendix at page \textbf{TODO}. One modification were done to the NASA TLX form. During the preliminary experiment evaluation, a helper reported that he found it naturally to evaluate a good performance with a high score. In the original questionnaire a low values translates to a good performance. This metric and the corresponding description was reversed such that a high value would reflect a good performance. After data collection, this value was reversed back such that it can be reported inline with convention.
 
-The number of hit's made by the S in the course of 90 seconds was used to quantify performance. This score was normalized in the same way as \citep{Rachmielowski2010} and \citep{Lovi2014} did in their analysis. First, the S's number of hits in a specific condition was divided by the total number of hit's in all three conditions. It was then multiplied with the average score in that condition for all participants.
+The number of hit's made by the S in the course of 90 seconds was used to quantify performance. This score was normalized in the same way as \citep{Rachmielowski2010} and \citep{Lovi2014} did in their analysis. First, the S's number of hits in a specific condition was divided by the total number of hit's in all three conditions. It was then multiplied with the average score in that condition for all participants. The same normalization has also been done on the reported subjective delay for each condition.
 
 To determine the statistical difference between conditions a two-sided paired sample t-test was used. In practice, this was calculated using the \texttt{scipy.stats.ttest\_rel} function which is a part of the SciPy python library. In the results section, the t-statistics is reported as \emph{t}, the two-tailed p-value as \emph{p} and the degrees of freedom $n-1$ as \emph{df}.
 
 The effects size, which describes the magnitude of difference between conditions was calculated using the Cohen's d formula. This value is reported as \emph{d} in the results. The formulas used for the t-test and Cohen's d can be found in the appendix at page \textbf{TODO}.
+
+\todo[inline]{
+linear regression
+
+\texttt{scipy.stats.linregress}
+}
