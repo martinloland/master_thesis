@@ -68,6 +68,8 @@ The number of hit's made by the S in the course of 90 seconds was used to quanti
 
 To determine the statistical difference between conditions a two-sided paired sample t-test was used. In practice, this was calculated using the \texttt{scipy.stats.ttest\_rel} function which is a part of the SciPy python library. In the results section, the t-statistics is reported as \emph{t}, the two-tailed p-value as \emph{p} and the degrees of freedom $n-1$ as \emph{df}.
 
+When comparing scores based on demographic groups, the variables are no longer dependent. In those cases, a two-sided Welch’s t-test is performed instead. This has been computed using the \texttt{scipy.stats.ttest\_ind} function. The statistics is reported in the same fashion as in the dependent case, only difference is that the degrees of freedom is calculated using the Welch–Satterthwaite equation \citep{Allwood2008}.
+
 The effects size, which describes the magnitude of difference between conditions was calculated using the Cohen's d formula. This value is reported as \emph{d} in the results. The formulas used for the t-test and Cohen's d can be found in the appendix at page \textbf{TODO}.
 
 \todo[inline]{
