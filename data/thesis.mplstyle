@@ -66,3 +66,7 @@ legend.framealpha    : None
 legend.edgecolor     : inherit
 legend.shadow        : False
 legend.fontsize      : medium
+
+### Ticks
+xtick.direction      : out
+ytick.direction      : out
