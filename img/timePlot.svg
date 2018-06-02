@@ -339,16 +339,16 @@
          id="tspan9071"
          x="356.48322"
          y="282.06357"
-         style="font-size:21.16666603px;stroke-width:0.26458332">No delay</tspan></text>
+         style="font-size:21.16666603px;stroke-width:0.26458332">No delay, $\alpha = \theta$</tspan></text>
     <text
        id="text9077"
-       y="350.77118"
-       x="738.85632"
+       y="372.67798"
+       x="696.03851"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:21.16666603px;stroke-width:0.26458332"
-         y="350.77118"
-         x="738.85632"
+         y="372.67798"
+         x="696.03851"
          id="tspan9075"
          sodipodi:role="line">Delay</tspan></text>
     <path
@@ -386,12 +386,12 @@
     <text
        id="text9666"
        y="359.66586"
-       x="135.77252"
+       x="114.60587"
        style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:17.63888931px;text-align:end;text-anchor:end;stroke-width:0.26458332"
          y="359.66586"
-         x="135.77252"
+         x="114.60587"
          id="tspan9664"
          sodipodi:role="line">$\omega$</tspan></text>
     <path
@@ -401,15 +401,15 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-74.333519"
+       style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-99.733513"
        y="307.88617"
        id="text9702"><tspan
          sodipodi:role="line"
          id="tspan9700"
-         x="-74.333519"
+         x="-99.733513"
          y="307.88617"
-         style="font-size:17.63888931px;text-align:end;text-anchor:end;stroke-width:0.26458332">$\theta$</tspan></text>
+         style="font-size:17.63888931px;text-align:start;text-anchor:start;stroke-width:0.26458332">$\alpha$</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInM);marker-end:url(#TriangleOutM)"
        d="m 403.2841,301.89759 v 84.80232"
@@ -428,62 +428,62 @@
          style="font-size:17.63888931px;text-align:start;text-anchor:start;stroke-width:0.26458332">$\Delta \theta$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:17.63888889px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-       x="952.66211"
-       y="449.08795"
+       style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="969.59552"
+       y="448.55878"
        id="text10148"><tspan
          sodipodi:role="line"
          id="tspan10146"
-         x="952.66211"
-         y="449.08795"
-         style="stroke-width:0.26458332;font-size:17.63888889px;">t</tspan></text>
+         x="969.59552"
+         y="448.55878"
+         style="font-size:17.63888931px;stroke-width:0.26458332">t</tspan></text>
     <text
        id="text10152"
-       y="449.08795"
+       y="507.29617"
        x="98.892738"
        style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:17.63888931px;text-align:start;text-anchor:start;stroke-width:0.26458332"
-         y="449.08795"
+         y="507.29617"
          x="98.892738"
          id="tspan10150"
-         sodipodi:role="line">t=0</tspan></text>
+         sodipodi:role="line">$t=0$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="335.82608"
-       y="449.08795"
+       y="507.29617"
        id="text10156"><tspan
          sodipodi:role="line"
          id="tspan10154"
          x="335.82608"
-         y="449.08795"
+         y="507.29617"
          style="font-size:17.63888931px;text-align:start;text-anchor:start;stroke-width:0.26458332">$t=\Delta t$</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 94.597505,471.61949 H 571.56807"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 94.597505,435.10697 H 571.56807"
        id="path10158"
        inkscape:connector-curvature="0" />
     <text
        id="text10162"
-       y="495.55927"
-       x="331.60141"
+       y="457.98849"
+       x="373.93466"
        style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:17.63888931px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         y="495.55927"
-         x="331.60141"
+         y="457.98849"
+         x="373.93466"
          id="tspan10160"
-         sodipodi:role="line">$\t_d$</tspan></text>
+         sodipodi:role="line">$t_d$</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 94.597505,462.48306 V 480.4068"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 94.597505,425.97054 v 17.92374"
        id="path10164"
        inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
        id="path10168"
-       d="M 571.56808,462.48306 V 480.4068"
+       d="m 571.56808,425.97054 v 17.92374"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        inkscape:connector-curvature="0"
@@ -493,23 +493,23 @@
     <text
        id="text10186"
        y="543.43304"
-       x="-74.333519"
-       style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-105.02518"
+       style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         style="font-size:17.63888931px;text-align:end;text-anchor:end;stroke-width:0.26458332"
+         style="font-size:17.63888931px;text-align:start;text-anchor:start;stroke-width:0.26458332"
          y="543.43304"
-         x="-74.333519"
+         x="-105.02518"
          id="tspan10184"
          sodipodi:role="line">$P_h$</tspan></text>
     <text
        id="text10190"
-       y="602.98224"
-       x="952.66211"
+       y="602.45306"
+       x="969.59552"
        style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:17.63888931px;stroke-width:0.26458332"
-         y="602.98224"
-         x="952.66211"
+         y="602.45306"
+         x="969.59552"
          id="tspan10188"
          sodipodi:role="line">t</tspan></text>
     <path
@@ -535,24 +535,24 @@
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
        id="text11774"
-       y="685.66925"
+       y="696.25262"
        x="179.54826"
        style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:17.63888931px;stroke-width:0.26458332"
-         y="685.66925"
+         y="696.25262"
          x="179.54826"
          id="tspan11772"
          sodipodi:role="line">$1$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="133.97183"
+       x="118.09683"
        y="639.86414"
        id="text11778"><tspan
          sodipodi:role="line"
          id="tspan11776"
-         x="133.97183"
+         x="118.09683"
          y="639.86414"
          style="font-size:17.63888931px;text-align:end;text-anchor:end;stroke-width:0.26458332">$\eta$</tspan></text>
     <path
@@ -562,12 +562,12 @@
        inkscape:connector-curvature="0" />
     <text
        id="text11788"
-       y="449.08795"
+       y="507.29617"
        x="814.62152"
        style="font-style:normal;font-weight:normal;font-size:17.63888931px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         style="font-size:10.58333333px;text-align:start;text-anchor:start;stroke-width:0.26458332"
-         y="449.08795"
+         style="font-size:17.63888931px;text-align:start;text-anchor:start;stroke-width:0.26458332"
+         y="507.29617"
          x="814.62152"
          id="tspan11786"
          sodipodi:role="line">$t=\Delta t+t_d$</tspan></text>

@@ -66,14 +66,14 @@ The test questionnaire that was completed for each condition included a NASA TLX
 
 The number of hit's made by the S in the course of 90 seconds was used to quantify performance. This score was normalized in the same way as \citep{Rachmielowski2010} and \citep{Lovi2010} did in their analysis. First, the S's number of hits in a specific condition was divided by the average number of hit's in all three conditions for that S. It was then multiplied with the average score in that condition for all participants. The same normalization has also been done on the reported subjective delay for each condition.
 
-To determine the statistical difference between conditions a two-sided paired sample t-test was used. In practice, this was calculated using the \texttt{scipy.stats.ttest\_rel} function which is a part of the SciPy python library. In the results section, the t-statistics is reported as \emph{t}, the two-tailed p-value as \emph{p} and the degrees of freedom $n-1$ as \emph{df}.
+To determine the statistical difference between conditions a two-sided paired sample t-test was used. This was calculated using the \texttt{scipy.stats.ttest\_rel} function which is a part of the SciPy python library, \citep{scipy}. In the results section, the t-statistics is reported as \emph{t}, the two-tailed p-value as \emph{p} and the degrees of freedom $n-1$ as \emph{df}. A difference is reported as significant if $p\le 0.05$.
 
 When comparing scores based on demographic groups, the variables are no longer dependent. In those cases, a two-sided Welch’s t-test is performed instead. This has been computed using the \texttt{scipy.stats.ttest\_ind} function. The statistics is reported in the same fashion as in the dependent case, only difference is that the degrees of freedom is calculated using the Welch–Satterthwaite equation \citep{Allwood2008}.
 
 The effects size, which describes the magnitude of difference between conditions was calculated using the Cohen's d formula. This value is reported as \emph{d} in the results. The formulas used for the t-test and Cohen's d can be found in the appendix at page \textbf{TODO}.
 
-\todo[inline]{
-linear regression
+When testing for linear relationships between dependent and independent variables, linear least-squares regression is used. It has been calculates using the \texttt{scipy.stats.linregress} function. The R-squared correlation coefficient is reported as $R^2$.
 
-\texttt{scipy.stats.linregress}
+\todo[inline]{
+drop linear regression, thin ice.
 }
