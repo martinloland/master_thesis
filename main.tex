@@ -17,10 +17,12 @@
 {\setstretch{1.0}
 \tableofcontents
 
+\phantomsection
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
 \cleardoublepage
 
+\phantomsection
 \addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
 \cleardoublepage
@@ -54,10 +56,12 @@
 
 \begin{appendices}\label{appendix}
 
-\chapter{eduROV documentation}
+\chapter*{eduROV documentation}\label{appDoc}
+\addcontentsline{toc}{section}{A eduROV documentation}
 \includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/edurovDoc.pdf}
 
-\chapter{eduROV package code}
+\chapter*{eduROV package code}\label{appCode}
+\addcontentsline{toc}{section}{B eduROV package code}
 \includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/edurovCode.pdf}
 
 \end{appendices}
