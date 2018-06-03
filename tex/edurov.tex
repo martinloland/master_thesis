@@ -39,7 +39,7 @@ In summary, there wasn't really any good software alternatives for the eduROV pr
 
 \section{Development}
 
-All popular and well known packages in the python community is developed inline with the \emph{Python Packaging User Guide}\footnote{\url{https://packaging.python.org/}}. This guide establishes multiple rules on how packages should be developed and distributed. In comparison it is always possible to upload code to a remote repository and ask people to download it from there. But there are many good reasons why any serious actors use this method. By distributing the code through the \emph{Python Package Index}, anyone can install the package by running \texttt{"pip install edurov"} in a command terminal. No need to visit any websites or copy any files. This command will download install the required files automatically. Second reason is that this greatly simplifies the process of documentation. By creating special files as stated by the guidelines, a separate website with all the documentation is created and uploaded automatically. It also specifies rules for a versioning scheme. This let's the developer create alpha, beta, release candidates and deployment versions of the software. It makes it easy to make sure that everything is tested properly before it get's publicly available.
+All popular and well known packages in the python community is developed inline with the \emph{Python Packaging User Guide}\footnote{\url{https://packaging.python.org/}}. This guide establishes multiple rules on how packages should be developed and distributed. In comparison it is always possible to upload code to a remote repository and ask people to download it from there. But there are many good reasons why any serious actors use this method. By distributing the code through the \emph{Python Package Index}, anyone can install the package by running \texttt{"pip install edurov"} in a terminal. No need to visit any websites or copy any files. This command will download install the required files automatically. Second reason is that this greatly simplifies the process of documentation. By creating special files as stated by the guidelines, a separate website with all the documentation is created and uploaded automatically. It also specifies rules for a versioning scheme. This let's the developer create alpha, beta, release candidates and deployment versions of the software. It makes it easy to make sure that everything is tested properly before it get's publicly available.
 
 Git version control was used throughout the project. All the code was uploaded to the remote repository at \url{https://github.com/trolllabs/eduROV}. Git branches was used for rapid prototyping of different ideas. This meant that different approaches were developed concurrently in each their branch. They were then removed one after another as it became clear that the approach did not meet the requirements.
 
@@ -47,7 +47,7 @@ In the first phase of the development which contained very different branches, t
 
 The second method was based upon a very different approach. This method started a web server on the ROV which could then be viewed on any device connected to the same network as the ROV. This meant that the operator would not have to install any software on his or hers computer. It also meant that the UI would be created using html and css instead of pure python. This approach were chosen for the new eduROV package. It would completely remove the need to install anything on the operator computer. It would make it possible to view the video stream at multiple devices at the same time. In addition, web browsers has been around for a very long time and much effort has been spent on making them as efficient and flexible as possible. By using the browser as a medium it's possible to take advantage of this. Some high schools also have web development and html as part of their curriculum. By basing the the eduROV package on a web server framework it becomes possible to let the operator customize the UI with their knowledge of html and css.
 
-When the main method were chosen, future development were guided by \emph{GitHub issues workflow}. \figref{issues} shows a section of the \emph{issues} page on GitHub.
+When the main method were chosen, proceeding development were administered through the \emph{GitHub issues workflow}\footnote{\url{https://github.com/trolllabs/eduROV/issues}}. \figref{issues} shows a section of the \emph{issues} page on GitHub. On this page, feature requests and bug descriptions were posted by me and one other that tested the software. These were then completed in turn and uploaded as \textit{commits} and \textit{releases}.
 
 \begin{figure}[h!]
     \centering
@@ -57,37 +57,31 @@ When the main method were chosen, future development were guided by \emph{GitHub
 \end{figure}
 
 \section{Architecture}
-\todo[inline]{
-- socket protocols / Pyro4
 
-- HTTP Webserver, ethernet and wifi
+The eduROV package is based upon a HTTP web server framework. This means that any information sent between the ROV and the user is communicated though HTTP GET requests. For increased performance and robustness many of the different tasks are spread on multiple processes running in parallel. This ensures utilization of multiple CPU cores. The \emph{Pyro4}\footnote{\url{https://pythonhosted.org/Pyro4/}} python package uses socket TCP communication and were chosen to facilitate transfer of data between processes. It's fast, well maintained and easy to use.
 
-- different processes / Parallelism
+\figref{edurovArchitecture} pictures the flow of information between different processes and parts of the system. When the user interact with the keyboard, this is sent as a HTTP requests to the web server on the ROV. This is a threaded HTTP server, which means that multiple requests can be handled at the same time in different computer threads. The web server will forward this information to the \textit{synchronize process} which is responsible for holding an updated version of all variables. The \textit{Arduino process} checks the synchronize process many times per second and forwards any new key presses to the Arduino through a serial connection, which then moves the motors correspondingly. Sensor values moves in a similar fashion, only in the opposite direction. The camera captures frames, compresses them to .jpg files and store them in a memory buffer. The webserver will then send the image to the web browser as soon it is ready, directly from the buffer. Lastly, the \textit{system monitor process} regularly checks that the drive space and CPU temperature is ok and notifies the synchronize process.
 
-- camera capture
-}
 
-\missingfigure{Graphics showing the architecture, hardware and software}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{edurovArchitecture}
+    \caption{System architecture of the eduROV software.}
+    \label{edurovArchitecture}
+\end{figure}
 
 \section{Graphical user interface}
-\todo[inline]{
-- html and js
 
-- customizable
+\figref{edurov_gui} shows the finished UI. The layout is dynamic which means that it will fit any screen size and ratio. The side panels will stay the same size but the video will shrink and increase in size to what's available. Left panels shows sensor values from the Arduino and RPi. Center section shows the video feed. There is also a roll indicator that shows how the ROV is oriented in the water. This indicator can be toggled on/off from the button menu in the right panel. From this panel the operator has multiple options, such as to arm the robot. If the robot is not armed it will not move. Cinema mode will hide all panels and scale the video feed to it's maximum size. Some of the actions can also be triggered with hotkeys. With this layout, the user can chose whether to view all information or nothing except the video feed. An approach with information in side panels was chosen because \textit{"overlaying information on video feed can potentially lead to cognitive tunneling"}, \citep{Chen2007}.
 
-- in the context of engage
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{edurov_gui}
+    \caption{The graphical user interface in eduROV package.}
+    \label{edurov_gui}
+\end{figure}
 
-- attitude
-}
-
-\citep{Chen2007} "Attitude (i.e., pitch and roll) of a robotic vehicle may be easy to reference when there are other familiar objects (e.g., horizon, buildings, trees, etc.) in the re- mote environment.However, if those reference points are absent and the on-board cameras are fixed, operators sometimes find it surprisingly hard to accurately assess the attitude of their robotic vehicles."
-
-\citep{Wang2004} Gravity-Referenced Attitude Display for Teleoperation of Mobile Robots
-
-\citep{Chen2007} "The ideal view depends on the task; overall awareness and pattern recognition are optimized by exocentric views whereas the immediate environment is often viewed better egocentrically."
-"overlaying information on video feed can potentially lead to cognitive tunneling"
-
-\missingfigure{Image showing the GUI of the eduROV submersible}
+The UI seen above is in the context of the Engage eduROV submersible. But since the UI is created purely in HTML, CSS and JavaScript, any user of the package can customize the look and feel of the webpage in any way he or she would like. In fact, a completely different UI was created for the experiment in chapter \ref{chpMethod}, but still used the eduROV framework for handling requests.
 
 \section{Application programming interface}
 
