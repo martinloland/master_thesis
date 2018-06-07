@@ -1,20 +1,28 @@
-The structure of this report is as follows: in this chapter, the applications and challenges with teleoperation will be discussed. In addition, a walk trough of the most popular methods in predictive technology to combat time delay issues will be presented.
+\section{Thesis structure}
 
-Chapter \ref{chpEdurov} is dedicated to the development of the python package named \textit{eduROV} that was created in conjunction with the Engage eduROV summer school project at Norwegian University of Science and Technology (NTNU). The developed software were also used in the main experiment of this report. For those only concerned in the predictive technology and relevant research, this chapter can be skipped.
+\begin{description}
+\item [Chapter 1:] The current chapter will present the applications and challenges related to teleoperation. In addition, a walk trough of the most popular methods in predictive technology will be presented.
 
-Next, in chapter \ref{chpPredictive} the developed predictor display based on translation movement will be presented. It will explain how the movement of a robot is estimated and how predicted changes are visualized.
+\item [Chapter 2:] Dedicated to the development of the python package \textit{eduROV}. This was created in conjunction with the Engage eduROV summer school project at Norwegian University of Science and Technology (NTNU). For those only concerned in the predictive technology and relevant research, this chapter can be omitted.
 
-Lastly, in chapter \ref{chpMethod} through \ref{chpDiscussion} the method, results and discussion is presented. Only small sections of the code and recorded data is presented in the chapters, but the rest can be found in the appendix at page \pageref{appendix}. \textbf{TODO}
+\item [Chapter 3:] Presents the developed predictor display based on image transformation. It will explain how the movement of a robot is estimated and how predicted changes are visualized.
+
+\item [Chapter 4:] Method, a description of experimental design and procedure of the experiment used to test the developed predictive display.
+
+\item [Chapter 5:] Results, will present the findings of the performed experiment.
+
+\item [Chapter 6:] A discussion on the results that has been achieved compared to earlier research.
+\end{description}
 
 \section{Teleoperation}
 
 
 \subsection{Applications}
-Teleoperation of vehicles has gained popularity since it first became possible. This includes underwater, ground, aerial and space vehicles. The controlled vehcicle is referred to as a \emph{remotely operated vehicle} (ROV). There are many locations and tasks where ROV's are useful. These includes places that are to risky for people, like post disaster areas, underwater operations, space, conflict zones etc. It can also be that using humans is to costly or just impossible. Offshore maintenance and heavy duty mining are some of the tasks. The word \emph{robot} will be used interchangeably with ROV throughout this thesis.
+Teleoperation of vehicles has gained popularity since it first became possible. This includes underwater, ground, aerial and space vehicles. The controlled vehcicle is referred to as a \emph{remotely operated vehicle} (ROV). The word \emph{robot} will also be used interchangeably with ROV throughout this thesis. There are many locations and tasks where ROV's are useful. These includes places that are to risky for people, like post disaster areas, underwater operations, space, conflict zones etc. Other times, using humans is to costly or just impossible. Offshore maintenance and heavy duty mining are some of the tasks. 
 
-In this report the focus has been on teleoperation by the means of camera feed from the ROV (slave), to the remotely human operator (master) and then control signals from operator to the ROV. This form of teleoperation can be effective because it's easy to implement and understand for the operator. Other forms of teleoperation can be without camera feed or by increasing the level of autonomy (LOA). This will not be any focus in this report.
+The focus of this thesis has been on open-looop teleoperation between ROV (slave) and remote human operator (master), by the means of video feedback. The operator views a video feed of the ROV in a remote environment and controls it by control input. This form of teleoperation can be effective because it's easy for the operator to understand and simple to implement. Other forms of teleoperation can be achieved by increasing the level of autonomy (LOA). In such situations, the human operator can be excluded from the control loop. In addition, by using other sensory input than camera feed, a different kind of teleoperation is attained. None of these will any focus in this thesis.
 
-In addition, only unmanned vehicles will be considered. Although a unmanned ground vehicle (UGV) has been used in the experiment, the findings can be applied to teleoperation of all types of vehicles, that be aerial, ground, underwater and space. It does however not apply to situations where the camera is in a fixed position and rotation. This configuration is often used in telemedicine \citep{Kumcu2017} or robot arm manipulation \citep{Bejczy1990}.
+Although an unmanned ground vehicle (UGV) has been used in the experiment, the findings can be applied to teleoperation of all types of vehicles, that be aerial, ground, underwater and space. It does however not apply to situations where the camera is in a fixed position and rotation. This configuration is often used in telemedicine \citep{Kumcu2017} or robot arm manipulation \citep{Bejczy1990}.
 
 \subsection{Telepresence}
 
@@ -101,11 +109,12 @@ The \textit{projected display} method described by \citep{Matheson2013} is proba
 
 There seems to be a lack of quantitative research on the topic if simple video manipulation predictor displays, used to control ROV's with a medium communication delay in the range of 500-3000 ms. Therefore, this thesis aimed to study the following hypotheses:
 
-\begin{itemize}
-\item H1: a simple predictor display based on image transformation can 
+\begin{description}
+\item[H1:] A simple predictor display based on image transformation can 
  increase the operator performance
- \item H2: a simple predictor display based on image transformation will decrease the operator's subjective workload
-\end{itemize}
+ 
+ \item[H2:] A simple predictor display based on image transformation will decrease the operator's subjective workload
+\end{description}
 
 \section{Engage eduROV}
 
