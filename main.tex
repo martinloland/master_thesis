@@ -8,7 +8,8 @@
 \pagenumbering{roman}
 
 \begin{document}
-
+blank page
+\cleardoublepage
 
 \begingroup
 \let\cleardoublepage\clearpage
@@ -20,7 +21,7 @@
 
 \endgroup
 
-{\setstretch{1.0}
+{\setstretch{1.6}
 \tableofcontents
 
 \phantomsection
@@ -36,7 +37,7 @@
 {\setstretch{1.5}
 \pagenumbering{arabic}
 %\let\cleardoublepage\cleardoublepage
-\chapter{Introduction} \label{chpIntroduction}
+\chapter{Introduction and theory} \label{chpIntroduction}
 	\input{./tex/intro}	
 	
 \chapter{eduROV python package}\label{chpEdurov}

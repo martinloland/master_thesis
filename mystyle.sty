@@ -16,8 +16,15 @@
 
 % Chapter titles
 \usepackage{titlesec}
-\titleformat{\chapter}{\Huge\bf}{\thechapter}{20pt}{\Huge\bf}
-\titlespacing*{\chapter}{0pt}{0pt}{3pt}
+\titleformat{\chapter}{\LARGE\bf}{\thechapter}{20pt}{\LARGE\bf}
+\titleformat{\chapter}{\LARGE\bf}{\thechapter}{20pt}{\LARGE\bf}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+\titlespacing*{\chapter}{0pt}{-50pt}{3pt}
+\titlespacing*{\subsection}{0pt}{10pt}{5pt}
+\titlespacing*{\section}{0pt}{15pt}{5pt}
 
 % Include pdf pages
 \usepackage[final]{pdfpages}
