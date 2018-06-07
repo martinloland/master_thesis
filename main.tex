@@ -9,10 +9,16 @@
 
 \begin{document}
 
+
+\begingroup
+\let\cleardoublepage\clearpage
+
+
 \input{./tex/abstract}
-%\clearpage
+%\let\cleardoublepage\clearpage
 \input{./tex/sammendrag}
-%\clearpage
+
+\endgroup
 
 {\setstretch{1.0}
 \tableofcontents
@@ -29,6 +35,7 @@
 }
 {\setstretch{1.5}
 \pagenumbering{arabic}
+%\let\cleardoublepage\cleardoublepage
 \chapter{Introduction} \label{chpIntroduction}
 	\input{./tex/intro}	
 	

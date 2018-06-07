@@ -12,6 +12,12 @@
 \usepackage{lipsum}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float}
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+
+% Chapter titles
+\usepackage{titlesec}
+\titleformat{\chapter}{\Huge\bf}{\thechapter}{20pt}{\Huge\bf}
+\titlespacing*{\chapter}{0pt}{0pt}{3pt}
 
 % Include pdf pages
 \usepackage[final]{pdfpages}
@@ -22,6 +28,7 @@
 
 % Titles
 \renewcommand{\contentsname}{Table of contents}
+
 
 % Reference / appendix
 \usepackage[sorting=none, maxnames=1, style=authoryear, backend=biber,natbib]{biblatex}
@@ -51,10 +58,9 @@
 \usepackage[nodisplayskipstretch]{setspace}
 \setstretch{1.5}
 \usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}
-%\usepackage[margin=25.4mm, top=15.4mm]{geometry}
 
 %spacing in matrices
-\renewcommand{\arraystretch}{.9}
+\renewcommand{\arraystretch}{1.2}
 
 %add text to equation reference
 \let\oldref\eqref
@@ -83,11 +89,11 @@
 \usepackage{tabularx}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \usepackage{rotating}
+\usepackage{makecell}
 
 % toc in bookmarks
 
 \makeatletter
-\usepackage{etoolbox}
 \pretocmd{\tableofcontents}{%
   \if@openright\cleardoublepage\else\clearpage\fi
   \pdfbookmark[0]{\contentsname}{toc}%
@@ -102,4 +108,19 @@
 %\usepackage[table,xcdraw]{xcolor}
 %\setlist[itemize]{topsep=8pt}
 %\renewcommand{\baselinestretch}{1.5}
-%\usepackage[parfill]{parskip}
+\usepackage[parfill]{parskip}
+
+%\makeatletter
+%% \patchcmd{<cmd>}{<search>}{<replace>}{<success>}{<failure>}
+%% --- Patch \chapter
+%\patchcmd{\@makechapterhead}{50\p@}{\chapheadtopskip}{}{}% Space from top of page to CHAPTER X
+%\patchcmd{\@makechapterhead}{20\p@}{\chapheadsep}{}{}% Space between CHAPTER X and CHAPTER TITLE
+%\patchcmd{\@makechapterhead}{40\p@}{\chapheadbelowskip}{}{}% Space between CHAPTER TITLE and text
+%% --- Patch \chapter*
+%\patchcmd{\@makeschapterhead}{50\p@}{\chapheadtopskip}{}{}% Space from top of page to CHAPTER TITLE
+%\patchcmd{\@makeschapterhead}{40\p@}{\chapheadbelowskip}{}{}% SPace between CHAPTER TITLE and text
+%\makeatother
+%% Set new lengths
+%\newlength{\chapheadtopskip}\setlength{\chapheadtopskip}{1pt}
+%\newlength{\chapheadsep}\setlength{\chapheadsep}{1pt}
+%\newlength{\chapheadbelowskip}\setlength{\chapheadbelowskip}{1pt}

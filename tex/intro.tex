@@ -1,4 +1,4 @@
-The structure of this report are as follows: in this chapter, the applications and challenges with teleoperation will be discussed. In addition, a walk trough of the most popular methods in predictive technology to combat time delay issues will be presented.
+The structure of this report is as follows: in this chapter, the applications and challenges with teleoperation will be discussed. In addition, a walk trough of the most popular methods in predictive technology to combat time delay issues will be presented.
 
 Chapter \ref{chpEdurov} is dedicated to the development of the python package named \textit{eduROV} that was created in conjunction with the Engage eduROV summer school project at Norwegian University of Science and Technology (NTNU). The developed software were also used in the main experiment of this report. For those only concerned in the predictive technology and relevant research, this chapter can be skipped.
 
@@ -49,10 +49,10 @@ Lastly, as a third option, there is the use of \emph{predictive technology}. The
 
 \section{Predictive technology}
 
+\input{./tables/reviewPred}
 
 Table \ref{reviewPred} shows a summary of some experiments that has been done in the field of predictive technology. Some of the papers do not report numerical values, the \emph{task time reduction} is then reported as an estimation from graphs. The experiments spans a wide variety of robot configurations, experiment tasks and predictive methods and can not necessary be compared directly.
 
-\input{./tables/reviewPred}
 
 The robot system can be roughly divided into two main groups; either the robot configuration can be exactly calculated in real time. This includes robot arm manipulators fixed to a defined reference frame where it's configuration is a result of user input only. Or secondly, the robot configuration is subjected to external forces or freely floating. ROV's typically goes in this group since they are able to move around in the environment. This makes the prediction more complicated because unknown and changing external factors has to be considered.
 
@@ -68,8 +68,7 @@ In situations where the external forces can not be calculated exactly and the RO
 
 \subsection{Superimposed predictive information}
 
-\citep{Mathan1996} "predictive display superimposing directional
-velocity information on the video display"
+%\citep{Mathan1996} "predictive display superimposing directional velocity information on the video display"
 
 In this category, predictive information is overlayed or \emph{superimposed} on the delayed video feed. In that way the operator is able to see estimates on where the ROV is going to end up. The prediction is often visualized as vector graphics in the form of lines or points along a path. \citep{Mathan1996} used this approach when he superimposed directional velocity information about a lunar rover on a video display.
 
