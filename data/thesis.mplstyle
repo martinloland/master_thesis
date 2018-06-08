@@ -22,7 +22,7 @@ axes.prop_cycle: cycler('color', ['0.10', '0.25', '0.45', '0.60', '0.80', '1.0']
 xtick.color: black
 ytick.color: black
 
-grid.color: black
+grid.color: gray
 
 figure.facecolor: white
 figure.edgecolor: white
