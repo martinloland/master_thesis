@@ -4,7 +4,7 @@ I, the author of this thesis, joined the project in December 2017 to improve the
 
 It also became interesting to look at how video latency effects user performance and what research has been done to compensate for it. Predictive displays arised as the most popular method. Since many of the preditive algorithms relied on advanced hardware, none were found to be applicable to the open source eduROV project.
 
-A new type of predictive display based on image transformation was therefore created. In addition to the eduROV software, this thesis will present the developed predictive display, the experiment and it's results.
+A new type of predictive display based on image transformation was therefore created. In addition to the eduROV software, this thesis will present the developed predictive display, the experiment and its results.
 
 \section{Thesis structure}
 
@@ -70,11 +70,11 @@ Lastly, as a third option, there is the use of \emph{predictive technology}. The
 Table \ref{reviewPred} shows a summary of some experiments that has been done in the field of predictive technology. The experiments span a wide variety of robot configurations, experiment tasks and predictive methods and can not necessary be compared directly.
 
 
-The robot system can be roughly divided into two main groups, either the exact robot configuration is known. This includes robot arm manipulators fixed to a defined reference frame where it's configuration is a result of user input only. Or secondly, the robot configuration is subjected to external forces or freely floating. ROV's typically belong in this group since they are able to move around in the environment. This makes the prediction more complicated because unknown and changing external factors has to be considered.
+The robot system can be roughly divided into two main groups, either the exact robot configuration is known. This includes robot arm manipulators fixed to a defined reference frame where its configuration is a result of user input only. Or secondly, the robot configuration is subjected to external forces or freely floating. ROV's typically belong in this group since they are able to move around in the environment. This makes the prediction more complicated because unknown and changing external factors has to be considered.
 
 There is also great variety in the tasks used in table \ref{reviewPred}. They do however have one thing in common; they all include some sort of lateral movement. Typically the operator is requires to perform an alignment or aiming task. These kinds of tasks are particular exposed to the detrimental effects from communication delay. It can cause the operator to \emph{overshoot} the target and transition to an inefficient \emph{move and wait} strategy which can be measured by task completion time. \citet{Lane2002} noted that this behavior started to happen at around one second of time delay.
 
-In all kinds of predictive technology a future predicted state of the robot has to be calculated. Variables used and method of calculation varies. Some methods rely on the dynamic equations of the system. \citet{Zhang2017} implemented a version where he used the state equations of a spacecraft and it's dynamic properties to calculate it's predicted state. The operator was then presented with a future predicted image of the spacecraft and gave commands correspondingly. This can be a good approach in space since all external forces can be accurately modeled.
+In all kinds of predictive technology a future predicted state of the robot has to be calculated. Variables used and method of calculation varies. Some methods rely on the dynamic equations of the system. \citet{Zhang2017} implemented a version where he used the state equations of a spacecraft and its dynamic properties to calculate its predicted state. The operator was then presented with a future predicted image of the spacecraft and gave commands correspondingly. This can be a good approach in space since all external forces can be accurately modeled.
 
 In situations where the external forces can not be calculated exactly and the ROV is free to move around, a \emph{model free} approach (no dynamics) are often used instead. The method of conveying this information can be divided into three groups and are presented below.
 

@@ -1,19 +1,20 @@
-This chapter describes the developed predictive display. The final results only requires a few lines of code and can be applied to most ROV's. In the explanation a very simple and limited ROV is considered, but section \ref{expand} describes how the principle can be expanded to more complicated configurations.
+This chapter describes the developed predictive display. The final results only requires a few lines of code and can be applied to most ROV's. In the coming explanation a very simple and limited ROV is considered, but section \ref{expand} describes how the principle can be expanded to more complicated configurations.
 
 \section{Robot configuration} \label{chp31}
  
+To explain how the predictive display (PD) works, let us consider the self balancing two wheeled robot depicted in \figref{twoWheeled}. The upper part of the figure shows the robot from above with two objects in front of it, a black cube and a gray barrel. The ROV is drawn at time equal to $t=0$ and $t=\Delta t$. The bottom part of the image depicts the viewport of the onboard camera mounted to the ROV.
+
+
 \begin{figure}[h!]    
     \centering           
-    \def\svgwidth{.8\columnwidth}
+    \def\svgwidth{.75\columnwidth}
     \input{img/twoWheeled.pdf_tex}
     \caption{Two wheeled robot before and after counter clockwise rotation.}
     \label{twoWheeled}
 \end{figure}
 
- 
-To explain how the predictive display (PD) works, let us consider the self balancing two wheeled robot depicted in \figref{twoWheeled}. The upper part of the figure shows the robot from above with two objects in front of it, a black cube and a gray barrel. The ROV is drawn at time equal to $t=0$ and $t=\Delta t$. The bottom part of the image depicts the viewport of the onboard camera mounted to the ROV.
 
-It has a forward facing camera with a FOV of $\phi$ degrees. The camera captures a video feed with a resolution of $R_h$ pixels horizontally. It's center of rotation is located in the vector $z$ pointing out of the paper. It is able to rotate with an angular velocity of $\omega$ deg/sec around it's center of rotation $z$.
+It has a forward facing camera with a FOV of $\phi$ degrees. The camera captures a video feed with a resolution of $R_h$ pixels horizontally. Its center of rotation is located in the vector $z$ pointing out of the paper. It is able to rotate with an angular velocity of $\omega$ deg/sec around its center of rotation $z$.
 
 Let us first consider a situation without delay and where the ROV can only be given two commands, to turn either left or right. The commands are given by pressing one of two buttons, not by a joystick with variable output. If the operator hold's down the \emph{left} button for a period of $\Delta t$ seconds, the ROV would turn $\omega \cdot \Delta t = \Delta \theta$ degrees. This is depicted in the right side of \figref{twoWheeled}.
 
@@ -60,14 +61,14 @@ The PD works by moving the video feed on the operator screen the opposite way of
 
 Although the above argumentation may seem to work fine in theory, the computer needs a function that can run a finite number of times per second to do these calculations. Algorithm \ref{predictorAlg} shows the pseudocode for how this is implemented in practice.
 
-The horizontal pixel displacement $P_h$ is initialized as zero. Then, the \textsc{predictor display} function is called at a set interval $dt$. The rate of these calls should happen at least as fast as the frame rate of the video (fps). With a fps of 30, the interval should be $dt <= 1/30 \approx 33 ms$. The change in horizontal pixel displacement $\Delta P_h$ is then calculated from equation \ref{pixelturnrate} and the interface is updated with the new $P_h$. In addition, an asynchronous call is done on the \textsc{move back} function so that the video is moved back to it's original position after a time of $t_d$ has passed. It has to be an asynchronous call so that the main program is not blocked when \textsc{move back} function is waiting.
+The horizontal pixel displacement $P_h$ is initialized as zero. Then, the \textsc{predictor display} function is called at a set interval $dt$. The rate of these calls should happen at least as fast as the frame rate of the video (fps). With a fps of 30, the interval should be $dt <= 1/30 \approx 33 ms$. The change in horizontal pixel displacement $\Delta P_h$ is then calculated from equation \ref{pixelturnrate} and the interface is updated with the new $P_h$. In addition, an asynchronous call is done on the \textsc{move back} function so that the video is moved back to its original position after a time of $t_d$ has passed. It has to be an asynchronous call so that the main program is not blocked when \textsc{move back} function is waiting.
 
 \input{./snippet/algo}
 
 
 \figref{predictorvis} shows the predictor display implemented in the experiment, which is explained in chapter \ref{chpMethod}. It contains the video feed from the ROV, in addition to a red arrow to visualize the prediction. The operator has recently turned the ROV to the right, and as a result the movie has moved to the left. The red arrow has not moved and works as an indication of where the ROV will be heading when the video feed has caught up with the time delay. To see how this works in practice, the reader can visit the link \textbf{TODO} to watch a video of the predictor screen.
 
-The operator views the predictor screen through a web browser. The predictor algorithm is written in java script and the video feed is moved around by changing css margin properties. The code can viewed in it's entirety in the appendix, part \textbf{TODO}.
+The operator views the predictor screen through a web browser. The predictor algorithm is written in java script and the video feed is moved around by changing css margin properties. The code can viewed in its entirety in the appendix, part \textbf{TODO}.
 
 \begin{figure}[h!]
     \centering
