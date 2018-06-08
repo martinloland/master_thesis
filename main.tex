@@ -1,15 +1,15 @@
-\documentclass[b5paper,10pt,twoside]{book}
+\documentclass[b5paper,10pt,twoside,openleft]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{mystyle}
 
-%\input{glossary}
-%\input{nomenclature}
-%\setlength{\marginparwidth}{2cm}
 \pagenumbering{roman}
 
+
 \begin{document}
-blank page
-\cleardoublepage
+\newpage\null\thispagestyle{empty}\newpage
+\addtocounter{page}{-1}
+\newpage\null\thispagestyle{empty}\newpage
+\addtocounter{page}{-1}
 
 \begingroup
 \let\cleardoublepage\clearpage
@@ -46,7 +46,7 @@ blank page
 \chapter{Predictive display scheme}\label{chpPredictive}
 	\input{./tex/predictor}	
 	
-\chapter{Method}\label{chpMethod}
+\chapter{Experiment}\label{chpMethod}
 	\input{./tex/method}	
 
 \chapter{Results}\label{chpResults}
@@ -56,8 +56,6 @@ blank page
 	\input{./tex/discuss}
 
 {\setstretch{1.0}
-%\printglossary \label{glossary}
-%\printnomenclature\label{nomenclature}
 }
 \printbibliography
 \addcontentsline{toc}{chapter}{Bibliography}
@@ -71,6 +69,10 @@ blank page
 \chapter*{eduROV package code}\label{appCode}
 \addcontentsline{toc}{section}{B eduROV package code}
 \includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/edurovCode.pdf}
+
+\chapter*{Data analysis code}\label{appCode}
+\addcontentsline{toc}{section}{C Data analysis code}
+\includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/analysis.pdf}
 
 \end{appendices}
 
