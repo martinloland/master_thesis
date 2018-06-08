@@ -1,4 +1,4 @@
-\documentclass[b5paper,10pt,twoside,openleft]{book}
+\documentclass[b5paper,10pt,twoside,openright]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{mystyle}
 
@@ -7,9 +7,13 @@
 
 \begin{document}
 \newpage\null\thispagestyle{empty}\newpage
-\addtocounter{page}{-1}
-\newpage\null\thispagestyle{empty}\newpage
-\addtocounter{page}{-1}
+%\addtocounter{page}{-1}
+%\newpage\null\thispagestyle{empty}\newpage
+%\addtocounter{page}{-1}
+
+%\begin{titlepage}
+%\hbox{}
+%\end{titlepage}
 
 \begingroup
 \let\cleardoublepage\clearpage
@@ -70,7 +74,7 @@
 \addcontentsline{toc}{section}{B eduROV package code}
 \includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/edurovCode.pdf}
 
-\chapter*{Data analysis code}\label{appCode}
+\chapter*{Data analysis code}\label{appAnalysis}
 \addcontentsline{toc}{section}{C Data analysis code}
 \includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/analysis.pdf}
 

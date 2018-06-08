@@ -1,6 +1,6 @@
 \begin{table}[]
 \centering
-\caption{Predictive technology experiments with task time reduction. Ordered by date. Some values estimated from graphs.}
+\caption{Predictive technology experiments with task time reduction. Ordered by date.}
 \label{reviewPred}
 \resizebox{\columnwidth}{!}{
 	\begin{tabular}{@{}lllll@{}}
@@ -8,27 +8,20 @@
 	Author                   & \makecell[lt]{Robot system\\ Task}                            & \makecell[lt]{Predictor method\\ Camera}                                   & \makecell[lt]{Participants\\ Delay} & Task time reduction  \\ \midrule
 	\cite{Lu2018}            & \makecell[lt]{Car simulator\\ Driving}                        & \makecell[lt]{Model-free framework\\ Simulated human}                      & \makecell[lt]{12\\ Not reported}  & 8\%                  \\
 	\addlinespace
-	\cite{Zhang2017}         & \makecell[lt]{9DOF dynamics simulator\\ Rendezvous and docking} & \makecell[lt]{Dynamic prediction from state equations\\ Fixed to spacecraft} & \makecell[lt]{9\\ 6000}           & Not reported         \\
-	\addlinespace
-	\cite{Arai2016}          & \makecell[lt]{6DOF robot arm\\ Pick and place}                & \makecell[lt]{Robot postion calculation\\ Virtual}                         & \makecell[lt]{3\\ Not reported}   & Not reported         \\
-	\addlinespace
-	\cite{Hu2016}            & \makecell[lt]{2-6 DOF manipulator\\ Camera aligment}          & \makecell[lt]{Simulated 3D scene\\ Virtual}                                & \makecell[lt]{15\\ 300, 500, 1000}& 33\%, 58\%, 65\%     \\
+	\cite{Hu2016}            & \makecell[lt]{2-6 DOF manipulator\\ Camera aligment}          & \makecell[lt]{Simulated 3D scene\\ Virtual}                                & \makecell[lt]{15\\ 300, 500, 1000}& 33\%, 58\%, 65\%*     \\
 	\addlinespace
 	\cite{Zheng2016}         & \makecell[lt]{Car simulator\\ Driving}                        & \makecell[lt]{Model-free framework\\ Simulated human}                      & \makecell[lt]{5\\ 900}            & 35\%                 \\
 	\addlinespace
-	\cite{Hu2015}            & \makecell[lt]{4 wheeled car\\ Manouvering}                    & \makecell[lt]{Image tracking and geometry construction\\ Fixed to car}     & No tests                                                     & Not reported         \\
+	\cite{Lovi2010}          & \makecell[lt]{Robot arm on Segway\\ Object alignment}         & \makecell[lt]{Vision-based monocular modeling\\ At end effector}           & \makecell[lt]{5\\ 300}            & 33\%*                 \\
 	\addlinespace
-	\cite{Lovi2010}          & \makecell[lt]{Robot arm on Segway\\ Object alignment}         & \makecell[lt]{Vision-based monocular modeling\\ At end effector}           & \makecell[lt]{5\\ 300}            & 33\%                 \\
+	\cite{Matheson2013}      & \makecell[lt]{Rover\\ Driving}                                & \makecell[lt]{Projected field of view estimation\\ Fixed to car}           & \makecell[lt]{12\\ 3000}          & 48\%-64\%*            \\
 	\addlinespace
-	\cite{Matheson2013}      & \makecell[lt]{Rover\\ Driving}                                & \makecell[lt]{Projected field of view estimation\\ Fixed to car}           & \makecell[lt]{12\\ 3000}          & 48\%-64\%            \\
-	\addlinespace
-	\cite{Rachmielowski2010} & \makecell[lt]{Virtual with Phantom OMNI\\ Alignment}          & \makecell[lt]{Reconstructed 3D environment\\ At end effector}              & \makecell[lt]{12\\ 300}           & 29\%-30\%            \\
-	\addlinespace
-	\cite{Baldwin1999}       & \makecell[lt]{Stationary camera\\ Identify and select shapes} & \makecell[lt]{Cropped panoramic video\\ Panoramic 360}                     & No tests                                                     & Not reported         \\
+	\cite{Rachmielowski2010} & \makecell[lt]{Virtual with Phantom OMNI\\ Alignment}          & \makecell[lt]{Reconstructed 3D environment\\ At end effector}              & \makecell[lt]{12\\ 300}           & 29\%-30\%*            \\
 	\addlinespace
 	\cite{Mathan1996}        & \makecell[lt]{Lunar vehicle\\ Manovuering}                    & \makecell[lt]{Superimposed directional information\\ Fixed to car}         & \makecell[lt]{8\\ 5000}           & 24\%-30\%            \\
 	\addlinespace
 	\cite{Bejczy1990}        & \makecell[lt]{6DOF PUMA robot\\ Tapping}                      & \makecell[lt]{Superimposed phantom robot\\ Fixed}                          & \makecell[lt]{2\\ 1000, 4000}     & 13\%-34\%, 40\%-56\% \\ \bottomrule
+	\multicolumn{5}{l}{* Estimated from graph}
 	\end{tabular}
 }
 \end{table}

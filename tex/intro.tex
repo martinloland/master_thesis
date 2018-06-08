@@ -1,72 +1,80 @@
+The eduROV project started as an idea at Trondheim Maker Faire in 2014. From there on it has been developed into a "functioning Open-Source ROV project at a new level of affordability."\footnote{\url{https://www.edurov.no/}}. The project is now managed by Norwegian University of Science and Technology (NTNU) and in specific the \emph{engage} project by Centre for Engaged Education through Entrepreneurship. 
+
+I, the author of this thesis, joined the project in December 2017 to improve the software. My objective was to decrease the video latency which had a negative effect on the user experience. In addition, more objectives such as increased functionality surfaced during the development period.
+
+It also became interesting to look at how video latency effects user performance and what research has been done to compensate for it. Predictive displays arised as the most popular method. Since many of the preditive algorithms relied on advanced hardware, none were found to be applicable to the open source eduROV project.
+
+A new type of predictive display based on image transformation was therefore created. In addition to the eduROV software, this thesis will present the developed predictive display, the experiment and it's results.
+
 \section{Thesis structure}
 
 \begin{description}
 \item [Chapter 1:] The current chapter will present the applications and challenges related to teleoperation. In addition, a walk trough of the most popular methods in predictive technology will be presented.
 
-\item [Chapter 2:] Dedicated to the development of the python package \textit{eduROV}. This was created in conjunction with the Engage eduROV summer school project at Norwegian University of Science and Technology (NTNU). For those only concerned in the predictive technology and relevant research, this chapter can be omitted.
+\item [Chapter 2:] Dedicated to the development of the \textit{eduROV} python package. For those only concerned with predictive technology and relevant research, this chapter can be omitted.
 
-\item [Chapter 3:] Presents the developed predictor display based on image transformation. It will explain how the movement of a robot is estimated and how predicted changes are visualized.
+\item [Chapter 3:] Presents the developed predictor display based on image transformation.
 
-\item [Chapter 4:] Method, a description of experimental design and procedure of the experiment used to test the developed predictive display.
+\item [Chapter 4:] Describes experimental design and procedure of the experiment used to test the developed predictive display.
 
 \item [Chapter 5:] Results, will present the findings of the performed experiment.
 
-\item [Chapter 6:] A discussion on the results that has been achieved compared to earlier research.
+\item [Chapter 6:] A discussion on the collected results compared to earlier research.
 \end{description}
 
 \section{Teleoperation}
 
-
-\subsection{Applications}
 Teleoperation of vehicles has gained popularity since it first became possible. This includes underwater, ground, aerial and space vehicles. The controlled vehcicle is referred to as a \emph{remotely operated vehicle} (ROV). The word \emph{robot} will also be used interchangeably with ROV throughout this thesis. There are many locations and tasks where ROV's are useful. These includes places that are to risky for people, like post disaster areas, underwater operations, space, conflict zones etc. Other times, using humans is to costly or just impossible. Offshore maintenance and heavy duty mining are some of the tasks. 
 
-The focus of this thesis has been on open-looop teleoperation between ROV (slave) and remote human operator (master), by the means of video feedback. The operator views a video feed of the ROV in a remote environment and controls it by control input. This form of teleoperation can be effective because it's easy for the operator to understand and simple to implement. Other forms of teleoperation can be achieved by increasing the level of autonomy (LOA). In such situations, the human operator can be excluded from the control loop. In addition, by using other sensory input than camera feed, a different kind of teleoperation is attained. None of these will any focus in this thesis.
+The focus of this thesis has been on open-loop teleoperation between ROV (slave) and remote human operator (master), by the means of video feedback. The operator views a video feed of the ROV in a remote environment and controls it by control input. This form of teleoperation can be effective because it's easy for the operator to understand and simple to implement. Other forms of teleoperation can be achieved by increasing the level of autonomy (LOA). In such situations, the human operator can be excluded from the control loop. In addition, by using other sensory input than camera feed, a different kind of teleoperation is attained. None of these will any focus in this thesis.
 
-Although an unmanned ground vehicle (UGV) has been used in the experiment, the findings can be applied to teleoperation of all types of vehicles, that be aerial, ground, underwater and space. It does however not apply to situations where the camera is in a fixed position and rotation. This configuration is often used in telemedicine \citep{Kumcu2017} or robot arm manipulation \citep{Bejczy1990}.
+Although an unmanned ground vehicle (UGV) has been used in the experiment, the findings can be applied to teleoperation of all types of vehicles, that be aerial, ground, underwater and space. It does however not apply to situations where the camera is in a fixed position and rotation while the robot is free to move. This configuration is often used in telemedicine \citep{Kumcu2017} or robot arm manipulation \citep{Bejczy1990}.
 
 \subsection{Telepresence}
 
-\citet{Draper1998} defined telepresence as "the perception of presence within a physically remote or simulated site". He also states that "telepresence is generally hypothesized to improve efficiency or reduce user workload" and that telepresence is beneficial to mission performance.
+\citet{Draper1998} defined telepresence as "the perception of presence within a physically remote or simulated site". He also stated that "telepresence is generally hypothesized to improve efficiency or reduce user workload" and that telepresence is beneficial to mission performance.
 
-\citet{Chen2007} went through 150 papers and checked different teleoperation factors and how they influence user performance. They found eight main factors; Field of view (FOV), orientation, camera viewpoint, depth perception, video quality and frame rate (FR), time delay, and motion. FOV describes the amount of environment that is visible in the video. Orientation or the rotation of the robot in the environment can be difficult to perceive if lack of information. Camera viewpoint is often \emph{egocentric} (robot view) or \emph{exocentric} (birds view), which can lead to tunneling or loss of true ground view respectively. Lack of depth perception can cause wrong estimation of distances and video quality can reduce target identification. Time delay effects are very task dependent but often cause reduced driving performance. Motion describes the situation where the operator itself is moving and can cause motion sickness.
+\citet{Chen2007} went through 150 papers and checked different teleoperation factors and how they influence user performance. They found eight main factors; Field of view (FOV), orientation, camera viewpoint, depth perception, video quality and frame rate (FR), time delay, and motion. FOV describes the amount of environment that is visible in the video. Orientation is the rotation of the robot in the environment, and can be difficult to perceive if there is a lack of known reference points. Camera viewpoint is often \emph{egocentric} (robot view) or \emph{exocentric} (birds view), which can lead to tunneling or loss of true ground view respectively. Lack of depth perception can cause wrong estimation of distances and video quality can reduce target identification. Time delay effects are very task dependent but often cause reduced driving performance. Motion describes the situation where the operator itself is moving and can cause motion sickness.
 
 
 \subsection{Time delay}
-Among the factors mentioned above, time delay or \emph{latency} has been found to impose big impacts one teleoperation performance \citep{Chen2007}. Chen also noted that latencies as low as $10-20$ ms can be detected by people. \citep{Arthur1993} found latencies (ranging from 50 to 550 ms) to be a more important factor than FR (30, 15, or 10 fps). 
+Among the factors mentioned above, time delay or \emph{latency} has been found to impose big impacts one teleoperation performance \citep{Chen2007}. Chen also noted that latencies as low as $10-20$ ms can be detected by people. \citet{Arthur1993} found that latencies (ranging from 50 to 550 ms) to be a more important factor than FR (30, 15, or 10 fps). 
 
-Time delay introduces a situation where the operator's commands does not correspond to the visual feedback he or she is getting. Because of this human drivers tend to over steer and oscillate with their \emph{correcting} steering commands \citep{Appelqvist2007}. This increase the cognitive workload because the operator has to remember the input already given when giving new control commands \citep{Matheson2013}. And \citep{Ricks2004} found that the mental load required to keep track of the robot pose adversely affects the operator's ability to effectively control the robot. A principle of reducing the workload is therefore to maintain correlation between commands issued by operator and changes in the interface \citep{Nielsen2007}. 
+Time delay introduces a situation where the operator's commands does not correspond to the visual feedback he or she is getting. Because of this, human drivers tend to over steer and oscillate with their \emph{correcting} steering commands \citep{Appelqvist2007}. This increase the cognitive workload because the operator has to remember the input already given when giving new control commands \citep{Matheson2013}. \citet{Ricks2004} found that the mental load required to keep track of the robot pose adversely affects the operator's ability to effectively control the robot. A principle of reducing the workload is therefore to maintain correlation between commands issued by operator and changes in the interface \citep{Nielsen2007}. 
 
-A summary of some reports can be seen in table \ref{reviewPerf}. It shows the increase factor for different tasks and delay times. An increase factor of 1.40 is equal to a 40\% increase in task completion time. The actual detrimental effect of latency is very task dependent. In the table, the same increase factor of 1.5 can be found at 100ms for a needle-driving task, and in the robot car movement task at 2000ms.
-Some argue that task completion time increase linearly with delay time \citep{Ando1999}, \citep{Lane2002}. While others experience an exponential increase \citep{Xu2014}.
+A summary of some research that has investigated the effect of video latency on human performance can be seen in table \ref{reviewPerf}. It shows the increase factor for different tasks and delay times. An increase factor of 1.40 is equal to a 40\% increase in task completion time. The actual detrimental effect of latency is very task dependent. In the table, the same increase factor of 1.5 can be found at 100ms for a needle-driving task, and in the robot car movement task at 2000ms. Some argue that task completion time increase linearly with delay time \citep{Ando1999}, \citep{Lane2002}. While others experience an exponential increase \citep{Xu2014}.
 
 \input{./tables/reviewPerf}
 
-The reasons for time delay can be many and is not the focus in this report. An overview can be seen in figure \textbf{TODO}. Some of the factors are distance between robot and operator, equipment technology, transfer method, interference, video compression, control algorithms efficiency and many more.
-
-\missingfigure{Graphics showing the different stages in communication that contribute to the latency}
-
+The reasons for time delay in a teleoperation system can be many and is not the focus of this thesis. In general, the total latency is a result of software and hardware design as well as physical limitations and distance.
+Processing and transfer of commands from the master control to the slave ROV will contribute to the total time. As will the time it takes for the robot to capture and compress video frames, and sending it back to the operator for viewing. 
+In this thesis the \emph{total perceived delay} is of most interest. This is the total elapsed time from when the operator issues a command, until the robot can be seen moving on the screen.
 
 \subsection{Delay compensation}
 
-There are three main ways to combat the detrimental effects of time delay. First, by increasing the level of automation (LOA), the operator workload is reduced. The results of \citep{Luck2006} showed that the higher LOA, the better performance in terms of both time and number of errors made. In some cases, such as a communication blackout, autonomy is essential \citep{Dorais1999}. This option is not always available and may not even be possible. It could require very advanced hardware and software, depending on the task. \citep{Goodrich2001} argued that adjustable autonomy could be used to increase the robot effectiveness. He also mentions that a more autonomous robot is required when longer time delays are present. On the other hand, he also mentions that \emph{"as autonomy level increases, the breadth of tasks that can be handled by a robot decreases."}
+There are three main ways to combat the detrimental effects of time delay. First, an increased level of automation (LOA), the operator workload is reduced. The results of \citet{Luck2006} showed that the higher LOA, the better performance in terms of both time and number of errors made. In some cases, such as a communication blackout, autonomy is essential \citep{Dorais1999}. This option is not always available and may not even be possible. It could require very advanced hardware and software, depending on the task. \citet{Goodrich2001} argued that adjustable autonomy could be used to increase the robot effectiveness. He also mentioned that a more autonomous robot is required when longer time delays are present. On the other hand, he also stated that "as autonomy level increases, the breadth of tasks that can be handled by a robot decreases".
 
-Secondly, instead of increasing LOA, providing more information to the operator may increase situational awareness and therefore performance. \citep{Miller2005} performed an experiment where the operator were reminded of what commands had been given by \emph{"providing them with a streaming command indicator."} The preliminary results showed that the operator reported lower fatigue levels. But there are limitations to how much information an operator can digest in a finite amount of time. \citep{Chen2007} explained that overlaying information on video feed can potentially lead to cognitive tunneling.
+Secondly, instead of increasing LOA, providing more information to the operator may increase situational awareness and therefore performance. \citet{Miller2005} performed an experiment where the operator was reminded of what commands had been given by "providing them with a streaming command indicator." The preliminary results showed that the operator reported lower fatigue levels. But there are limitations to how much information an operator can digest in a finite amount of time. \citet	{Chen2007} explained that overlaying information on video feed can potentially lead to cognitive tunneling.
 
-Lastly, as a third option, there is the use of \emph{predictive technology}. These are displays, control algorithms and graphical models that try to predict the future state of the ROV. They are based on the vehicle's current state and the operator commands that has been given. \citep{Chen2007} which reviewed multiple experiments about time delay performance, conclude that if \emph{"these delays cannot be engineered out of the system, it is suggested that predictive displays or other decision support be provided to the operator".}
+Lastly, as a third option, there is the use of \emph{predictive technology}. These are displays, control algorithms and graphical models that try to predict the future state of the ROV. They are based on the vehicle's current state and commands given by the operator. Predictive displays has proven to be the most promising solution, as \citet{Chen2007} concluded:
+
+\begin{quote}
+\small If these delays cannot be engineered out of the system, it is suggested that predictive displays or other decision support be provided to the operator.
+\end{quote}
 
 
 \section{Predictive technology}
 
 \input{./tables/reviewPred}
 
-Table \ref{reviewPred} shows a summary of some experiments that has been done in the field of predictive technology. Some of the papers do not report numerical values, the \emph{task time reduction} is then reported as an estimation from graphs. The experiments spans a wide variety of robot configurations, experiment tasks and predictive methods and can not necessary be compared directly.
+Table \ref{reviewPred} shows a summary of some experiments that has been done in the field of predictive technology. The experiments span a wide variety of robot configurations, experiment tasks and predictive methods and can not necessary be compared directly.
 
 
-The robot system can be roughly divided into two main groups; either the robot configuration can be exactly calculated in real time. This includes robot arm manipulators fixed to a defined reference frame where it's configuration is a result of user input only. Or secondly, the robot configuration is subjected to external forces or freely floating. ROV's typically goes in this group since they are able to move around in the environment. This makes the prediction more complicated because unknown and changing external factors has to be considered.
+The robot system can be roughly divided into two main groups, either the exact robot configuration is known. This includes robot arm manipulators fixed to a defined reference frame where it's configuration is a result of user input only. Or secondly, the robot configuration is subjected to external forces or freely floating. ROV's typically belong in this group since they are able to move around in the environment. This makes the prediction more complicated because unknown and changing external factors has to be considered.
 
-There is also great variety in the tasks used in table \ref{reviewPred}. They do however have one thing in common; they all include some sort of lateral movement. Typically the operator is requires to perform an alignment or aiming task. These kinds of tasks are particular exposed to the detrimental effects from communication delay. It can cause the operator to \emph{overshoot} the target and transition to an inefficient \emph{move and wait} strategy which can be measured by task completion time. \citep{Lane2002} noted that this behavior started to happen at around one second of time delay.
+There is also great variety in the tasks used in table \ref{reviewPred}. They do however have one thing in common; they all include some sort of lateral movement. Typically the operator is requires to perform an alignment or aiming task. These kinds of tasks are particular exposed to the detrimental effects from communication delay. It can cause the operator to \emph{overshoot} the target and transition to an inefficient \emph{move and wait} strategy which can be measured by task completion time. \citet{Lane2002} noted that this behavior started to happen at around one second of time delay.
 
-In all kinds of predictive technology a future predicted state of the robot has to be calculated. Which variables that are used for this and how it's calculated varies. Some methods rely on the dynamic equations of the system. \citep{Zhang2017} implemented a version where he used the state equations of a spacecraft and it's dynamic properties to calculate it's predicted state. The operator where then presented with a future predicted image of the spacecraft and gave commands correspondingly. This can be a good approach in space since all external forces can be accurately modeled.
+In all kinds of predictive technology a future predicted state of the robot has to be calculated. Variables used and method of calculation varies. Some methods rely on the dynamic equations of the system. \citet{Zhang2017} implemented a version where he used the state equations of a spacecraft and it's dynamic properties to calculate it's predicted state. The operator was then presented with a future predicted image of the spacecraft and gave commands correspondingly. This can be a good approach in space since all external forces can be accurately modeled.
 
 In situations where the external forces can not be calculated exactly and the ROV is free to move around, a \emph{model free} approach (no dynamics) are often used instead. The method of conveying this information can be divided into three groups and are presented below.
 
@@ -78,46 +86,48 @@ In situations where the external forces can not be calculated exactly and the RO
 
 %\citep{Mathan1996} "predictive display superimposing directional velocity information on the video display"
 
-In this category, predictive information is overlayed or \emph{superimposed} on the delayed video feed. In that way the operator is able to see estimates on where the ROV is going to end up. The prediction is often visualized as vector graphics in the form of lines or points along a path. \citep{Mathan1996} used this approach when he superimposed directional velocity information about a lunar rover on a video display.
+In this category, predictive information is overlayed or \emph{superimposed} on the delayed video feed. In that way the operator is able to see estimates on where the ROV is going to end up. The prediction is often visualized as vector graphics in the form of lines or points along a path. \citet{Mathan1996} used this approach when he superimposed directional velocity information related to a lunar rover on a video display.
 
-A similar example can be seen in airplanes and helicopters where a \emph{tunnel in the sky} display shows where the aircraft should be going and a cross indicating the predicted trajectory \citep{Grunwald1981}. In cases with big amounts of lateral movement this approach might not be applicable because the predicted heading can come off screen.
+A similar example can be seen in airplanes and helicopters where a \emph{tunnel in the sky} display shows where the aircraft should be going and a cross indicating the predicted trajectory \citep{Grunwald1981}. In cases with large amounts of lateral movement this approach might not be applicable because the predicted heading can come off screen.
 
 \subsection{3D graphic models}
 
-About half of the experiments in table \ref{reviewPred} would adhere to this category. Generally, a 3D world is constructed from sensory input such as laser ranging, stereo cameras, image tracking or others. Images taken by normal cameras is then mapped to the surface of the computer generated world. Lastly, a virtual camera is placed inside the virtual world in the predicted position of the real camera. The operator is then given the virtual video feed as virtual reality (VR), or in a combination with the real one, augmented reality (AR). As \citep{Hu2016} describes it; \textit{"In [a] VR-based Predictive display (PD), instead of delayed visual feedback from the remote robot site, an immediately and predicted visual feedback is rendered from a graphics model in response to the operator's motion command"}. \citep{Kim1993} is one example of this.
+About half of the experiments in table \ref{reviewPred} would adhere to this category. Generally, a 3D world is constructed from sensory input such as laser ranging, stereo cameras, image tracking or others. Images taken by normal cameras is then mapped to the surface of the computer generated world. Lastly, a virtual camera is placed inside the virtual world in the predicted position of the real camera. The operator is then given the virtual video feed as virtual reality (VR), or in a combination with the real one, augmented reality (AR). As \citet{Hu2016} put it: 
+
+\begin{quote}
+\small In [a] VR-based Predictive display (PD), instead of delayed visual feedback from the remote robot site, an immediately and predicted visual feedback is rendered from a graphics model in response to the operator's motion command.
+\end{quote}
+
 
 Some of the technologies used for capturing the 3D world are \textit{Monocular Simultaneous Location and Mapping} (SLAM), stereo imagery, vision-based structure from motion (SFM), light detection and ranging (LiDAR) or radio detection and ranging (radar).
 
-This method is particular popular in conjunction with robot arm manipulators. In these cases the 3D environment can be constructed in advance and the exact location of the robot arm is known, \citep{Ricks2004}. A limitation with this approach comes in areas where the tasks are performed unknown and unstructured areas. Then geometry can not be created in advance and real time mapping and rendering can be difficult. In addition, it can require additional hardware such as stereo cameras and the calculations can be computer intensive.
+This method is particular popular in conjunction with robot arm manipulators. In these cases the 3D environment can be constructed in advance and the exact location of the robot arm is known \citep{Ricks2004}. A limitation with this approach arises when tasks are performed in unknown and unstructured areas. Then geometry can not be created in advance and real time mapping and rendering can be difficult. In addition, it can require additional hardware such as stereo cameras and the calculations can be computer intensive.
 
 %\citep{Burkert2004} "Those predictions are only possible if models of the geometry, kinematics, and dynamics of the remote scene are locally available."
 
 
 \subsection{Video manipulation}
 
-Instead of constructing a virtual 3D world a more simple approach is possible. This approach tries to make alterations to the delayed video such that it looks like the ROV is actually moving in real time. A simple example would be to zoom into the image if the robot is moving forward. \citep{Matheson2013} halved the task completion time at a latency of three seconds in his experiment. He used an approach where the \textit{"display is obtained by estimating the current rover position within the delayed drive camera image, finding the current field of view edges given the rover’s location and orientation, and manipulating the delayed image through cropping and projection, to approximate the view from the current rover location".}
+Instead of constructing a virtual 3D world a more simple approach is possible. This approach tries to make alterations to the delayed video such that it looks like the ROV is actually moving in real time. A simple example would be to zoom into the image if the robot is moving forward. \citet{Matheson2013} halved the task completion time at a latency of three seconds in his experiment. He described the method as such:
 
-A similar method is by capturing a wide FOV video, possibly 360 degrees, and then only displaying a section of that image to the operator. The section can then be moved around in the video as a response the operator's commands and thus provide fluid and seemingly real time feedback, \citep{Baldwin1999}.
+\begin{quote}
+\small [The] display is obtained by estimating the current rover position within the delayed drive camera image, finding the current field of view edges given the rover’s location and orientation, and manipulating the delayed image through cropping and projection, to approximate the view from the current rover location.
+\end{quote}
 
-The approach of video manipulation has the advantages of being low cost, easy to implement, does not rely on a structured environment and since the displayed video are merely alterations to the last image, no prediction error propagation will happen. It is however not able to recreate \textit{parallax} movement, which can be achieved using the 3D model method above. An example of parallax movement would be when passing a corner or object. New parts of the environment should be visible, but can not be constructed from a delayed image.
+A similar result is obtained by capturing a wide FOV video, possibly 360 degrees, and then only displaying a section of that image to the operator. The section can then be moved around in the video as a response the operator's commands and thus provide fluid and seemingly real time feedback \citep{Baldwin1999}.
+
+The approach of video manipulation has the advantages of being low cost, easy to implement and it does not rely on a structured environment. In addition, since the displayed video are merely alterations to the last image, no prediction error propagation will happen. It is however not able to recreate \textit{parallax} movement, which can be achieved using the 3D model method above. An example of parallax movement would be when passing a corner or object. New parts of the environment should be visible, but can not be constructed from a delayed image.
 
 \section{Problem statement}
 
-Most of the previous research seems to be concerned about 3D environment reconstruction from sensory data. While it shows promising results and great reduction in task completion times, this is a method that requires advanced algorithms and possibly expensive equipment. Many of the mentioned predictive technologies also require extensive information about the environment and the robot in order to function. This is either not possible or a time consuming task. In this context, the video manipulation method provides and easy and cheap way to increase operator performance.
+Most of the previous research seems to be concerned about 3D environment reconstruction from sensory data. While it shows promising results and great reduction in task completion times, this is a method that requires advanced algorithms and possibly expensive equipment. Many of the mentioned predictive technologies also require extensive information about the environment and the robot in order to function. This is either not possible or a time consuming task. In comparison, the video manipulation method provides and easy and cheap way to increase operator performance.
 
-The \textit{projected display} method described by \citep{Matheson2013} is probably the easiest video manipulation method while still providing good performance increase. The experiment simulated a lunar rover with a latency of three seconds and had twelve participants.
+The \textit{projected display} method described by \citet{Matheson2013} is probably the easiest video manipulation method while still providing a good performance increase. This method requires information about ROV ground trajectory to calculate changes in perspective. 
 
-There seems to be a lack of quantitative research on the topic if simple video manipulation predictor displays, used to control ROV's with a medium communication delay in the range of 500-3000 ms. Therefore, this thesis aimed to study the following hypotheses:
+By ignoring the effects of perspective change and instead apply positional and scale transformations, an even simpler approach is obtained. The goal of this thesis was therefore to investigate the following hypotheses:
 
 \begin{description}
-\item[H1:] A simple predictor display based on image transformation can 
- increase the operator performance
+\item[H1:] A simple predictor display based on image transformation can increase the operator performance
  
  \item[H2:] A simple predictor display based on image transformation will decrease the operator's subjective workload
 \end{description}
-
-\section{Engage eduROV}
-
-This master thesis was conducted in conjunction with the Engage eduROV project. An image of the ROV used in this project can be seen in figure \textbf{TODO}. A software for handling video transmission and robot communication for this ROV was developed as part of the project. This software was also used as a framework for controlling the ROV used in the experiment. In addition, the software gathered quantitative data during the experiment. For more information about the software and it's development, see chapter \ref{chpEdurov}.
-
-\missingfigure{Image of the eduROV submersible}
