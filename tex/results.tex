@@ -1,33 +1,50 @@
+\begin{description}
+\item[H1:] Participants performed on average 20.62\% better using the predictive display versus no predictive display, t(56)=4.80, p$<$.001, d=0.904. H1, that a simple predictor display based on image transformation can increase the operator performance, is therefore verified.
+
+\item[H2:] The participants did not reported any significant difference in the mental, physical or temporal demand using the predictive display. H2, that a simple predictor display based on image transformation will decrease the operator's subjective workload, has to be rejected. 
+\end{description}
+\vspace{-5mm}
 \section{Performance}
 
-\figref{performanceNorm} shows the normalized score, number of hits in 90 seconds, for each of the display types and all N=57 participants. \textit{Delay} refers to the \textit{added} delay, which means that "No delay" translates to the inherent system delay of $250 ms$. The numerical values together with the standard deviation (SD) is reported in table \ref{score}. In addition, the percentage difference in means between displays is also reported in that table. The statistical significance and effect size between conditions can be seen in table \ref{score2}.
-
-Participants performed on average 20.62\% better using the predictive display versus no predictive display, t(56)=4.80, p$<$.001, d=0.904. In comparison, the subjects performed on average 154.37\% better in the no delay condition versus the delayed condition without predictive help, t(56)=23.15, p$<$.001, d=5.569. All differences are statistically significant.
-
+\figref{performanceNorm} shows the normalized number of hits in 90 seconds (score), for each display type and all N=57 participants. \textit{Delay} refers to the \textit{added} delay, which means that "No delay" translates to the inherent system delay of $250 ms$. The numerical values are reported in Table \ref{score}. The statistical significance and effect size between conditions can be seen in Table \ref{score2}.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.85]{performance_norm}
     \caption{Normalized score all participants, N=57.}
     \label{performanceNorm}
+	\vspace{-0.2cm}
 \end{figure}
+
+All  Those who play games weekly or more were defined as \emph{gamers}. They performed on average 30.13\% better, while non-gamers only saw a 16.91\% performance increase with the PD. This difference is illustrated in \figref{gamer_performance}.
 
 \input{./tables/score}
 \input{./tables/score2}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.85]{gamer_performance}
+    \caption{Performance of gamers versus non-gamers}
+    \label{gamer_performance}
+\end{figure}
 
+\clearpage
 \section{Task load index}
 
-\figref{tlx} shows the reported NASA TLX scores. The height of the bar describes the mean value while the whiskers shows the SD. There are no big differences between condition one and two. The only significant differences between those two conditions can be found in the \emph{performance}, t(56)=3.24, p=0.002, d=0.360 and \emph{frustration}, t(56)=2.15, p=0.036, d=0.271 metric. This means that the subjects felt less frustration and evaluated their performance as better when using the predictive display.
+\figref{tlx} shows the reported NASA TLX scores. The height of the bar describes the mean value while the whiskers shows the SD. Numerical values are reported in Table \ref{tlx_values}.
+
+There are no big differences between condition one and two. The only significant differences between those two conditions can be found in the \emph{performance}, t(56)=3.24, p=0.002, d=0.360 and \emph{frustration}, t(56)=2.15, p=0.036, d=0.271 metric. This means that the subjects felt less frustration and evaluated their performance as better when using the predictive display.
 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.75]{nasa_tlx_bar}
+    \includegraphics[scale=0.85]{nasa_tlx_bar}
     \caption{NASA TLX (task load index) results for each display type. Lower is better.}
     \label{tlx}
 \end{figure}
 
+\input{./tables/tlx_values}
+\clearpage
 \section{Subjective delay}
 
 \figref{subjective_delay_norm} shows the normalized reported total delay in seconds for the three conditions. The participants reported a 11\% decrease in subjective latency using the predictive display versus the normal display with the same latency. This results is however not significant, t(56)=1.40, p=0.167, d=0.356.
