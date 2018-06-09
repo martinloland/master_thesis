@@ -7,21 +7,14 @@
 
 \begin{document}
 \newpage\null\thispagestyle{empty}\newpage
-%\addtocounter{page}{-1}
-%\newpage\null\thispagestyle{empty}\newpage
-%\addtocounter{page}{-1}
-
-%\begin{titlepage}
-%\hbox{}
-%\end{titlepage}
 
 \begingroup
 \let\cleardoublepage\clearpage
 
 
 \input{./tex/abstract}
-%\let\cleardoublepage\clearpage 
 \input{./tex/sammendrag}
+\input{./tex/preface}
 
 \endgroup
  
@@ -40,7 +33,7 @@
 }
 {\setstretch{1.5}
 \pagenumbering{arabic}
-%\let\cleardoublepage\cleardoublepage
+
 \chapter{Introduction and theory} \label{chpIntroduction}
 	\input{./tex/intro}	
 	
@@ -68,19 +61,32 @@
 
 \chapter*{eduROV documentation}\label{appDoc}
 \addcontentsline{toc}{section}{A eduROV documentation}
-\includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/edurovDoc.pdf}
+\includepdf[pages=-, frame=false, pagecommand={}, width=\paperwidth]{./appendicies/edurovDoc.pdf}
 
 \chapter*{eduROV package code}\label{appCode}
 \addcontentsline{toc}{section}{B eduROV package code}
-\includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/edurovCode.pdf}
+\includepdf[pages=-, frame=false, pagecommand={}, width=\paperwidth]{./appendicies/edurovCode.pdf}
 
 \chapter*{Predictive display code}\label{appPredict}
 \addcontentsline{toc}{section}{C Predictive display code}
-\includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/predictor.pdf}
+\includepdf[pages=-, frame=false, pagecommand={}, width=\paperwidth, offset=0cm -5mm]{./appendicies/predictor.pdf}
+
+\chapter*{Experiment info page}\label{appInfo}
+\addcontentsline{toc}{section}{D Experiment info page}
+\includepdf[pages=-, frame=false, pagecommand={}, width=\paperwidth, offset=0cm -8mm]{./appendicies/infopage.pdf}
+
+\chapter*{Experiment questionnaire}\label{appSurvey}
+\addcontentsline{toc}{section}{E Experiment questionnaire}
+\includepdf[pages=-, frame=false, pagecommand={}, width=\paperwidth, offset=0cm -8mm]{./appendicies/survey.pdf}
 
 \chapter*{Data analysis code}\label{appAnalysis}
-\addcontentsline{toc}{section}{D Data analysis code}
-\includepdf[pages=-, frame=false, width=\paperwidth]{./appendicies/analysis.pdf}
+\addcontentsline{toc}{section}{F Data analysis code}
+\includepdf[pages=-, frame=false, pagecommand={}, width=\paperwidth, offset=0cm -7mm]{./appendicies/analysis.pdf}
+
+\chapter*{Experiment database}\label{appDatabase}
+\addcontentsline{toc}{section}{G Experiment database}
+\includepdf[pages=-, frame=false, pagecommand={}, angle=90, width=\paperwidth]{./appendicies/actors.pdf}
+\includepdf[pages=-, frame=false, pagecommand={}, width=\paperwidth]{./appendicies/surveyData.pdf}
 
 \end{appendices}
 
