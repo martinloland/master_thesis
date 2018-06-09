@@ -16,23 +16,27 @@ To explain how the predictive display (PD) works, let us consider the self balan
 
 It has a forward facing camera with a FOV of $\phi$ degrees. The camera captures a video feed with a resolution of $R_h$ pixels horizontally. Its center of rotation is located in the vector $z$ pointing out of the paper. It is able to rotate with an angular velocity of $\omega$ deg/sec around its center of rotation $z$.
 
-Let us first consider a situation without delay and where the ROV can only be given two commands, to turn either left or right. The commands are given by pressing one of two buttons, not by a joystick with variable output. If the operator hold's down the \emph{left} button for a period of $\Delta t$ seconds, the ROV would turn $\omega \cdot \Delta t = \Delta \theta$ degrees. This is depicted in the right side of \figref{twoWheeled}.
+Let us first consider a situation without delay and where the ROV can only be given two commands, to turn either left or right. The commands are given by pressing one of two buttons, not by a joystick with variable output. If the operator hold's down the \emph{left} button for a period of $\Delta t$ seconds, the ROV would make an angular rotation of $\omega \cdot \Delta t = \Delta \theta$ degrees. This is depicted in the right side of \figref{twoWheeled}.
 
 In the viewport, the cube and barrel would move to the right as the ROV turned left. These objects has moved a finite number of pixels horizontally $\Delta P_h$, which can be calculated by equation \ref{deltaph}. It is simply the ratio between the angular rotation and the FOV, times the pixel screen width. By substituting in the expression for angular rotation, equation \ref{pixelturnrate} is obtained. Here $\eta$ is used to denote the \textit{pixel turn rate}; the pixel rate at which objects in the video moves left or right when the operator turns the ROV.
 
+\vspace{7mm}
 \begin{equation}\label{deltaph}
 \Delta P_h = \frac{\Delta \theta}{\phi}\cdot R_h
 \end{equation}
-
+\vspace{7mm}
 \begin{equation}\label{pixelturnrate}
 \Delta P_h = \left ( R_h\frac{\omega }{\phi} \right )\Delta t = \eta \cdot  \Delta t
 \end{equation}
+\vspace{0mm}
 
 $\eta$ is a constant and depending on the screen resolution, camera FOV and the angular velocity of the ROV. By multiplying this factor by the amount of time the operator holds down the left or right button, the number of pixels the objects in the frame should move is obtained.
 
 \section{Predictive visualization}
 
-Let us now consider a situation where there is a $t_d$ seconds delay from when the commands are given by the operator to the changes can be seen in the video feed. This corresponds to the time it takes for the command signals to reach the ROV and be processed by the computer, plus the time it takes for the camera to capture the situation, send that image to the operator and display it on the screen. For simplicity, let us also consider a situation where $\Delta t < t_d$.
+Let us now consider a situation where there is a $t_d$ seconds delay from when the commands are given by the operator, to the changes can be seen in the video feed. This is the \emph{total perceived delay} described in the introduction, section \ref{timeDelay}. For simplicity, let us also consider a situation where $\Delta t < t_d$.
+
+\figref{movie} shows a representation of what the video feed would look like as the above maneuver was performed. It shows the situation in three different scenarios. First no delay, secondly with delay and third with the PD implemented using the delayed video. The outer rectangle shows the limitations of the monitor, while the inner rectangle is the video feed itself.
 
 \begin{figure}[h!]    
     \centering           
@@ -42,11 +46,9 @@ Let us now consider a situation where there is a $t_d$ seconds delay from when t
     \label{movie}
 \end{figure}
 
-\figref{movie} shows a representation of what the video feed would look like as the above maneuver were performed. It shows the situation in three different scenarios. First no delay, secondly with delay and third with the PD implemented using the delayed video. The outer rectangle shows the limitations of the screen used to show the video feed, while the inner rectangle is the video feed itself.
+\figref{timePlot} plots the visible angular rotation $\alpha$ for the no delay display and the delayed display as a function of time. For the no delay display, visible angular rotation is equal to ROV angular rotation $\alpha = \theta$. In addition, the horizontal image pixel displacement $P_h$ is plotted with the same time axis.
 
-\figref{timePlot} plots the visible angular rotation $\alpha$ for the no delay display and the delayed display as a function of time. For the no delay display, visible angular rotation is equal to ROV rotation $\alpha = \theta$. In addition, the horizontal image pixel displacement $P_h$ is plotted with the same time axis.
-
-The PD works by moving the video feed on the operator screen the opposite way of what the ROV is moving. The amount of pixels the video $P_h$ is moved is calculated by equation \ref{pixelturnrate}. In addition, the video is moved back (the same way as the ROV is moving) after $t_d$ seconds has passed. This makes the objects in the video feed appear in the correct position on the operator screen as if there were no delay. Note that the black box in \figref{movie} center column predictor display is in the correct position relative to the no delay display. This approach does however assume that the commands will be properly followed by the ROV. But since the prediction is merely an alteration to the last image received, the prediction errors are not cumulative.
+The PD works by moving the video feed on the operator screen the opposite way of what the ROV is moving. The amount of pixels the video $P_h$ is moved is calculated by equation \ref{pixelturnrate}. In addition, the video is moved back (the same way as the ROV is moving) after $t_d$ seconds has passed. This makes the objects in the video feed appear in the correct position on the operator screen as if there were no delay. Note that the black box in \figref{movie} predictor display center column is in the correct position relative to the no delay display. This approach does however assume that the commands will be properly followed by the ROV. But since the prediction is merely an alteration to the last image received, the prediction errors are not cumulative.
 
 
 \begin{figure}[h!]    
@@ -57,19 +59,18 @@ The PD works by moving the video feed on the operator screen the opposite way of
     \label{timePlot}
 \end{figure}
 
+\vspace{-3mm}
 \section{Implementation}
 
-Although the above argumentation may seem to work fine in theory, the computer needs a function that can run a finite number of times per second to do these calculations. Algorithm \ref{predictorAlg} shows the pseudocode for how this is implemented in practice.
+Algorithm \ref{predictorAlg} shows the pseudocode for how this PD is implemented in practice. The horizontal pixel displacement $P_h$ is initialized as zero. Then, the \textsc{predictor display} function is called at a set interval $dt$. The rate of these calls should happen at least as fast as the frame rate of the video (fps). With a fps of 30, the interval should be $dt <= 1/30 \approx 33 ms$. The change in horizontal pixel displacement $\Delta P_h$ is then calculated from equation \ref{pixelturnrate} and the interface is updated with the new $P_h$. In addition, an asynchronous call is done on the \textsc{move back} function so that the video is moved back to its original position after $t_d$ seconds has passed. It has to be an asynchronous call so that the main program is not blocked when the \textsc{move back} function is waiting.
 
-The horizontal pixel displacement $P_h$ is initialized as zero. Then, the \textsc{predictor display} function is called at a set interval $dt$. The rate of these calls should happen at least as fast as the frame rate of the video (fps). With a fps of 30, the interval should be $dt <= 1/30 \approx 33 ms$. The change in horizontal pixel displacement $\Delta P_h$ is then calculated from equation \ref{pixelturnrate} and the interface is updated with the new $P_h$. In addition, an asynchronous call is done on the \textsc{move back} function so that the video is moved back to its original position after a time of $t_d$ has passed. It has to be an asynchronous call so that the main program is not blocked when \textsc{move back} function is waiting.
-
+\newgeometry{bmargin=0mm}
 \input{./snippet/algo}
 
+%\vspace{-15mm}
 
-\figref{predictorvis} shows the predictor display implemented in the experiment, which is explained in chapter \ref{chpMethod}. It contains the video feed from the ROV, in addition to a red arrow to visualize the prediction. The operator has recently turned the ROV to the right, and as a result the movie has moved to the left. The red arrow has not moved and works as an indication of where the ROV will be heading when the video feed has caught up with the time delay. To see how this works in practice, the reader can visit the link \textbf{TODO} to watch a video of the predictor screen.
-
-The operator views the predictor screen through a web browser. The predictor algorithm is written in java script and the video feed is moved around by changing css margin properties. The code can viewed in its entirety in the appendix, part \textbf{TODO}.
-
+\figref{predictorvis} shows the predictor display as it was implemented in the experiment, which is explained in chapter \ref{chpMethod}. It contains the video feed from the ROV, in addition to a red arrow to visualize the prediction. The operator has recently turned the ROV to the right, and as a result the video has moved to the left. The red arrow has not moved and works as an indication of where the ROV will be heading when the video feed has caught up with the time delay.
+%\vspace{-7mm}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{setup-4}
@@ -77,9 +78,16 @@ The operator views the predictor screen through a web browser. The predictor alg
     \label{predictorvis}
 \end{figure}
 
+%\vspace{-10mm}
+\clearpage
+\restoregeometry
+
+The operator views the predictor screen through a web browser. The predictor algorithm is written in java script and the video feed is moved around by changing css margin properties. The code can viewed in its entirety in the appendix \hyperref[appPredict]{section C}, or online.\footnote{\url{https://github.com/trolllabs/eduROV/blob/master/examples/experiment/displays/predictive.js}}
+
+
 \section{Extending and generalizing}\label{expand}
 
-The pixel turn rate $\eta$ described in section \ref{chp31} was related to the rotation of the ROV. A similar constant can be found for the \emph{pixel scale rate}, which relates how the the video should scale when the ROV moves back and fourth. It's a bit more complicated since the apparent scaling of objects in the frame depends on how far they are away, but by using an average distance this can at least be approximated. The same approach as in Algorithm \ref{predictorAlg} can then be used for backward and forward motion to manipulate the scale of the video feed.
+The pixel turn rate $\eta$ described in section \ref{chp31} was related to the rotation of the ROV. A similar constant can be found for the \emph{pixel scale rate}, which relates how the the video should be scaled when the ROV moves back and fourth. It's a bit more complicated since the apparent scaling of objects in the frame depends on how far away they are, but by using an average distance this can at least be approximated. The same approach as in Algorithm \ref{predictorAlg} can then be used for backward and forward motion to manipulate the scale of the video feed.
 
 In the case of a varying magnitude of left, right, forward and backward movements. Such if the operator is using a joystick with variable output, the PD has to account for this. This can be achieved by applying an adjustment factor to the pixel turn/scale rate proportionate to the magnitude of the command.
 
