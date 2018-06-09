@@ -1,16 +1,17 @@
-The goal of the experiment was to measure the performance change in a maneuvering task using a predictor display based on image transformation on a real ROV. The participants were given a modified "peg-in-hole" task, where the peg was mounted on a remotely controlled ground vehicle and the holes were rectangular holes in a wooden box.
+The goal of the experiment was to measure the human performance change in a ROV maneuvering task using a predictor display based on image transformation. The participants were given a modified "peg-in-hole" task, where the peg was mounted on a remotely controlled ground vehicle and the holes were rectangular holes in a wooden box.
 
 %A camera was mounted on the ROV such that the operator could see the peg and holes. The goal of the experiment was to measure the operator's navigational performance difference using two different display types. Both displays would use the same fixed delay, but the second would use predictive technology to visualize instant robot responses. The first display would contain a delayed video feed from an ROV while the other display used predictive visualization with the same delay. The participants were given a task of maneuvering the UGV to three specific locations as many times as possible in the course of 90 seconds.
 
 \section{Participants}
 
-The participants were voluntary selected from the NTNU Department of Mechanical and Industrial Engineering. A total of 58 participants performed the experiment whereas the first one were excluded from the data foundation. This was due to lack of information that became evident during the first trial. This information were given to the other 57 participants. None of the participants had any earlier experience with predictive displays.
+The participants were voluntary selected from the NTNU Department of Mechanical and Industrial Engineering. A total of 58 participants performed the experiment whereas the first one were excluded from the data foundation. This was due to lack of information that became evident during the first trial. This information were given to the other $N=57$ participants. None of the subjects had any earlier experience with predictive displays.
 
-35.1\% of the participants were female and the total group had an average age of 24.7 years with an standard deviation of 1.45. 100\% of the group reported that they use a computer on a daily basis. When asked how often he or she play video games (computer or console), the distribution were as follows: daily 4\%, weekly 26\%, monthly 14\%, yearly 30\% and never 26\%.
-
+33.3\% of the participants were female and the total group had an average age of 24.7 years with an standard deviation (SD) of 1.45. This information among others can be seen in table \ref{demographicsTable}.
+\input{./tables/demographics}
+\clearpage
 \section{Experimental design}
 
-\subsection{Equipment}
+\figref{expsetup} shows an overview of the experimental setup. A 17 inch laptop running with a 2.3GHz Intel Core i7-3610QM CPU and Windows 10 together with the arrow keys were used as the operator's control device. This was connected to the ROV through a direct Ethernet connection. 
 
 \begin{figure}[h!]
     \centering
@@ -19,17 +20,16 @@ The participants were voluntary selected from the NTNU Department of Mechanical 
     \label{expsetup}
 \end{figure}
 
-\figref{expsetup} shows an overview of the experimental setup. A 17 inch laptop running with a 2.3GHz Intel Core i7-3610QM CPU and Windows 10 together with the arrow keys were used as the operator's control device. This was connected to the ROV through a direct Ethernet connection. 
-
-The ROV, \figref{setup3}, was a three wheeled robot running a Raspberry Pi 3 Model B+. Two of the wheels where connected to each their DC-motor while the third one was a caster wheel for support. The ROV was equipped with a forward facing Raspberry Pi Camera V2. The camera ha a wide angle lens attached with a horizontal FOV of $76.5$ degrees. The robot was running the eduROV software outlined in chapter \ref{chpEdurov}. This software was responsible for serving the control interface, handling control commands, logging experiment data and adding the desired latency to the communication.
+The ROV, \figref{setup3}, was a three wheeled robot running a Raspberry Pi 3 Model B+. Two of the wheels where connected to each their DC-motor while the third one was a caster wheel for support. The ROV was equipped with a forward facing Raspberry Pi Camera V2. The camera has a wide angle lens attached with a horizontal FOV of $76.5$ degrees. The robot was running the eduROV software outlined in chapter \ref{chpEdurov}. This software was responsible for serving the control interface, handling control commands, logging experiment data and adding the desired latency to the communication.
 
 A wooden box with three holes and LED's were used to register task performance. The distance between the holes (center to center) was $D=30cm$ while the holes itself has a width of $W=10cm$. This translates to a Fitts's \emph{index of difficulty} of $I_d=log_2\left ( 2D/W \right )=2.58\: bits$ \citep{Fitts1954}.
 
+\newgeometry{bmargin=0mm}
 \subsection{Task}\label{task}
 
 One by one, i random order, the round LED on the button box would turn on. The operator was then tasked to maneuver the ROV such that the black peg would go inside the corresponding hole. A light sensor inside the hole would register this as a \emph{hit}. This would cause the LED to turn off and one of the other two to turn on. The participants were told to make as many \emph{hits} as possible in the course of 90 seconds.
 
-The participants would repeat this task a total of three times, using three different displays / conditions. The order of these conditions followed a 3x3 Latin Square Design, to eliminate the order effect. Condition one had a total delay of 700 ms which included the inherent delay of the system 250ms, plus the added delay of 450 ms. Condition two had the same delay as condition one, but with the predictive display in effect. The third condition had no added delay and only the inherent delay of 250ms. No predictive technology was used in the third condition. The total latency of 700 ms were chosen because it's below the reported threshold for a "move and wait" strategy \citep{Chen2007} and above what is considered a difficult level in many situations.
+The participants would repeat this task a total of three times, using three different displays / conditions. The order of these conditions followed a 3x3 Latin Square Design, to eliminate the order effect. Condition one had a total delay of 700 ms which included the inherent system delay of 250ms, plus the added delay of 450 ms. Condition two had the same delay as condition one, but with the predictive display in effect. The third condition had no added delay and only the inherent delay of 250ms. No predictive technology was used in the third condition. The total latency of 700 ms were chosen because it's below the reported threshold for a "move and wait" strategy \citep{Chen2007}, and above what is considered a difficult level in many situations.
 
 \begin{figure}[h!]
     \centering
@@ -38,15 +38,16 @@ The participants would repeat this task a total of three times, using three diff
     \label{setup3}
 \end{figure}
 
-Many of the experiments previously mentioned in table \ref{reviewPred} used a single task and measured the task completion time in different conditions. This experiment however was designed with a single simple task and measured the achieved score in the course of a fixed time period. There are multiple reasons for this choice. 
+Many of the experiments previously mentioned in table \ref{reviewPred} used a single task and measured the task completion time in different conditions. This experiment was however designed with a single simple task and measured the achieved score in the course of a fixed time period. There are multiple reasons for this choice.
+\restoregeometry
 
 First, to reduce the learning effect that would accompany a longer maneuvering course. Some of the authors in table \ref{reviewPred} reported that the participants performed better for each try when they started to learn the obstacle course. I believe that a longer course would require more time to reduce the learning effect.
 
-Secondly, \citep{Chen2007} reported that the benefit of PD is very task dependent. An easy task was therefore chosen to minimize the effect that task complexity had on the performance results. 
+Secondly, \citet{Chen2007} reported that the benefit of PD is very task dependent. An easy task was therefore chosen to minimize the effect that task complexity had on the performance results. 
 
 Thirdly, some experiments with real or simulated driving have long stretches with forward motion. The PD provides little help in these situations but still contribute to the task completion time in the same way. A task which required the operator to move from side to side as much as possible was therefore chosen. In addition, by not letting the operator accelerate to maximum ROV velocity, ceiling effects from vehicle limitations were reduced. 
 
-As a fourth argument, a fixed task time made the experiment length much more predictable. Subjects used on average 10 minutes and 56 seconds with a standard deviation of 1 min and 12 s to perform the whole experiment. This again made it easier to recruit new subjects. 
+As a fourth argument, a fixed task time made the experiment length much more predictable. Subjects used on average 10 minutes and 56 seconds with a standard deviation of 1 min and 12 seconds to perform the whole experiment. This again made it easier to recruit new subjects. 
 
 As a last argument, the combination of score achievement and time pressure made the subjects fully devoted to the task at hand. This made them performed as close as possible to their potential.
 
