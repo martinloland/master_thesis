@@ -3,7 +3,6 @@
 \usepackage{mystyle}
 
 \pagenumbering{roman}
-\renewcommand\bibname{References}
 
 \begin{document}
 \newpage\null\thispagestyle{empty}\newpage
@@ -54,8 +53,8 @@
 
 {\setstretch{1.0}
 }
-\printbibliography
-\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography[title=References]
+\addcontentsline{toc}{chapter}{References}
 
 \begin{appendices}\label{appendix}
 
