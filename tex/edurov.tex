@@ -97,7 +97,7 @@ The reader is recommended to take a look at the API\footnote{\url{http://edurov.
 \section{Documentation}
 
 
-The documentation is written using the \emph{reStructuredText}\footnote{\url{http://docutils.sourceforge.net/rst.html}} markup syntax and compiled using the Sphinx\footnote{\url{http://www.sphinx-doc.org/}}. This enables in-line program documentation. This is very helpful because the documentation for the classes, methods and functions can be written in the same place as the actual code. This creates fewer files which are easier to maintain. In addition, sphinx will automatically detect classes, functions and methods and create a corresponding documentation structure.
+The documentation is written using the \emph{reStructuredText}\footnote{\url{http://docutils.sourceforge.net/rst.html}} markup syntax and compiled using the Sphinx\footnote{\url{http://www.sphinx-doc.org/}}. This enables in-line program documentation. This is very helpful because the documentation for the classes, methods and functions can be written in the same place as the actual code. This creates fewer files which makes it easier to maintain. In addition, sphinx will automatically detect classes, functions and methods and create a corresponding documentation structure.
 
 The GitHub repository has been connected to an account at \emph{readthedocs.io}. By connecting these accounts, a documentation website is automatically created from the sphinx structure when updates are committed to the repository. The documentation can be seen online\footnote{\url{http://edurov.readthedocs.io}} or in the appendix, \hyperref[appDoc]{section A} on page \pageref{appDoc}. A sample can be seen in \figref{docs}.
 
@@ -113,11 +113,14 @@ The GitHub repository has been connected to an account at \emph{readthedocs.io}.
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.7,right]{latency}
-    \caption{Video latency for eduROV 0.0.5 \@ 30fps.}
+    \caption{Video latency for eduROV 0.0.5 \@ 30fps for multiple resolutions.}
     \label{latency}
 \end{figure}
 
-\figref{latency} shows a delay performance test that were performed on version 0.0.5 of the eduROV package. With a resolution of 0.3 mega pixels on a wired ethernet connection, the video latency has been reduced from 782ms to 143ms. This is a 82\% reduction. It is even possible to stream full HD video with a latency below 300ms. When using wireless transmission the latency is affected by factors such as distance, interference and hardware. The test was performed in the same way as \citet{Jennhag2016} did in their test. By manually comparing two timers, one in real time on the monitor and the other as captured by the camera and transmitted back to the same monitor.
+As part of the development of the eduROV package, a latency test was performed. \figref{latency} shows this test for version 0.0.5 of the eduROV package. With a resolution of 0.3 mega pixels on a wired ethernet connection, the video latency has been reduced from 782ms to 143ms. This is a 82\% reduction. It is even possible to stream full HD video with a latency below 300ms. When using wireless transmission the latency is affected by factors such as distance, interference and hardware. 
+
+The test was performed in the same way as \citet{Jennhag2016} did in their test. By manually comparing two timers, one in real time on the monitor and the other as captured by the camera and transmitted back to the same monitor. This was performed two times and the displayed value is the average.
+
 \clearpage
 A summary of the most novelty features in comparison with other similar solutions can be listed as follows:
 
