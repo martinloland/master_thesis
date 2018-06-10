@@ -27,21 +27,19 @@ None of the subjects were told that there would be a predictive display or how i
 Those who play games weekly or more were defined as \emph{gamers} (G). They performed on average 30.13\% better, while non-gamers (NG) only saw a 16.91\% performance increase using the PD. This difference is illustrated in \figref{gamer_performance} and Table \ref{score2}.
 
 \begin{figure}[h!]
+	\vspace{-2mm}
     \centering
     \includegraphics[scale=0.85]{gamer_performance}
     \caption{Performance of gamers n=17, versus non-gamers n=40.}
     \label{gamer_performance}
+	\vspace{-3mm}
 \end{figure}
 
 It is interesting to see that G's were able to increase their score almost twice as much as NG's when going from a delayed condition to a delayed condition with PD. Exactly why G's were able to increase their performance more using the PD is unclear. It could be that the arrow in the PD which acts like an aiming device, is a more familiar concept for gamers. It could also indicate that G's are generally more adaptable to new an unfamiliar situations in a computer competition setting.
 
 When comparing G's versus NG's directly, it is also interesting to see that G's only performed better than NG's in the second and third condition. Delay PD: t(26.57)=2.23, p=0.034, d=0.692 and no delay: t(40.79)=2.56, p=0.014, d=0.660. In the the first condition, there was no significant difference.
-\todo[inline]{
-why is this
-}
-This tells us that G's were only able to utilize their potential if there was 
 
-
+\newgeometry{bmargin=5mm}
 \section{Task load index}
 
 \figref{tlx} shows the reported NASA TLX scores. The height of the bar describes the mean value while the whiskers shows the SD. Numerical values are reported in Table \ref{tlx_values}.
@@ -50,21 +48,29 @@ Subjects reported minimal differences between condition one and two. The only si
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.85]{nasa_tlx_bar}
+    \includegraphics[scale=0.8]{nasa_tlx_bar}
+    \vspace{-2mm}
     \caption{NASA TLX (task load index) results for each display type, N=57. Lower is better.}
+    \vspace{-3mm}
     \label{tlx}
 \end{figure}
 
-\input{./tables/tlx_values}
+The subjects reported no significant difference in mental, physical and temporal demand between condition one and two. These three metrics is a good description of the total subjective workload. Some subjects, especially those who didn't understand what the PD were trying to tell them, even reported the PD as distracting.
 
-The subjects reported no significant difference in mental, physical and temporal demand between condition one and two. These three metrics is a good description of the total subjective workload. Some subjects, especially those who didn't understand what the PD were trying to tell them, even reported the PD as distracting. Because of how the PD works, the video feed is constantly moving around and scaling up and down. This can understandably be distracting. Some participants immediately understood how the PD worked, and they typically reported the PD as helpful. They also seemed to be more relaxed, but there are no recorded data that can prove this relationship.
+\restoregeometry
+
+Because of how the PD works, the video feed is constantly moving around and scaling up and down. This can understandably be distracting. Some participants immediately understood how the PD worked, and they typically reported the PD as helpful. They also seemed to be more relaxed, but there are no recorded data that can prove this relationship.
+
+\input{./tables/tlx_values2}
 
 During the task, a red timer indicating the remaining time was constantly visible for the participant to see in the upper right corner. In addition, the robot had rapid acceleration and was able move fast if the operator managed to do so. Overall, this made for a hectic and exiting experience for the subjects. This may explain why there is no significant change in the temporal demand, even compared to the no delay situation. The fact that the participants reported a better value (smaller) in the other five metrics for the no delay condition, is as expected. This finding supports earlier research that describes how video latency negatively affect the user experience in teleoperation.
 
-
+\clearpage
 \section{Subjective delay}
 
-\figref{subjective_delay_norm} shows the normalized reported total delay in seconds for the three conditions. The participants reported a 11\% decrease in subjective latency using the predictive display versus the normal display with the same latency. This results is however not significant, t(56)=1.40, p=0.167, d=0.356.
+\figref{subjective_delay_norm} shows the normalized reported total delay in seconds for the three conditions. The participants reported a 11\% decrease in subjective latency using the predictive display versus the normal display with the same latency. This results is however not significant, t(56)=1.40, p=0.167, d=0.356. From the Figure, it can be seen that subjects reported the latency in the third condition as very low, many of them barely above 0ms. The actual delay was 250ms, but only
+
+About 75\% of the participants underestimated the latency in the third condition. Many of them barely reported over 0ms, but the actual latency was 250ms. These findings support previous research, which states that smaller latencies closer to zero is difficult to differentiate from no latency.
 
 \begin{figure}[h!]
     \centering
@@ -73,18 +79,22 @@ During the task, a red timer indicating the remaining time was constantly visibl
     \label{subjective_delay_norm}
 \end{figure}
 
-Since the participants reported less frustration using the PD, it it interesting to look at how frustration an subjective delay time might be related. \figref{delay_vs_frustration} shows a scatter plot of reported frustration and delay time for all conditions collectively. All values has been normalized. The linear relationship is minimal at best and no conclusions can be drawn from the data.
+\clearpage
+Since the participants reported less frustration using the PD, it it interesting to look at how frustration and subjective delay time might be related. \figref{delay_vs_frustration} shows a scatter plot of reported frustration and delay time for all conditions collectively. All values has been normalized. The linear relationship is small, but still noticeable. Note that this Figure presents the subjective latency in all conditions, this means that there are differences between actual latency also. When looking at the different conditions isolated, there are no significant relationships.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.65]{delay_vs_frustration}
+    \includegraphics[scale=0.7]{delay_vs_frustration}
     \caption{Normalized subjective delay versus frustration}
     \label{delay_vs_frustration}
 \end{figure}
 
+\clearpage
 \section{Learning effect}
 
 It is also interesting the evaluate if participants had any learning effects during the experiment. \figref{learning_effect} shows the score for each display type and further divided into groups depending if the subject had that display as the first, second or third display. As an example, the first of the nine box plots describes the score achieved in the delay condition for those who had that display as their first display. One visible trend is that the participants who had a particular display as their second display, performed better than those who had that display as their first. This performance increase was significant for all displays. Delay: t(18)=2.19, p=0.042, d=0.671, delay PD: t(17)=2.19, p=0.043, d=0.660, no delay: t(17)=3.26, p=0.005, d=0.902. The performance change from \#2 to \#3 in all displays were however not found significant.
+
+This indicate that the participants had some learning effect from the first to second display. But after that, the learning effect was eliminated.
 
 \begin{figure}[h!]
     \centering
@@ -93,9 +103,16 @@ It is also interesting the evaluate if participants had any learning effects dur
     \label{learning_effect}
 \end{figure}
 
+\clearpage
+Table \ref{groups_score} and \ref{groups_stats} presents the achieved score in each of the experiments groups. These groups are defined by the 3x3 Latin Square design to minimize order effects. It is interesting to see that the two groups who had condition two, the predictor display first, did not show any statistical difference in performance between condition one and two. But all the other groups who had the PD as their second or third display, showed a performance increase from 24.34\% to 45.58\%. This would indicate that the PD was more helpful, if the subject has tried one of the others first.
+
+\input{./tables/groups_score}
+\input{./tables/groups_stats}
+
+\clearpage
 \section{Key presses}
 
-\figref{keypresses} shows the number of key presses performed during the 90 seconds of task time for each display type. With a low latency, participants are in a greater degree trying to continuously maneuver the ROV.
+\figref{keypresses} shows the number of key presses performed during the 90 seconds of task time for each display type. In condition three participants make a lot more key presses. With a low latency, participants are in a greater degree trying to continuously maneuver the ROV, instead of partially adapting a move and wait strategy.
 
 \begin{figure}[h!]
     \centering

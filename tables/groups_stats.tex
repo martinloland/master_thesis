@@ -1,0 +1,37 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\small
+\centering
+\caption{Mean difference, paired samples t-test and Cohen's d effect size for display pair scores. Seperated by experiment display order.}
+\label{groups_stats}
+\begin{tabularx}{\textwidth}{@{}lllYYYY@{}}
+\toprule
+\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Group / Display order\\ Pair\end{tabular}} & Mean difference & \multicolumn{3}{c}{t-test for Equality of Means} & d      \\ \midrule
+\multicolumn{2}{l}{}             &                 & t               & df          & p                &        \\ \cmidrule(lr){4-6}
+\multicolumn{2}{l}{Group 1, n=9, 1-2-3}  &                 &                 &             &                  &        \\
+Delay           & Delay PD       & 45.58\%         & 4.49            & 8           & 0.002            & 1.867  \\
+Delay           & No delay       & 203.00\%        & 10.11           & 8           & $<$.001          & 6.274  \\
+Delay PD        & No delay       & 108.13\%        & 8.11            & 8           & $<$.001          & 4.960  \\ \addlinespace
+\multicolumn{2}{l}{Group 2, n=10, 1-3-2} &                 &                 &             &                  &        \\
+Delay           & Delay PD       & 35.42\%         & 4.89            & 9           & $<$.001          & 2.474  \\
+Delay           & No delay       & 179.12\%        & 22.73           & 9           & $<$.001          & 12.050 \\
+Delay PD        & No delay       & 106.11\%        & 14.59           & 9           & $<$.001          & 8.602  \\ \addlinespace
+\multicolumn{2}{l}{Group 3, n=10, 2-1-3} &                 &                 &             &                  &        \\
+Delay           & Delay PD       & -4.98\%         & -0.63           & 9           & 0.544            & -0.288 \\
+Delay           & No delay       & 156.29\%        & 12.57           & 9           & $<$.001          & 7.347  \\
+Delay PD        & No delay       & 169.73\%        & 13.93           & 9           & $<$.001          & 7.884  \\ \addlinespace
+\multicolumn{2}{l}{Group 4, n=10, 2-3-1} &                 &                 &             &                  &        \\
+Delay           & Delay PD       & -0.13\%         & -0.01           & 9           & 0.988            & -0.007 \\
+Delay           & No delay       & 154.87\%        & 9.99            & 9           & $<$.001          & 6.211  \\
+Delay PD        & No delay       & 155.19\%        & 16.53           & 9           & $<$.001          & 8.081  \\ \addlinespace
+\multicolumn{2}{l}{Group 5, n=9, 3-1-2}  &                 &                 &             &                  &        \\
+Delay           & Delay PD       & 24.34\%         & 2.66            & 8           & 0.029            & 1.366  \\
+Delay           & No delay       & 116.81\%        & 11.05           & 8           & $<$.001          & 6.163  \\
+Delay PD        & No delay       & 74.38\%         & 6.74            & 8           & $<$.001          & 4.248  \\ \addlinespace
+\multicolumn{2}{l}{Group 6, n=9, 3-2-1}  &                 &                 &             &                  &        \\
+Delay           & Delay PD       & 33.42\%         & 2.74            & 8           & 0.026            & 1.147  \\
+Delay           & No delay       & 125.50\%        & 5.06            & 8           & $<$.001          & 3.190  \\
+Delay PD        & No delay       & 69.02           & 4.18            & 8           & 0.003            & 2.503  \\ \bottomrule
+\end{tabularx}
+\end{table}
