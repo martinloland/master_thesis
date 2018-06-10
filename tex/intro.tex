@@ -17,9 +17,9 @@ A new type of predictive display based on image transformation was therefore cre
 
 \item [Chapter 4:] Describes experimental design and procedure of the experiment used to test the developed predictive display.
 
-\item [Chapter 5:] Results, will present the findings of the performed experiment.
+\item [Chapter 5:] Results and discussion, will present the findings of the performed experiment and its discussion.
 
-\item [Chapter 6:] A discussion on the collected results compared to earlier research.
+\item [Chapter 6:] Conclusion and summary with respect to the hypotheses.
 \end{description}
 
 \section{Teleoperation}
@@ -81,9 +81,10 @@ In situations where the external forces can not be calculated exactly and the RO
 
 %\citep{Chen2007} "Woods et al. [16] suggested that achieving functional presence might be a more realistic goal for teleoperation user interface design. Functional presence occurs when the teleoperator receives sufficient perceptual cues to effectively conduct teleoperations"
 
-
+\vspace{-2mm}
 \subsection{Superimposed predictive information}
 
+\vspace{-3mm}
 %\citep{Mathan1996} "predictive display superimposing directional velocity information on the video display"
 
 In this category, predictive information is overlayed or \emph{superimposed} on the delayed video feed. In that way the operator is able to see estimates on where the ROV is going to end up. The prediction is often visualized as vector graphics in the form of lines or points along a path. \citet{Mathan1996} used this approach when he superimposed directional velocity information related to a lunar rover on a video display.
@@ -118,6 +119,7 @@ A similar result is obtained by capturing a wide FOV video, possibly 360 degrees
 
 The approach of video manipulation has the advantages of being low cost, easy to implement and it does not rely on a structured environment. In addition, since the displayed video are merely alterations to the last image, no prediction error propagation will happen. It is however not able to recreate \textit{parallax} movement, which can be achieved using the 3D model method above. An example of parallax movement would be when passing a corner or object. New parts of the environment should be visible, but it can not be constructed from a delayed image.
 
+\clearpage
 \section{Problem statement}
 
 Most of the previous research seems to be concerned about 3D environment reconstruction from sensory data. While it shows promising results and great reduction in task completion times, this is a method that requires advanced algorithms and possibly expensive equipment. Many of the mentioned predictive technologies also require extensive information about the environment and the robot in order to function. This is either not possible or a time consuming task. In comparison, the video manipulation method provides and easy and cheap way to increase operator performance.
