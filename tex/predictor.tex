@@ -1,4 +1,4 @@
-This chapter describes the developed predictive display. The final results only requires a few lines of code and can be applied to most ROV's. In the coming explanation a very simple and limited ROV is considered, but section \ref{expand} describes how the principle can be expanded to more complicated configurations.
+This chapter describes the developed predictive display. The final results only requires a few lines of code and can be applied to most ROVs. In the coming explanation a very simple and limited ROV is considered, but section \ref{expand} describes how the principle can be expanded to more complicated configurations.
 
 \section{Robot configuration} \label{chp31}
  
@@ -72,7 +72,7 @@ Algorithm \ref{predictorAlg} shows the pseudocode for how this PD is implemented
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{setup-4}
-    \caption{Predictor display visualization}
+    \caption{Predictor display visualization.}
     \label{predictorvis}
 \end{figure}
 
@@ -88,6 +88,6 @@ The pixel turn rate $\eta$ described in section \ref{chp31} was related to the r
 
 In the case of a varying magnitude of left, right, forward and backward movements. Such if the operator is using a joystick with variable output, the PD has to account for this. This can be achieved by applying an adjustment factor to the pixel turn/scale rate proportionate to the magnitude of the command.
 
-The predictor display can then be applied to all moving ROV's. It's just a matter of finding the correct pixel turn/scale rate and adjustment factor's corresponding to how the ROV is moving. A submersible ROV would typically have a much lower pixel turn/scale rate because of water friction.
+The predictor display can then be applied to all moving ROVs. It's just a matter of finding the correct pixel turn/scale rate and adjustment factor's corresponding to how the ROV is moving. A submersible ROV would typically have a much lower pixel turn/scale rate because of water friction.
 
-These rates and factors can be found by calculation using ROV's physics and screen resolution. But they can also be found using trial and error. For example, if the visual angular rotation is less than the actual angular rotation, increase the pixel turn rate until they match. In this way, the predictor display can be calibrated without knowing any of the ROV's physics. In this context, \emph{ROV physics} means how the ROV respond to operator input, how fast it moves and turns.
+These rates and factors can be found by calculation using ROVs physics and screen resolution. But they can also be found using trial and error. For example, if the visual angular rotation is less than the actual angular rotation, increase the pixel turn rate until they match. In this way, the predictor display can be calibrated without knowing any of the ROVs physics. In this context, \emph{ROV physics} means how the ROV respond to operator input, how fast it moves and turns.

@@ -1,4 +1,4 @@
-The eduROV project aims to let hobbyists, enthusiasts and schools create simple, affordable and open-source underwater ROV's. 
+The eduROV project aims to let hobbyists, enthusiasts and schools create simple, affordable and open-source underwater ROVs. 
 
 The ROV consisted of a Raspberry Pi 3 Model B+ (RPi) and an Arduino Micro. The Arduino was responsible for reading sensor values and controlling motors. The RPi had multiple tasks, it communicated with the Arduino by reading sensor values and sending motor speed commands. In addition, it captured video from the RPi camera module and displayed this to the user. Lastly, it processed user input from the operator and forwarded these commands to the Arduino.
 
@@ -27,11 +27,11 @@ Five main goals were set for my contribution to the project:
 
 \section{Current alternatives}
 
-There exists a wealth of software's created for operating ROV's. This discussion will be limited to those that are open source and created in Python. The most well known and probably most used is the \emph{Robot Operating System} (ROS)\footnote{\url{http://www.ros.org/}} which is ported to Python as a client library called \emph{rospy}\footnote{\url{http://wiki.ros.org/rospy}}. Although a powerful framework, it does not not suit the needs of this project. Originally written C++, ROS was originally not created for Python. This means that the documentation is mostly in C++ and for anyone who wanted to customize the eduROV software in the future would have learn ROS in addition to Python. It was decided that making ROS fit the needs of the eduROV project would require more time and be limiting to the development, in comparison to creating a tailored software from scratch.
+There exists a wealth of software's created for operating ROVs. This discussion will be limited to those that are open source and created in Python. The most well known and probably most used is the \emph{Robot Operating System} (ROS)\footnote{\url{http://www.ros.org/}} which is ported to Python as a client library called \emph{rospy}\footnote{\url{http://wiki.ros.org/rospy}}. Although a powerful framework, it does not not suit the needs of this project. Originally written C++, ROS was originally not created for Python. This means that the documentation is mostly in C++ and for anyone who wanted to customize the eduROV software in the future would have learn ROS in addition to Python. It was decided that making ROS fit the needs of the eduROV project would require more time and be limiting to the development, in comparison to creating a tailored software from scratch.
 
 There is also a software called \emph{GoPiGo}\footnote{\url{https://www.dexterindustries.com/gopigo3/}}. This started as a Kickstarter project and is now a hardware and software project that you can buy online. It provides robot communication with video feed, but the software seems to be created specifically for the robots they sell and not as a package meant for other users to build on.
 
-In summary, there wasn't really any good software alternatives for the eduROV project. Actually, I was not able to find any Python packages created for ROV communication with video support built in. There are many guides on the internet that will walk you through how to create this, but the whole process can be really intimidating for people with limited experience. In addition, many of the guides online require you to install multiple software's and download files from additional places. Not very user friendly. Also, in the guides online they often control ROV's by pushing buttons on a screen, not by keyboard input. Lastly, they contain limited to none documentation.
+In summary, there wasn't really any good software alternatives for the eduROV project. Actually, I was not able to find any Python packages created for ROV communication with video support built in. There are many guides on the internet that will walk you through how to create this, but the whole process can be really intimidating for people with limited experience. In addition, many of the guides online require you to install multiple software's and download files from additional places. Not very user friendly. Also, in the guides online they often control ROVs by pushing buttons on a screen, not by keyboard input. Lastly, they contain limited to none documentation.
 
 \section{Development}
 
@@ -98,7 +98,7 @@ The GitHub repository has been connected to an account at \emph{readthedocs.io}.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{docs}
-    \caption{eduROV documentation at readthedocs.io}
+    \caption{eduROV documentation at readthedocs.io.}
     \label{docs}
 \end{figure}
 \clearpage
