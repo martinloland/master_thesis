@@ -62,7 +62,7 @@ In this thesis the \emph{total perceived delay} is of most interest. This is the
 
 There are three main ways to combat the detrimental effects of time delay. First, an increased level of automation (LOA), the operator workload is reduced. The results of \citet{Luck2006} showed that the higher LOA, the better performance in terms of both time and number of errors made. In some cases, such as a communication blackout, autonomy is essential \citep{Dorais1999}. This option is not always available and may not even be possible, as it could require very advanced hardware and software, depending on the task. \citet{Goodrich2001} argued that adjustable autonomy could be used to increase the robot effectiveness. He also mentioned that a more autonomous robot is required when longer time delays are present. On the other hand, he also stated that "as autonomy level increases, the breadth of tasks that can be handled by a robot decreases".
 
-Secondly, instead of increasing LOA, providing more information to the operator may increase situational awareness and therefore performance. \citet{Miller2005} performed an experiment where the operator was reminded of what commands had been given by providing them with a streaming command indicator. The preliminary results showed that the operator reported lower fatigue levels. But there are limitations to how much information an operator can digest in a finite amount of time. \citet	{Chen2007} explained that overlaying information on video feed can potentially lead to cognitive tunneling.
+Secondly, instead of increasing LOA, providing more information to the operator may increase situational awareness and therefore performance. \citet{Miller2005} performed an experiment where the operator was reminded of what commands had been given by providing them with a streaming command indicator. The preliminary results showed that the operator reported lower fatigue levels. But there are limitations to how much information an operator can digest in a finite amount of time. \citet{Chen2007} explained that overlaying information on video feed can potentially lead to cognitive tunneling.
 
 Lastly, as a third option, there is the use of \emph{predictive technology}. These are displays, control algorithms and graphical models that try to predict the future state of the ROV. They are based on the vehicle's current state and commands given by the operator. Predictive displays has proven to be the most promising solution, as \citet{Chen2007} concluded:
 
@@ -96,11 +96,11 @@ In situations where the external forces can not be calculated exactly and the RO
 
 In this category, predictive information is overlayed or \emph{superimposed} on the delayed video feed. In that way the operator is able to see estimates on where the ROV is going to end up. The prediction is often visualized as vector graphics in the form of lines or points along a path. \citet{Mathan1996} used this approach when he superimposed directional velocity information related to a lunar rover on a video display.
 
-A similar example can be seen in airplanes and helicopters where a \emph{tunnel in the sky} display shows where the aircraft should be going and a cross indicating the predicted trajectory \citep{Grunwald1981}. In cases with large amounts of lateral movement this approach might not be applicable because the predicted heading can come off screen.
+A similar example can be seen in airplanes and helicopters where a \emph{tunnel in the sky} display shows where the aircraft should be going and a cross indicating the predicted trajectory \citep{Grunwald1981}. In cases with large amounts of lateral movement this approach might not be applicable as the predicted heading can come off screen.
 
 \subsection{3D graphic models}
 
-About half of the experiments in Table \ref{reviewPred} would adhere to this category. Generally, a 3D world is constructed from sensory input such as laser ranging, stereo cameras, image tracking or others. Images taken by normal cameras is then mapped to the surface of the computer generated world. Lastly, a virtual camera is placed inside the virtual world in the predicted position of the real camera. The operator is then given the virtual video feed as virtual reality (VR), or in a combination with the real one, augmented reality (AR). As \citet{Hu2016} put it: 
+About half of the experiments in Table \ref{reviewPred} would adhere to this category. Generally, a 3D world is constructed from sensory input such as laser ranging, stereo cameras, image tracking or others. Images taken by normal cameras are then mapped to the surface of the computer generated world. Lastly, a virtual camera is placed inside the virtual world in the predicted position of the real camera. The operator is then given the virtual video feed as virtual reality (VR), or in a combination with the real one, augmented reality (AR). As \citet{Hu2016} put it: 
 
 \begin{quote}
 \small In [a] VR-based Predictive display (PD), instead of delayed visual feedback from the remote robot site, an immediately and predicted visual feedback is rendered from a graphics model in response to the operator's motion command.
@@ -116,7 +116,7 @@ This method is particular popular in conjunction with robot arm manipulators. In
 
 \subsection{Video manipulation}
 
-Instead of constructing a virtual 3D world a more simple approach is possible. This approach tries to make alterations to the delayed video such that it looks like the ROV is actually moving in real time. A simple example would be to zoom into the image if the robot is moving forward. \citet{Matheson2013} halved the task completion time at a latency of three seconds in his experiment. He described the method as such:
+Video manipulation is a more simple solution as it does not require 3D information about the environment. This approach tries to make alterations to the delayed video such that it looks like the ROV is actually moving in real time. A simple example would be to zoom into the image if the robot is moving forward. \citet{Matheson2013} halved the task completion time at a latency of three seconds in his experiment. He described the method as such:
 
 \begin{quote}
 \small [The] display is obtained by estimating the current rover position within the delayed drive camera image, finding the current field of view edges given the rover’s location and orientation, and manipulating the delayed image through cropping and projection, to approximate the view from the current rover location.
@@ -131,9 +131,9 @@ The approach of video manipulation has the advantages of being low cost, easy to
 
 Most of the previous research seems to be concerned about 3D environment reconstruction from sensory data. While it shows promising results and great reduction in task completion times, this is a method that requires advanced algorithms and possibly expensive equipment. Many of the mentioned predictive technologies also require extensive information about the environment and the robot in order to function. This is either not possible or a time consuming task. In comparison, the video manipulation method provides and easy and cheap way to increase operator performance.
 
-The \textit{projected display} method described by \citet{Matheson2013} is probably the easiest video manipulation method while still providing a good performance increase. This method requires information about ROV ground trajectory to calculate changes in perspective. 
+The \textit{projected display} method described by \citet{Matheson2013} is easiest video manipulation method from Table \ref{reviewPred}, while still providing a good performance increase. This method requires information about ROV ground trajectory to calculate changes in perspective however. 
 
-By ignoring the effects of perspective change and instead apply positional and scale transformations, an even simpler approach is obtained. The goal of this thesis was therefore to investigate the following hypotheses:
+By ignoring the effects of perspective change and instead apply positional and scale transformations, an even simpler approach is obtained. The goal of this thesis is therefore to investigate the following hypotheses:
 
 \begin{description}
 \item[H1:] A simple predictor display based on image transformation can increase the operator performance
