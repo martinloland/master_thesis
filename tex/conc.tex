@@ -1,25 +1,25 @@
+The developed predictive display is very easy to implement and does not require any additional hardware, nor is it very computational intensive. It can be implemented on all ROV's with a fixed onboard camera, that are free to move in an environment. Only a few constants describing the behaviour of the ROV is needed, and those can be found by trial and error.
+
 \begin{description}
 \item[H1:] Participants performed on average 20.62\% better using the predictive display versus no predictive display, t(56)=4.80, p$<$.001, d=0.904. H1, that a simple predictor display based on image transformation can increase the operator performance, is therefore verified.
 
 \item[H2:] The participants did not reported any significant difference in the mental, physical or temporal demand using the predictive display. H2, that a simple predictor display based on image transformation will decrease the operator's subjective workload, has to be rejected. 
 \end{description}
 
+Those who play video games weekly or more were found to have a larger performance increase from the predictive display than those who don't. The predictive display use a red arrow to visualize future position. This can resemble an aiming device which is a more familiar concept for gamers.
 
-This can be a valuable increase in situations were performance degradation due to communication latency is a problem.
+The experiment showed that all groups performed relatively worse on the first display than they did on their second and third display. As a result, those who had the predictive display as their first display, did not show any performance difference using the predictive display versus the normal display with same delay. Those who had the predictive display as their second or third condition however, showed a performance increase of 24\% to 46\%.
+
+The predictive display offers a valuable performance increase, especially considering how easy and cheap it is to implement.
 
 \section{Future work}
 
-Although the PD increased performance, many participants experienced minor improvements. In addition, some of the subjects even reported that the PD was distracting and confusing. I believe that there are two main reasons to this. \figref{predictorvis} at page \pageref{predictorvis} shows the implemented PD.
+Although the predictive display (PD) increased performance, many participants experienced minor improvements. In addition, some of the subjects even reported that the PD was distracting and confusing. I believe that there are two main reasons to this. \figref{predictorvis} at page \pageref{predictorvis} shows the implemented PD.
 
-Firstly, the fact that the image itself is moving around and scaling up and down constantly while the operator are using the ROV is distracting in itself. It's very easy that the operators attention is distracted because of all the activity happening on the screen. A good approach could be to incorporate something similar to \citep{Baldwin1999} who used cropped video from a panoramic camera. By only displaying parts of the FOV and changing this selection in response to operator controls, the video would not have to move around on the screen. The PD algorithm in this thesis can easily be altered to this kind of behavior. The disadvantages of such a method is that it would require a wider FOV camera which is typically more expensive. In addition, by only displaying part's of the video the displayed resolution will drop. This can be accommodated by sending a higher resolution image, but this would require more processing power and possibly increase the video latency.
+Firstly, the fact that the image itself is moving around and scaling up and down constantly while the operator are using the ROV is distracting in itself. It's very easy that the operators attention is distracted because of all the activity happening on the screen. A good approach could be to incorporate something similar to \citet{Baldwin1999} who used cropped video from a panoramic camera. By only displaying parts of the FOV and changing this selection in response to operator controls, the video would not have to move around on the screen. The PD algorithm in this thesis can easily be altered to this kind of behavior. The disadvantages of such a method is that it would require a wider FOV camera which is typically more expensive. In addition, by only displaying part's of the video the displayed resolution will drop. This can be accommodated by sending a higher resolution image, but this would require more processing power and possibly increase the video latency.
 
-Secondly, many of the operators used the physical black peg as visual guidance even though the red arrow was included. This meant that the operator frequently overshot the target and in practice didn't use the predictor. In this experiment the operator had to move this peg into holes and it therefore had to be visible in the video. If the task had been to maneuver an obstacle course the peg could be removed. Then the subjects only visual aid would then be the red arrow. This would presumably make them use it much more, and don't overshoot targets as much.
+Secondly, many of the operators used the physical black peg as visual guidance even though the red arrow was included. This meant that the operator frequently overshot the target and in practice didn't use the predictor. In a case where the peg would not be needed, like an ordinary obstacle course. The subjects only visual aid would have been the red arrow. This would presumably make them use it much more, and don't overshoot targets as much.
 
 Although the predictive method is model free and can be used on all maneuvering ROV's. The pixel turn/scale rate mentioned in section \ref{expand} has to be found to use the predictive screen. There is however a way to make the predictive screen work without the need for \textit{any} additional information. By tracking objects in the video a comparison can be made between the predicted movement of objects versus the actual movements. By constantly doing this comparison, the pixel turn/scale rate can be automatically adjusted to minimize the discrepancies. This method can also be used to automatically detect the communication latency. By comparing the time when commands are given and when objects start's to move the delay can be found. Object tracking can be performed using the OpenCV software. This approach would would require a more advanced algorithm and also use more processing power.
 
-\section{Final thoughts}
-\todo[inline]{
-- my personal opinions on the project and what has been done
-
-- what have i learned
-}
+%\section{Final thoughts}
