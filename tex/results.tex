@@ -1,9 +1,5 @@
-\begin{description}
-\item[H1:] Participants performed on average 20.62\% better using the predictive display versus no predictive display, t(56)=4.80, p$<$.001, d=0.904. H1, that a simple predictor display based on image transformation can increase the operator performance, is therefore verified.
+This chapter will present the results and discussion divided into six consecutive themes: general performance, gaming effects, task load index, subjective delay, learning effects and key presses.
 
-\item[H2:] The participants did not reported any significant difference in the mental, physical or temporal demand using the predictive display. H2, that a simple predictor display based on image transformation will decrease the operator's subjective workload, has to be rejected. 
-\end{description}
-\vspace{-5mm}
 \section{Performance}
 
 \figref{performanceNorm} shows the normalized number of hits in 90 seconds (score), for each display type and all N=57 participants. \textit{Delay} refers to the \textit{added} delay, which means that "No delay" translates to the inherent system delay of $250 ms$. The numerical values are reported in Table \ref{score}. The statistical significance and effect size between conditions can be seen in Table \ref{score2}.
@@ -16,10 +12,19 @@
 	\vspace{-0.2cm}
 \end{figure}
 
-Those who play games weekly or more were defined as \emph{gamers}. They performed on average 30.13\% better, while non-gamers only saw a 16.91\% performance increase with the PD. This difference is illustrated in \figref{gamer_performance}.
-
 \input{./tables/score}
+
 \input{./tables/score2}
+
+\figref{performanceNorm} together with the statistical data in Table \ref{score2} shows that there is a statistical difference in performance when controlling the ROV without and with predictive help. Subjects performed on average 20.6\% better with an effect size of $d=0.904$. This can be categorized as a medium to large effect, especially when considering how easy and cheap this predictive method is to implement.
+
+Past research, Table \ref{reviewPred}, describes a wide range performance gains from predictive technology. Everything from 8\% to 65\%. It's hard to do a direct comparison to any specific experiment, but a performance increase of 20.6\% in this experiment is probably in the lower range of what has been found before. What is true though, is that the predictive method described in this thesis is the cheapest and easiest to implement, at least when comparing to those in Table \ref{reviewPred}.
+
+None of the subjects were told that there would be a predictive display or how it worked. Some of the participants immediately identified what the predictive display was trying to tell them. Others however, didn't understand that there had been a predictive display until the experiment was over. The ones who tried to use the predictive display the way it was intended typically performed better than those who didn't. It may be possible that we could have seen an improved performance, if the subjects were informed how the predictive display works. This can however not be verified unless additional experiments are performed.
+
+\section{Gaming}
+
+Those who play games weekly or more were defined as \emph{gamers} (G). They performed on average 30.13\% better, while non-gamers (NG) only saw a 16.91\% performance increase using the PD. This difference is illustrated in \figref{gamer_performance} and Table \ref{score2}.
 
 \begin{figure}[h!]
     \centering
@@ -28,7 +33,14 @@ Those who play games weekly or more were defined as \emph{gamers}. They performe
     \label{gamer_performance}
 \end{figure}
 
-\clearpage
+It is interesting to see that G's were able to increase their score almost twice as much as NG's when going from a delayed condition to a delayed condition with PD. Exactly why G's were able to increase their performance more using the PD is unclear. It could be that the arrow in the PD which acts like an aiming device, is a more familiar concept for gamers. It could also indicate that G's are generally more adaptable to new an unfamiliar situations in a computer competition setting.
+
+When comparing G's versus NG's directly, it is also interesting to see that G's only performed better than NG's in the second and third condition. Delay PD: t(26.57)=2.23, p=0.034, d=0.692 and no delay: t(40.79)=2.56, p=0.014, d=0.660. But in the the first condition, there was no significant difference.
+\vspace{-5mm}
+
+This tells us that G's were only able to utilize their potential if there was 
+
+
 \section{Task load index}
 
 \figref{tlx} shows the reported NASA TLX scores. The height of the bar describes the mean value while the whiskers shows the SD. Numerical values are reported in Table \ref{tlx_values}.
@@ -43,17 +55,40 @@ There are no big differences between condition one and two. The only significant
 \end{figure}
 
 \input{./tables/tlx_values}
-\clearpage
+
+
+\figref{tlx} showed minimal differences between the task load index metrics when condition one and two were compared. The only significant differences were found in the performance and frustration metric. Subjects felt that they on average performed 14\% better using the predictor display, t(56)=3.24, p=0.002, d=0.360. The actual performance increase was 21\%. They also reported that they felt 11\% less frustrated using the PD, t(56)=2.15, p=0.036, d=0.271. Participants reported that the no delay condition was better in all metrics, with an exception of \emph{temporal demand} where the difference was not significant.
+
+
 \section{Subjective delay}
 
 \figref{subjective_delay_norm} shows the normalized reported total delay in seconds for the three conditions. The participants reported a 11\% decrease in subjective latency using the predictive display versus the normal display with the same latency. This results is however not significant, t(56)=1.40, p=0.167, d=0.356.
-
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.85]{subjective_delay_norm}
     \caption{Normalized reported subjective latency in seconds.}
     \label{subjective_delay_norm}
+\end{figure}
+
+Since the participants reported less frustration using the PD, it it interesting to look at how frustration an subjective delay time might be related. \figref{delay_vs_frustration} shows a scatter plot of reported frustration and delay time for all conditions collectively. All values has been normalized. The linear relationship is minimal at best and no conclusions can be drawn from the data.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.65]{delay_vs_frustration}
+    \caption{Normalized subjective delay versus frustration}
+    \label{delay_vs_frustration}
+\end{figure}
+
+\section{Learning effect}
+
+It is also interesting the evaluate if participants had any learning effects during the experiment. \figref{learning_effect} shows the score for each display type and further divided into groups depending if the subject had that display as the first, second or third display. As an example, the first of the nine box plots describes the score achieved in the delay condition for those who had that display as their first display. One visible trend is that the participants who had a particular display as their second display, performed better than those who had that display as their first. This performance increase was significant for all displays. Delay: t(18)=2.19, p=0.042, d=0.671, delay PD: t(17)=2.19, p=0.043, d=0.660, no delay: t(17)=3.26, p=0.005, d=0.902. The performance change from \#2 to \#3 in all displays were however not found significant.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{learning_effect}
+    \caption{Score categorized after display order.}
+    \label{learning_effect}
 \end{figure}
 
 \section{Key presses}
@@ -66,4 +101,3 @@ There are no big differences between condition one and two. The only significant
     \caption{The number of key presses performed during 90 seconds.}
     \label{keypresses}
 \end{figure}
-
