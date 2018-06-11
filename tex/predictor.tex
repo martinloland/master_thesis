@@ -16,7 +16,7 @@ To explain how the predictive display (PD) works, let us consider the self balan
 
 It has a forward facing camera with a FOV of $\phi$ degrees. The camera captures a video feed with a resolution of $R_h$ pixels horizontally. Its center of rotation is located in the vector $z$ pointing out of the paper. It is able to rotate with an angular velocity of $\omega$ deg/sec around its center of rotation $z$.
 
-Let us first consider a situation without delay and where the ROV can only be given two commands, to turn either left or right. The commands are given by pressing one of two buttons, not by a joystick with variable output. If the operator hold's down the \emph{left} button for a period of $\Delta t$ seconds, the ROV would make an angular rotation of $\omega \cdot \Delta t = \Delta \theta$ degrees. This is depicted in the right side of \figref{twoWheeled}.
+Let us first consider a situation without delay and where the ROV can only be given two commands, to turn either left or right. The commands are given by pressing one of two buttons, not by a joystick with variable output. If the operator holds down the \emph{left} button for a period of $\Delta t$ seconds, the ROV would make an angular rotation of $\omega \cdot \Delta t = \Delta \theta$ degrees. This is depicted in the right side of \figref{twoWheeled}.
 
 In the viewport, the cube and barrel would move to the right as the ROV turned left. These objects has moved a finite number of pixels horizontally $\Delta P_h$, which can be calculated by Equation \ref{deltaph}. It is simply the ratio between the angular rotation and the FOV, times the pixel screen width. By substituting in the expression for angular rotation, Equation \ref{pixelturnrate} is obtained. Here $\eta$ is used to denote the \textit{pixel turn rate}; the pixel rate at which objects in the video moves left or right when the operator turns the ROV.
 
@@ -79,15 +79,15 @@ Algorithm \ref{predictorAlg} shows the pseudocode for how this PD is implemented
 \clearpage
 \restoregeometry
 
-The operator views the predictor screen through a web browser. The predictor algorithm is written in java script and the video feed is moved around by changing css margin properties. The code can viewed in its entirety in the appendix \hyperref[appPredict]{section C} on page \pageref{appPredict}, or online.\footnote{\url{https://github.com/trolllabs/eduROV/blob/master/examples/experiment/displays/predictive.js}}
+The operator views the predictor screen through a web browser. The predictor algorithm is written in java script and the video feed is moved around by changing css margin properties. The code can viewed in its entirety in \hyperref[appPredict]{Appendix C} on page \pageref{appPredict}, or online.\footnote{\url{https://github.com/trolllabs/eduROV/blob/master/examples/experiment/displays/predictive.js}}
 
 
 \section{Extending and generalizing}\label{expand}
 
 The pixel turn rate $\eta$ described in section \ref{chp31} was related to the rotation of the ROV. A similar constant can be found for the \emph{pixel scale rate}, which relates how the the video should be scaled when the ROV moves back and fourth. It's a bit more complicated since the apparent scaling of objects in the frame depends on how far away they are, but by using an average distance this can at least be approximated. The same approach as in Algorithm \ref{predictorAlg} can then be used for backward and forward motion to manipulate the scale of the video feed.
 
-In the case of a varying magnitude of left, right, forward and backward movements. Such if the operator is using a joystick with variable output, the PD has to account for this. This can be achieved by applying an adjustment factor to the pixel turn/scale rate proportionate to the magnitude of the command.
+In the case of a varying magnitude of left, right, forward and backward movements, such if the operator is using a joystick with variable output, the PD has to account for this. This can be achieved by applying an adjustment factor to the pixel turn/scale rate proportionate to the magnitude of the command.
 
-The predictor display can then be applied to all moving ROVs. It's just a matter of finding the correct pixel turn/scale rate and adjustment factor's corresponding to how the ROV is moving. A submersible ROV would typically have a much lower pixel turn/scale rate because of water friction.
+The predictor display can then be applied to all moving ROVs. It is just a matter of finding the correct pixel turn/scale rate and adjustment factors corresponding to how the ROV is moving. A submersible ROV would typically have a much lower pixel turn/scale rate because of water friction.
 
 These rates and factors can be found by calculation using ROVs physics and screen resolution. But they can also be found using trial and error. For example, if the visual angular rotation is less than the actual angular rotation, increase the pixel turn rate until they match. In this way, the predictor display can be calibrated without knowing any of the ROVs physics. In this context, \emph{ROV physics} means how the ROV respond to operator input, how fast it moves and turns.
