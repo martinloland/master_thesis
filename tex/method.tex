@@ -8,8 +8,9 @@ The participants were voluntary selected from the NTNU Department of Mechanical 
 
 33.3\% of the participants were female and the total group had an average age of 24.7 years with an standard deviation (SD) of 1.45. This information among others can be seen in Table \ref{demographicsTable}.
 \input{./tables/demographics}
+
 \clearpage
-\section{Experimental design}
+\section{Experimental Design}
 
 \figref{expsetup} shows an overview of the experimental setup. A 17 inch laptop running with a 2.3GHz Intel Core i7-3610QM CPU and Windows 10 together with the arrow keys were used as the operator's control device. This was connected to the ROV through a direct Ethernet connection. 
 
@@ -24,7 +25,7 @@ The ROV, \figref{setup3}, was a three wheeled robot running a Raspberry Pi 3 Mod
 
 A wooden box with three holes and LEDs were used to register task performance. The distance between the holes (center to center) was $D=30cm$ while the holes itself has a width of $W=10cm$. This translates to a Fitts's \emph{index of difficulty} of $I_d=log_2\left ( 2D/W \right )=2.58\: bits$ \citep{Fitts1954}.
 
-\newgeometry{bmargin=0mm}
+\newgeometry{lmargin=25mm,rmargin=25mm,tmargin=30mm,bmargin=0mm}
 \subsection{Task}\label{task}
 
 One by one, in random order, the round LED on the button box would turn on. The operator was then tasked to maneuver the ROV such that the black peg would go inside the corresponding hole. A light sensor inside the hole would register this as a \emph{hit}. This would cause the LED to turn off and one of the other two to turn on. The participants were told to make as many \emph{hits} as possible in the course of 90 seconds.
@@ -57,7 +58,7 @@ After entering the experiment room, the participants were able to look at the RO
 
 First, the subject S was presented with an initial form collecting demographic data. Then, an information page describing experiment theme, how to steer the robot, the participant's goal and how the experiment would proceed was displayed to the subject. This can be found in \hyperref[appInfo]{Appendix D} on page \pageref{appInfo}. The S was then automatically assigned to a group in correspondence to the 3x3 Latin Square Design. The S then performed a 30 seconds long practice period followed by a 90 seconds long real test. This was done repeatedly for all three conditions. At the end of each test, the S was asked to fill out a test questionnaire.  After each practice and test run, the ROV was repositioned to its original position defined by the black markings in \figref{setup3}. The S was \emph{not} told that one of the conditions would contain a predictor display or how the predictor display worked.
 
-\section{Data recording and analysis}
+\section{Data Recording and Analysis}
 
 All the data was recorded with the onboard computer of the ROV using a SQLite database. This included demographics, experiment questionnaire data, hits made by the subjects, number of key presses and more. Time stamp data was also recorded for each hit and the test start and end. A total of 11865 data points were collected during the testing period. All the recorded data with exception of the \emph{hits} table is included in \hyperref[appDatabase]{Appendix G} on page \pageref{appDatabase}.
 

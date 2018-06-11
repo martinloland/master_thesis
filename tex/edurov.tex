@@ -25,7 +25,7 @@ Five main goals were set for my contribution to the project:
 \item Make the UI more attractive, include more UI features without overwhelming the operator.
 \end{itemize}
 
-\section{Current alternatives}
+\section{Current Alternatives}
 
 There exists a wealth of software created for operating ROVs. This introduction will be limited to those that are open source and created in Python. The most well known and probably most used is the \emph{Robot Operating System} (ROS)\footnote{\url{http://www.ros.org/}} which is ported to Python as a client library called \emph{rospy}\footnote{\url{http://wiki.ros.org/rospy}}. Although a powerful framework, it does not suit the needs of this project, as it is originally written in C++. This means that the documentation is mostly for C++ and for anyone who wanted to customize the eduROV software in the future would have learn ROS in addition to Python. It was decided that making ROS fit the needs of the eduROV project would require more time and be limiting to the development, in comparison to creating a tailored software from scratch.
 
@@ -74,7 +74,7 @@ The eduROV package is based upon a HTTP web server framework. This means that an
     \label{edurovArchitecture}
 \end{figure}
 
-\section{Graphical user interface}
+\section{Graphical User Interface}
 
 \figref{edurov_gui} shows the finished UI. The layout is dynamic which means that it will fit any screen size and ratio. The side panels will stay the same size, but the video will shrink and increase in size to what's available. Left panels shows sensor values from the Arduino and RPi. Center section shows the video feed. There is also a roll indicator that shows how the ROV is oriented in the water. This indicator can be toggled on/off from the button menu in the right panel. From this panel the operator has multiple options, such as to arm the robot. If the robot is not armed it will not move. Cinema mode will hide all panels and scale the video feed to its maximum size. Some of the actions can also be triggered with hotkeys. With this layout, the user can chose whether to view all information or nothing except the video feed. An approach with information in side panels was chosen because, as mentioned in the introduction, \citet{Chen2007} argued that "overlaying information on video feed can potentially lead to cognitive tunneling".
 
@@ -87,7 +87,7 @@ The eduROV package is based upon a HTTP web server framework. This means that an
 
 The UI seen above is in the context of the Engage eduROV submersible. But since the UI is created purely in HTML, CSS and JavaScript, any user of the package can customize the look and feel of the webpage in any way he or she would like. In fact, a completely different UI was created for the experiment in chapter \ref{chpMethod}, but still used the eduROV framework for handling requests.
 
-\section{Application programming interface}
+\section{Application Programming Interface}
 
 The application programming interface (API) is how the user interact with the software package. One of the goals of the project was to create an API that would get the user up an running in a matter of minutes. In addition, provide a flexible API that provides extensive flexibility and customization. There is one single main class called \texttt{WebMethod}. By initiating this class with the path to the \texttt{index.html} file which decribes the layout, the web server will start running and serving the web page and video feed. In addition to that, the user is able to customize which functions that should be started in their own processes, custom responses to GET methods, resolution and frame rate and much more.
 
@@ -108,7 +108,7 @@ The GitHub repository has been connected to an account at \emph{readthedocs.io}.
     \label{docs}
 \end{figure}
 \clearpage
-\section{Performance and novelty features}
+\section{Performance and Novelty Features}
 
 \begin{figure}[h!]
     \centering
